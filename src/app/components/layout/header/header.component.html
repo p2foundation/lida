@@ -1,0 +1,98 @@
+<!-- Start Navbar Area -->
+<div class="{{navClass}}">
+    <div class="kirin-nav">
+        <div class="{{navContainer}}">
+            <nav class="navbar navbar-expand-md navbar-light">
+                <a class="navbar-brand" routerLink="/">
+                    <!-- <img src="{{logo}}" class="main-logo" alt="logo">
+                    <img src="assets/img/black-logo.png" class="optional-logo" alt="logo"> -->
+                    <h4>LiDa pay</h4>
+                </a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
+                    <ul class="navbar-nav">
+
+                        <li class="nav-item" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">
+                            <a
+                                routerLink="/"
+                                routerLinkActive="active"
+                                [routerLinkActiveOptions]="{exact: true}"
+                                class="nav-link">Home</a>
+                        </li>
+                        <li class="nav-item" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">
+                            <a routerLink="/about" routerLinkActive="active" class="nav-link">About Us</a>
+                        </li>
+
+                        <li class="nav-item" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">
+                            <a routerLink="/service-details" routerLinkActive="active" class="nav-link">Topup Airtime</a>
+                        </li>
+                        <li class="nav-item" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">
+                            <a routerLink="/service-details" routerLinkActive="active" class="nav-link">Buy Data</a>
+                        </li>
+                      
+
+                        <!-- <li class="nav-item dropdown">
+                            <a href="javascript:void(0)" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                                Projects <i class="fas fa-chevron-down"></i>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="nav-item" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">
+                                    <a routerLink="/projects" routerLinkActive="active" class="nav-link">Projects</a>
+                                </li>
+
+                                <li class="nav-item" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">
+                                    <a routerLink="/project-details" routerLinkActive="active" class="nav-link">Project
+                                        Details</a>
+                                </li>
+                            </ul>
+                        </li> -->
+
+                        <!-- <li class="nav-item dropdown">
+                            <a href="javascript:void(0)" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                                Blog <i class="fas fa-chevron-down"></i>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="nav-item" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">
+                                    <a routerLink="/blog" routerLinkActive="active" class="nav-link">Blog</a>
+                                </li>
+
+                                <li class="nav-item" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">
+                                    <a routerLink="/blog-details" routerLinkActive="active" class="nav-link">Blog Details</a>
+                                </li>
+                            </ul>
+                        </li> -->
+
+                        <li class="nav-item" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">
+                            <a routerLink="/faq" routerLinkActive="active" class="nav-link">FAQ</a>
+                        </li>
+
+                        <li class="nav-item" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">
+                            <a routerLink="/contact" routerLinkActive="active" class="nav-link">Contact</a>
+                        </li>
+                    </ul>
+
+                    <div class="others-options">
+                        <div class="option-item"><i class="search-btn flaticon-search"></i>
+                            <i class="close-btn fas fa-times"></i>
+                            <div class="search-overlay search-popup">
+                                <div class='search-box'>
+                                    <form class="search-form">
+                                        <input class="search-input" name="search" placeholder="find Airtime network e.g MTN" type="text">
+                                        <button class="search-button" type="submit"><i class="fas fa-search"></i></button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                        <a routerLink="/contact" class="btn btn-primary">Login|Register</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+</div>
+<!-- End Navbar Area -->
