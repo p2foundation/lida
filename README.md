@@ -30,4 +30,6 @@ git remote add origin https://github.com/p2foundation/lida.git
 git branch -M main
 git push -u origin main
 
+ng build --output-path docs --base-href /lida/
+
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
