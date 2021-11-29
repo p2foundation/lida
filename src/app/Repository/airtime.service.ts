@@ -9,8 +9,8 @@ import { environment } from "src/environments/environment.prod";
     providedIn: 'root'
 })
 export class AirtimeTopupService {
-    private one4All: string = environment.lidaUrl
-    private localURL: string = environment.lidaUrl;
+    private awServer: string = environment.awServer;
+    private vercelServer: string = environment.vercelServer;
 
     constructor(
         private readonly http: HttpClient
@@ -19,7 +19,7 @@ export class AirtimeTopupService {
     public buyAirtimeTopup(mData: any): Observable<any> {
         console.log('buyAirtime params ==>', mData);
         return this.http
-            .post<any>(`${this.one4All}/airtime/topups`, mData)
+            .post<any>(`${this.awServer}/airtime/topups`, mData)
             .pipe(
                 tap(_res => this.log(`AirtimeService: airtime credit`)),
                 catchError(this.handleError('AirtimeService', []))

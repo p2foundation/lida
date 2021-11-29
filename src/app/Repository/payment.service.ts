@@ -2,21 +2,22 @@ import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable, of } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
-import { environment } from "src/environments/environment";
+import { environment } from "src/environments/environment.prod";
+// import { environment } from "src/environments/environment";
 
 @Injectable({
     providedIn: 'root'
 })
 export class PaymentService {
-    private one4All: string = environment.lidaUrl
-    private localURL: string = environment.paysURL;
+    private awServer: string = environment.awServer;
+    private vercelServer: string = environment.vercelServer;
 
     constructor(
         private readonly http: HttpClient
     ) { }
 
     public makePayment(mData: any): Observable<any> {
-        return this.http.post(`${this.localURL}/pscardpayment/inline`, mData)
+        return this.http.post(`${this.vercelServer}/pscardpayment/inline`, mData)
             .pipe(
                 tap(_res => this.log(`paymentService: airtime credit`)),
                 catchError(this.handleError('AirtimeService', []))
