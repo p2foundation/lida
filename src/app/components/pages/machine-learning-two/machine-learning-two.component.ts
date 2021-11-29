@@ -4,7 +4,6 @@ import { Router } from '@angular/router';
 import { HttpClient } from "@angular/common/http"
 import { Observable, of } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
-import { environment } from 'src/environments/environment';
 import { AirtimeTopupService } from 'src/app/Repository/airtime.service';
 import { PaymentService } from 'src/app/Repository/payment.service';
 
@@ -14,7 +13,6 @@ import { PaymentService } from 'src/app/Repository/payment.service';
   styleUrls: ['./machine-learning-two.component.scss']
 })
 export class MachineLearningTwoComponent implements OnInit {
-  private one4AllBaseURL: string = environment.lidaUrl;
 
   airtimeForm: FormGroup;
 
@@ -34,6 +32,7 @@ export class MachineLearningTwoComponent implements OnInit {
     redirectURL: "https://lidapp-ten.vercel.app/receipt",
     customerEmail: "hanson.pepra@gmail.com"
   };
+  topupParams: any = {};
 
 public checkoutUrl = '';
 
@@ -61,8 +60,11 @@ public checkoutUrl = '';
     console.log('formData description', form.description);
     console.log('formData amount', form.amount);
 
-    // console.log('formData amount', form.value.amount);
-    //
+    this.topupParams.recipientNumber = form.recipientNumber;
+    this.topupParams.description = form.description;
+    this.topupParams.amount = form.amount;
+
+    console.log('topup params', this.topupParams);
     // localStorage.setItem('recipientNumber', form.value.recipientNumber);
     // localStorage.setItem('amountPaid', form.value.amount );
 
