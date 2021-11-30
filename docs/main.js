@@ -3198,7 +3198,15 @@ class MachineLearningTwoComponent {
             redirectURL: "https://lidapp-ten.vercel.app/receipt",
             customerEmail: "hanson.pepra@gmail.com"
         };
-        this.topupParams = {};
+        this.topupParams = {
+            merchantId: "TTM-00006115",
+            transId: "000000654325",
+            recipientNumber: "",
+            description: "",
+            amount: "",
+            redirectURL: "https://lidapp-ten.vercel.app/receipt",
+            customerEmail: "info@accesswealth.net"
+        };
         this.checkoutUrl = '';
     }
     ngOnInit() {
@@ -3218,14 +3226,21 @@ class MachineLearningTwoComponent {
         console.log('formData amount', form.amount);
         this.topupParams.recipientNumber = form.recipientNumber;
         this.topupParams.description = form.description;
-        this.topupParams.amount = form.amount;
-        console.log('topup params', this.topupParams);
+        if (form.amount < 10) {
+            const inputAmount = form.amount * 100;
+            this.topupParams.amount = "000000000" + inputAmount;
+        }
+        else if (form.amount > 10 || form.amount < 100) {
+            const inputAmount = form.amount * 10;
+            this.topupParams.amount = "000000000" + inputAmount;
+        }
+        console.log('topup params =>>', this.topupParams);
         // localStorage.setItem('recipientNumber', form.value.recipientNumber);
         // localStorage.setItem('amountPaid', form.value.amount );
         // this.payParams.recipientNumber = form.value.recipientNumber;
         // this.payParams.amount = form.value.amount
         console.log('get payment');
-        this.makePayment(this.payParams);
+        this.makePayment(this.topupParams);
     }
     makePayment(mData) {
         this.payService.makePayment(mData)
@@ -3246,6 +3261,7 @@ class MachineLearningTwoComponent {
             this.isLoading = false;
             alert('No topup: ' + err.error);
             // alert(err.error);
+            this.router.navigate(['/']);
         });
     }
     creditCustomerAirtime(formData) {

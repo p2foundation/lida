@@ -32,7 +32,15 @@ export class MachineLearningTwoComponent implements OnInit {
     redirectURL: "https://lidapp-ten.vercel.app/receipt",
     customerEmail: "hanson.pepra@gmail.com"
   };
-  topupParams: any = {};
+  topupParams: any = {
+    merchantId: "TTM-00006115",
+    transId: "000000654325",
+    recipientNumber: "",
+    description: "",
+    amount: "",
+    redirectURL: "https://lidapp-ten.vercel.app/receipt",
+    customerEmail: "info@accesswealth.net"
+  };
 
 public checkoutUrl = '';
 
@@ -62,9 +70,15 @@ public checkoutUrl = '';
 
     this.topupParams.recipientNumber = form.recipientNumber;
     this.topupParams.description = form.description;
-    this.topupParams.amount = form.amount;
+    if(form.amount < 10){
+      const inputAmount: any = form.amount * 100;
+      this.topupParams.amount = "000000000" + inputAmount;
+    } else if(form.amount > 10 || form.amount < 100){
+      const inputAmount: any = form.amount * 10;
+      this.topupParams.amount = "000000000" + inputAmount;
+    }
+    console.log('topup params =>>', this.topupParams);
 
-    console.log('topup params', this.topupParams);
     // localStorage.setItem('recipientNumber', form.value.recipientNumber);
     // localStorage.setItem('amountPaid', form.value.amount );
 
@@ -72,7 +86,7 @@ public checkoutUrl = '';
     // this.payParams.amount = form.value.amount
 
     console.log('get payment')
-    this.makePayment(this.payParams);
+    this.makePayment(this.topupParams);
   }
 
   makePayment(mData: any) {
@@ -94,6 +108,7 @@ public checkoutUrl = '';
         this.isLoading = false;
         alert('No topup: ' + err.error);
         // alert(err.error);
+        this.router.navigate(['/']);
       });
   }
 
