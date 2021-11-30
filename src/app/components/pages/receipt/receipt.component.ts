@@ -9,18 +9,21 @@ import { map } from 'rxjs/operators';
   styleUrls: ['./receipt.component.scss']
 })
 export class ReceiptComponent implements OnInit {
-  filter$: Observable<string>;
+
+  public paramsObject: any = {};
 
   constructor(
     private route: ActivatedRoute
   ) { }
 
   ngOnInit() {
-    this.filter$ = this.route.queryParamMap.pipe(
-      map((params: ParamMap) => params.get('filter')),
-    );
-
-    this.filter$.subscribe(param => console.log('receipt params',param));
+    this.route.queryParamMap
+      .subscribe((params) => {
+        this.paramsObject = { ...params.keys, ...params };
+        console.log('paramsObject ==>',this.paramsObject);
+      }
+      );
   }
+  
 
 }
