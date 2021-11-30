@@ -42,7 +42,7 @@ export class MachineLearningTwoComponent implements OnInit {
     customerEmail: "info@accesswealth.net"
   };
 
-public checkoutUrl = '';
+  public checkoutUrl = '';
 
   constructor(
     private airtimeService: AirtimeTopupService,
@@ -70,12 +70,12 @@ public checkoutUrl = '';
 
     this.topupParams.recipientNumber = form.recipientNumber;
     this.topupParams.description = form.description;
-    if(form.amount < 10){
+    if (form.amount < 9) {
       const inputAmount: any = form.amount * 100;
       this.topupParams.amount = "000000000" + inputAmount;
-    } else if(form.amount > 10 || form.amount < 100){
-      const inputAmount: any = form.amount * 10;
-      this.topupParams.amount = "000000000" + inputAmount;
+    } else if (form.amount >=10) {
+      const inputAmount: any = form.amount * 100;
+      this.topupParams.amount = "00000000" + inputAmount;
     }
     console.log('topup params =>>', this.topupParams);
 
@@ -96,7 +96,7 @@ public checkoutUrl = '';
         this.checkoutUrl = res.checkout_url;
         // localStorage.setItem('checkout_url', this.checkoutUrl);
         console.log(`checkoutUrl ==> ${JSON.stringify(this.checkoutUrl)}`);
-        if(res.status == 'success' || res.code == 200){
+        if (res.status == 'success' || res.code == 200) {
           window.location.href = `${this.checkoutUrl}`;
         }
         this.isLoading = false;

@@ -3226,13 +3226,13 @@ class MachineLearningTwoComponent {
         console.log('formData amount', form.amount);
         this.topupParams.recipientNumber = form.recipientNumber;
         this.topupParams.description = form.description;
-        if (form.amount < 10) {
+        if (form.amount < 9) {
             const inputAmount = form.amount * 100;
             this.topupParams.amount = "000000000" + inputAmount;
         }
-        else if (form.amount > 10 || form.amount < 100) {
-            const inputAmount = form.amount * 10;
-            this.topupParams.amount = "000000000" + inputAmount;
+        else if (form.amount >= 10) {
+            const inputAmount = form.amount * 100;
+            this.topupParams.amount = "00000000" + inputAmount;
         }
         console.log('topup params =>>', this.topupParams);
         // localStorage.setItem('recipientNumber', form.value.recipientNumber);
