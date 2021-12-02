@@ -12,4 +12,7 @@ export class PricingPlanComponent implements OnInit {
   ngOnInit() {
   }
 
+  OnPrint(){
+    window.print();
+  }
 }

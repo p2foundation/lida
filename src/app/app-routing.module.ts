@@ -18,6 +18,8 @@ import { MachineLearningTwoComponent } from './components/pages/machine-learning
 import { ProjectsComponent } from './components/pages/projects/projects.component';
 import { ProjectDetailsComponent } from './components/pages/project-details/project-details.component';
 import { ReceiptComponent } from './components/pages/receipt/receipt.component';
+import { AirtimeTopupComponent } from './components/pages/airtime-topup/airtime-topup.component';
+import { BuyDataComponent } from './components/pages/buy-data/buy-data.component';
 
 const routes: Routes = [
     { path: 'home', component: HomeComponent },
@@ -36,6 +38,8 @@ const routes: Routes = [
     { path: 'faq', component: FaqComponent },
     { path: 'coming-soon', component: ComingSoonComponent },
     { path: 'contact', component: ContactComponent },
+    { path: 'airtime-topup', component: AirtimeTopupComponent},
+    { path: 'buy-data', component: BuyDataComponent},
     { path: 'receipt', component: ReceiptComponent},
     // Here add new pages component
     { path: '**', component: NotFoundComponent } // This line will remain down from the whole pages component list

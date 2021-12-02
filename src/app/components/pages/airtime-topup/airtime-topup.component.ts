@@ -5,11 +5,11 @@ import { AirtimeTopupService } from 'src/app/Repository/airtime.service';
 import { PaymentService } from 'src/app/Repository/payment.service';
 
 @Component({
-  selector: 'app-machine-learning-two',
-  templateUrl: './machine-learning-two.component.html',
-  styleUrls: ['./machine-learning-two.component.scss']
+  selector: 'app-airtime-topup',
+  templateUrl: './airtime-topup.component.html',
+  styleUrls: ['./airtime-topup.component.scss']
 })
-export class MachineLearningTwoComponent implements OnInit {
+export class AirtimeTopupComponent implements OnInit {
 
   airtimeForm: FormGroup;
 
@@ -60,6 +60,7 @@ export class MachineLearningTwoComponent implements OnInit {
     });
   }
 
+  
   topupFormSubmit(form: any): any {
     console.log('formData:  topup >>>>', form);
 
@@ -118,5 +119,4 @@ export class MachineLearningTwoComponent implements OnInit {
         // alert(err.error);
       });
   }
-
 }

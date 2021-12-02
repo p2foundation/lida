@@ -20,10 +20,14 @@ export class ReceiptComponent implements OnInit {
     this.route.queryParamMap
       .subscribe((params) => {
         this.paramsObject = { ...params.keys, ...params };
-        console.log('paramsObject ==>',this.paramsObject);
+        console.log('paramsObject ==>', this.paramsObject);
+        localStorage.setItem('payRes', this.paramsObject.params);
       }
       );
   }
-  
+
+  OnPrint() {
+    window.print();
+  }
 
 }
