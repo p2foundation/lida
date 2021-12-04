@@ -21,13 +21,14 @@ export class ReceiptComponent implements OnInit {
       .subscribe((params) => {
         this.paramsObject = { ...params.keys, ...params };
         console.log('paramsObject ==>', this.paramsObject);
-        localStorage.setItem('payRes', this.paramsObject.params);
-      }
-      );
+        localStorage.setItem('payRes', JSON.stringify(this.paramsObject.params));
+      });
   }
 
   OnPrint() {
     window.print();
   }
+  
+  
 
 }

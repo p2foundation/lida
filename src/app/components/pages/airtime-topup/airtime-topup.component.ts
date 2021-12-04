@@ -31,7 +31,6 @@ export class AirtimeTopupComponent implements OnInit {
   };
   
   topupParams: any = {
-    merchantId: "TTM-00006115",
     transId: "000000654356",
     recipientNumber: "",
     description: "",
@@ -66,15 +65,18 @@ export class AirtimeTopupComponent implements OnInit {
 
     this.topupParams.recipientNumber = form.recipientNumber;
     this.topupParams.description = form.description;
-    if (form.amount < 9) {
+
+    if (form.amount < 10) {
       const inputAmount: any = form.amount * 100;
       this.topupParams.amount = "000000000" + inputAmount;
+
     } else if (form.amount >=10) {
       const inputAmount: any = form.amount * 100;
       this.topupParams.amount = "00000000" + inputAmount;
     }
+
     console.log('topup params =>>', this.topupParams);
-    localStorage.setItem('tparams', this.topupParams);
+    localStorage.setItem('tparams', JSON.stringify(this.topupParams));
 
     console.log('get payment')
     this.makePayment(this.topupParams);
@@ -103,20 +105,4 @@ export class AirtimeTopupComponent implements OnInit {
       });
   }
 
-  creditCustomerAirtime(formData: any) {
-    console.log('AirtimeTopupComponent:  topup >>>>', formData);
-    this.airtimeService.buyAirtimeTopup(formData)
-      .subscribe(res => {
-        console.log(`airtime credit response ==> ${JSON.stringify(res)}`);
-        this.isLoading = false;
-        // localStorage.setItem('token', form.amount);
-        // alert('Topup successfully processed.');
-        this.router.navigate(['pages']);
-      }, (err) => {
-        console.log(err);
-        this.isLoading = false;
-        alert('No topup: ' + err.error);
-        // alert(err.error);
-      });
-  }
 }
