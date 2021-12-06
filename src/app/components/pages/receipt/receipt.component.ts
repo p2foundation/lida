@@ -45,18 +45,18 @@ export class ReceiptComponent implements OnInit {
     if(payValues.status == 'Approved' || payValues.code === '000'){
       this.creditCustomerAirtime(tval2);
     } else {
-      this.router.navigate(['pages/receipt']);
+      this.router.navigate(['receipt']);
     }
 
   }
 
   creditCustomerAirtime(formData: any) {
-    console.log('AirtimeTopupComponent:  topup >>>>', formData);
+    console.log('receipt component:  topup params >>>>', formData);
     this.airtimeService.buyAirtimeTopup(formData)
       .subscribe(res => {
         console.log(`airtime credit response ==> ${JSON.stringify(res)}`);
         this.isLoading = false;
-        this.router.navigate(['pages/receipt']);
+        this.router.navigate(['receipt']);
       }, (err) => {
         console.log(err);
         this.isLoading = false;

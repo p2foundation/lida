@@ -30,9 +30,9 @@ class AirtimeTopupService {
         this.vercelServer = src_environments_environment_prod__WEBPACK_IMPORTED_MODULE_0__.environment.vercelServer;
     }
     buyAirtimeTopup(mData) {
-        console.log('buyAirtime params ==>', mData);
+        console.log('buyAirtime service - params ==>', mData);
         return this.http
-            .post(`${this.awServer}/airtime/topups`, mData)
+            .post(`${this.awServer}/airtime/topup`, mData)
             .pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_1__.tap)(_res => this.log(`AirtimeService: airtime credit`)), (0,rxjs_operators__WEBPACK_IMPORTED_MODULE_2__.catchError)(this.handleError('AirtimeService', [])));
     }
     handleError(operation = 'operation', result) {
@@ -5735,16 +5735,16 @@ class ReceiptComponent {
             this.creditCustomerAirtime(tval2);
         }
         else {
-            this.router.navigate(['pages/receipt']);
+            this.router.navigate(['receipt']);
         }
     }
     creditCustomerAirtime(formData) {
-        console.log('AirtimeTopupComponent:  topup >>>>', formData);
+        console.log('receipt component:  topup params >>>>', formData);
         this.airtimeService.buyAirtimeTopup(formData)
             .subscribe(res => {
             console.log(`airtime credit response ==> ${JSON.stringify(res)}`);
             this.isLoading = false;
-            this.router.navigate(['pages/receipt']);
+            this.router.navigate(['receipt']);
         }, (err) => {
             console.log(err);
             this.isLoading = false;

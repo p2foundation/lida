@@ -17,9 +17,9 @@ export class AirtimeTopupService {
     ) { }
 
     public buyAirtimeTopup(mData: any): Observable<any> {
-        console.log('buyAirtime params ==>', mData);
+        console.log('buyAirtime service - params ==>', mData);
         return this.http
-            .post<any>(`${this.awServer}/airtime/topups`, mData)
+            .post<any>(`${this.awServer}/airtime/topup`, mData)
             .pipe(
                 tap(_res => this.log(`AirtimeService: airtime credit`)),
                 catchError(this.handleError('AirtimeService', []))
