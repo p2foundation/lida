@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
-    awServer: 'lidaengine-env.eba-jfxmfdkw.us-east-2.elasticbeanstalk.com/api',
+    awServer: 'https://lidaengine-env.eba-jfxmfdkw.us-east-2.elasticbeanstalk.com/api',
     vercelServer: 'https://lida-engine.vercel.app/api'
 };

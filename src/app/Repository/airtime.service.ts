@@ -10,7 +10,6 @@ import { environment } from "src/environments/environment.prod";
 })
 export class AirtimeTopupService {
     private awServer: string = environment.awServer;
-    private vercelServer: string = environment.vercelServer;
 
     constructor(
         private readonly http: HttpClient

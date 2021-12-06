@@ -6689,7 +6689,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 const environment = {
     production: true,
-    awServer: 'lidaengine-env.eba-jfxmfdkw.us-east-2.elasticbeanstalk.com/api',
+    awServer: 'https://lidaengine-env.eba-jfxmfdkw.us-east-2.elasticbeanstalk.com/api',
     vercelServer: 'https://lida-engine.vercel.app/api'
 };
 
@@ -6712,7 +6712,7 @@ __webpack_require__.r(__webpack_exports__);
 const environment = {
     production: false,
     local: 'http://localhost:3000/api',
-    awServer: 'http://lidaengine-env.eba-jfxmfdkw.us-east-2.elasticbeanstalk.com/api',
+    awServer: 'https://lidaengine-env.eba-jfxmfdkw.us-east-2.elasticbeanstalk.com/api',
     vercelServer: 'https://lida-engine.vercel.app/api'
 };
 /*

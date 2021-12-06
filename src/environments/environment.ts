@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   local: 'http://localhost:3000/api',
-  awServer: 'http://lidaengine-env.eba-jfxmfdkw.us-east-2.elasticbeanstalk.com/api',
+  awServer: 'https://lidaengine-env.eba-jfxmfdkw.us-east-2.elasticbeanstalk.com/api',
   vercelServer: 'https://lida-engine.vercel.app/api'
 };
 
