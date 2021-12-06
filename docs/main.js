@@ -286,6 +286,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "AppModule": () => (/* binding */ AppModule)
 /* harmony export */ });
 /* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! @angular/platform-browser */ 6219);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! @angular/core */ 4001);
 /* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./app-routing.module */ 3696);
 /* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./app.component */ 2050);
 /* harmony import */ var _components_layout_header_header_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/layout/header/header.component */ 3259);
@@ -319,7 +320,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_pages_receipt_receipt_component__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./components/pages/receipt/receipt.component */ 2657);
 /* harmony import */ var _components_pages_airtime_topup_airtime_topup_component__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./components/pages/airtime-topup/airtime-topup.component */ 516);
 /* harmony import */ var _components_pages_buy_data_buy_data_component__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./components/pages/buy-data/buy-data.component */ 2133);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! @angular/core */ 4001);
 
 
 
@@ -355,7 +355,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-// enableProdMode();
+
+(0,_angular_core__WEBPACK_IMPORTED_MODULE_31__.enableProdMode)();
 class AppModule {
 }
 AppModule.ɵfac = function AppModule_Factory(t) { return new (t || AppModule)(); };
@@ -1181,20 +1182,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "AirtimeTopupComponent": () => (/* binding */ AirtimeTopupComponent)
 /* harmony export */ });
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ 8346);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ 4001);
-/* harmony import */ var src_app_Repository_airtime_service__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! src/app/Repository/airtime.service */ 8863);
-/* harmony import */ var src_app_Repository_payment_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! src/app/Repository/payment.service */ 7157);
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ 3252);
-
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/forms */ 8346);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ 4001);
+/* harmony import */ var src_app_Repository_payment_service__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! src/app/Repository/payment.service */ 7157);
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ 3252);
 
 
 
 
 
 class AirtimeTopupComponent {
-    constructor(airtimeService, payService, router, formBuilder) {
-        this.airtimeService = airtimeService;
+    constructor(payService, router, formBuilder) {
         this.payService = payService;
         this.router = router;
         this.formBuilder = formBuilder;
@@ -1226,12 +1224,12 @@ class AirtimeTopupComponent {
     }
     ngOnInit() {
         this.airtimeForm = this.formBuilder.group({
-            retailer: [null, _angular_forms__WEBPACK_IMPORTED_MODULE_2__.Validators.required],
-            recipientNumber: [null, _angular_forms__WEBPACK_IMPORTED_MODULE_2__.Validators.required],
-            amount: [null, _angular_forms__WEBPACK_IMPORTED_MODULE_2__.Validators.required],
+            retailer: [null, _angular_forms__WEBPACK_IMPORTED_MODULE_1__.Validators.required],
+            recipientNumber: [null, _angular_forms__WEBPACK_IMPORTED_MODULE_1__.Validators.required],
+            amount: [null, _angular_forms__WEBPACK_IMPORTED_MODULE_1__.Validators.required],
             network: [null],
             description: [null],
-            email: [null, _angular_forms__WEBPACK_IMPORTED_MODULE_2__.Validators.required]
+            email: [null, _angular_forms__WEBPACK_IMPORTED_MODULE_1__.Validators.required]
         });
     }
     topupFormSubmit(form) {
@@ -1270,90 +1268,90 @@ class AirtimeTopupComponent {
         });
     }
 }
-AirtimeTopupComponent.ɵfac = function AirtimeTopupComponent_Factory(t) { return new (t || AirtimeTopupComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdirectiveInject"](src_app_Repository_airtime_service__WEBPACK_IMPORTED_MODULE_0__.AirtimeTopupService), _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdirectiveInject"](src_app_Repository_payment_service__WEBPACK_IMPORTED_MODULE_1__.PaymentService), _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_4__.Router), _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdirectiveInject"](_angular_forms__WEBPACK_IMPORTED_MODULE_2__.FormBuilder)); };
-AirtimeTopupComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdefineComponent"]({ type: AirtimeTopupComponent, selectors: [["app-airtime-topup"]], decls: 49, vars: 1, consts: [[1, "page-title-area", "item-bg2"], [1, "container"], [1, "page-title-content"], ["routerLink", "/"], [1, "lines"], [1, "line"], [1, "services-details-area", "ptb-110"], [1, "services-details-overview"], [1, "services-details-desc"], [3, "formGroup", "ngSubmit"], [1, "form-check", "form-check-inline"], ["type", "radio", "name", "inlineRadioOptions", "id", "inlineRadio1", "value", "postpaid", 1, "form-check-input"], ["for", "inlineRadio1", 1, "form-check-label"], ["type", "radio", "name", "inlineRadioOptions", "id", "inlineRadio2", "value", "prepaid", "checked", "", 1, "form-check-input"], ["for", "inlineRadio2", 1, "form-check-label"], [1, "form-floating", "mb-3"], ["type", "text", "id", "floatingInput", "formControlName", "recipientNumber", "placeholder", "e.g. 01234567890", 1, "form-control"], ["for", "floatingInput"], ["type", "text", "id", "floatingDescription", "formControlName", "description", "placeholder", "A gift for Mum.", 1, "form-control"], ["for", "floatingDescription"], [1, "form-floating"], ["type", "number", "id", "floatingInput", "formControlName", "amount", "placeholder", "Amount", 1, "form-control"], ["type", "submit", 1, "btn", "btn-primary", "btn-sm", "mt-2"], [1, "services-details-image", "wow", "fadeInUp"], ["src", "assets/img/services-details/services-details1.jpg", "alt", "image"]], template: function AirtimeTopupComponent_Template(rf, ctx) { if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](0, "div", 0);
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](1, "div", 1);
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](2, "div", 2);
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](3, "h2");
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](4, "Airtime Topup");
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](5, "ul");
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](6, "li");
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](7, "a", 3);
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](8, "Home");
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](9, "li");
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](10, "Topup airtime");
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](11, "div", 4);
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelement"](12, "div", 5);
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelement"](13, "div", 5);
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelement"](14, "div", 5);
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](15, "section", 6);
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](16, "div", 1);
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](17, "div", 7);
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](18, "div", 8);
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](19, "h3");
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](20, "Complete the Airtime Crediting Form");
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](21, "form", 9);
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵlistener"]("ngSubmit", function AirtimeTopupComponent_Template_form_ngSubmit_21_listener() { return ctx.topupFormSubmit(ctx.airtimeForm.value); });
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](22, "div", 10);
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelement"](23, "input", 11);
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](24, "label", 12);
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](25, "Postpaid");
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](26, "div", 10);
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelement"](27, "input", 13);
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](28, "label", 14);
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](29, "Prepaid");
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](30, "div", 15);
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelement"](31, "input", 16);
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](32, "label", 17);
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](33, "10 Digit Mobile Number");
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](34, "div", 15);
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelement"](35, "input", 18);
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](36, "label", 19);
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](37, "Description");
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](38, "div", 20);
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelement"](39, "input", 21);
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](40, "label", 17);
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](41, "ghs 1-50 Amount ");
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](42, "button", 22);
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](43, "Proceed to Recharge");
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelement"](44, "br");
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](45, "p");
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](46, "Took a galley of type and scrambled it to make a type specimen book. survived not only five centuries, but also the leap into electronic remaining. ");
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](47, "div", 23);
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelement"](48, "img", 24);
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
+AirtimeTopupComponent.ɵfac = function AirtimeTopupComponent_Factory(t) { return new (t || AirtimeTopupComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdirectiveInject"](src_app_Repository_payment_service__WEBPACK_IMPORTED_MODULE_0__.PaymentService), _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_3__.Router), _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdirectiveInject"](_angular_forms__WEBPACK_IMPORTED_MODULE_1__.FormBuilder)); };
+AirtimeTopupComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdefineComponent"]({ type: AirtimeTopupComponent, selectors: [["app-airtime-topup"]], decls: 49, vars: 1, consts: [[1, "page-title-area", "item-bg2"], [1, "container"], [1, "page-title-content"], ["routerLink", "/"], [1, "lines"], [1, "line"], [1, "services-details-area", "ptb-110"], [1, "services-details-overview"], [1, "services-details-desc"], [3, "formGroup", "ngSubmit"], [1, "form-check", "form-check-inline"], ["type", "radio", "name", "inlineRadioOptions", "id", "inlineRadio1", "value", "postpaid", 1, "form-check-input"], ["for", "inlineRadio1", 1, "form-check-label"], ["type", "radio", "name", "inlineRadioOptions", "id", "inlineRadio2", "value", "prepaid", "checked", "", 1, "form-check-input"], ["for", "inlineRadio2", 1, "form-check-label"], [1, "form-floating", "mb-3"], ["type", "text", "id", "floatingInput", "formControlName", "recipientNumber", "placeholder", "e.g. 01234567890", 1, "form-control"], ["for", "floatingInput"], ["type", "text", "id", "floatingDescription", "formControlName", "description", "placeholder", "A gift for Mum.", 1, "form-control"], ["for", "floatingDescription"], [1, "form-floating"], ["type", "number", "id", "floatingInput", "formControlName", "amount", "placeholder", "Amount", 1, "form-control"], ["type", "submit", 1, "btn", "btn-primary", "btn-sm", "mt-2"], [1, "services-details-image", "wow", "fadeInUp"], ["src", "assets/img/services-details/services-details1.jpg", "alt", "image"]], template: function AirtimeTopupComponent_Template(rf, ctx) { if (rf & 1) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](0, "div", 0);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](1, "div", 1);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](2, "div", 2);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](3, "h2");
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](4, "Airtime Topup");
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](5, "ul");
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](6, "li");
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](7, "a", 3);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](8, "Home");
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](9, "li");
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](10, "Topup airtime");
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](11, "div", 4);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](12, "div", 5);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](13, "div", 5);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](14, "div", 5);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](15, "section", 6);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](16, "div", 1);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](17, "div", 7);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](18, "div", 8);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](19, "h3");
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](20, "Complete the Airtime Crediting Form");
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](21, "form", 9);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵlistener"]("ngSubmit", function AirtimeTopupComponent_Template_form_ngSubmit_21_listener() { return ctx.topupFormSubmit(ctx.airtimeForm.value); });
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](22, "div", 10);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](23, "input", 11);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](24, "label", 12);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](25, "Postpaid");
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](26, "div", 10);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](27, "input", 13);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](28, "label", 14);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](29, "Prepaid");
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](30, "div", 15);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](31, "input", 16);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](32, "label", 17);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](33, "10 Digit Mobile Number");
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](34, "div", 15);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](35, "input", 18);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](36, "label", 19);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](37, "Description");
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](38, "div", 20);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](39, "input", 21);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](40, "label", 17);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](41, "ghs 1-50 Amount ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](42, "button", 22);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](43, "Proceed to Recharge");
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](44, "br");
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](45, "p");
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](46, "Took a galley of type and scrambled it to make a type specimen book. survived not only five centuries, but also the leap into electronic remaining. ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](47, "div", 23);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](48, "img", 24);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
     } if (rf & 2) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵadvance"](21);
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵproperty"]("formGroup", ctx.airtimeForm);
-    } }, directives: [_angular_router__WEBPACK_IMPORTED_MODULE_4__.RouterLinkWithHref, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["ɵNgNoValidate"], _angular_forms__WEBPACK_IMPORTED_MODULE_2__.NgControlStatusGroup, _angular_forms__WEBPACK_IMPORTED_MODULE_2__.FormGroupDirective, _angular_forms__WEBPACK_IMPORTED_MODULE_2__.DefaultValueAccessor, _angular_forms__WEBPACK_IMPORTED_MODULE_2__.NgControlStatus, _angular_forms__WEBPACK_IMPORTED_MODULE_2__.FormControlName, _angular_forms__WEBPACK_IMPORTED_MODULE_2__.NumberValueAccessor], styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJhaXJ0aW1lLXRvcHVwLmNvbXBvbmVudC5zY3NzIn0= */"] });
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](21);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵproperty"]("formGroup", ctx.airtimeForm);
+    } }, directives: [_angular_router__WEBPACK_IMPORTED_MODULE_3__.RouterLinkWithHref, _angular_forms__WEBPACK_IMPORTED_MODULE_1__["ɵNgNoValidate"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__.NgControlStatusGroup, _angular_forms__WEBPACK_IMPORTED_MODULE_1__.FormGroupDirective, _angular_forms__WEBPACK_IMPORTED_MODULE_1__.DefaultValueAccessor, _angular_forms__WEBPACK_IMPORTED_MODULE_1__.NgControlStatus, _angular_forms__WEBPACK_IMPORTED_MODULE_1__.FormControlName, _angular_forms__WEBPACK_IMPORTED_MODULE_1__.NumberValueAccessor], styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJhaXJ0aW1lLXRvcHVwLmNvbXBvbmVudC5zY3NzIn0= */"] });
 
 
 /***/ }),
@@ -5732,14 +5730,19 @@ class ReceiptComponent {
         console.log("tval from localstorage >>> ", tval);
         console.log("tval2 val from localstorage >>> ", tval2);
         if (payValues.status == 'Approved' || payValues.code === '000') {
-            this.creditCustomerAirtime(tval2);
+            if (tval != null || tval != '') {
+                this.creditCustomerAirtime(tval);
+            }
+            else if (tval2 !== null || tval2 !== '') {
+                this.creditCustomerAirtime(tval2);
+            }
         }
         else {
             this.router.navigate(['receipt']);
         }
     }
     creditCustomerAirtime(formData) {
-        console.log('receipt component:  topup params >>>>', formData);
+        console.log('receiptComponent:  tval >>>>', formData);
         this.airtimeService.buyAirtimeTopup(formData)
             .subscribe(res => {
             console.log(`airtime credit response ==> ${JSON.stringify(res)}`);
@@ -6534,23 +6537,22 @@ class PricingPlanComponent {
     ngOnInit() {
         let payValues = JSON.parse(localStorage.getItem('payRes'));
         console.log(`get LocalStorage Items: ${payValues}`);
-        const tval = localStorage.getItem('tparams');
-        console.log("price-plan topval >>> ", tval);
+        // const tval = localStorage.getItem('tparams');
+        // console.log("price-plan topval >>> ",tval);
     }
-    creditCustomerAirtime(formData) {
-        console.log('AirtimeTopupComponent:  topup >>>>', formData);
-        this.airtimeService.buyAirtimeTopup(formData)
-            .subscribe(res => {
-            console.log(`airtime credit response ==> ${JSON.stringify(res)}`);
-            this.isLoading = false;
-            this.router.navigate(['pages/receipt']);
-        }, (err) => {
-            console.log(err);
-            this.isLoading = false;
-            alert('No topup: ' + err.error);
-            // alert(err.error);
-        });
-    }
+    // creditCustomerAirtime(formData: any) {
+    //   console.log('AirtimeTopupComponent:  topup >>>>', formData);
+    //   this.airtimeService.buyAirtimeTopup(formData)
+    //     .subscribe(res => {
+    //       console.log(`airtime credit response ==> ${JSON.stringify(res)}`);
+    //       this.isLoading = false;
+    //       this.router.navigate(['receipt']);
+    //     }, (err) => {
+    //       console.log(err);
+    //       this.isLoading = false;
+    //       alert('No topup: ' + err.error);
+    //     });
+    // }
     OnPrint() {
         window.print();
     }
