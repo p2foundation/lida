@@ -286,7 +286,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "AppModule": () => (/* binding */ AppModule)
 /* harmony export */ });
 /* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! @angular/platform-browser */ 6219);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! @angular/core */ 4001);
 /* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./app-routing.module */ 3696);
 /* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./app.component */ 2050);
 /* harmony import */ var _components_layout_header_header_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/layout/header/header.component */ 3259);
@@ -320,6 +319,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_pages_receipt_receipt_component__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./components/pages/receipt/receipt.component */ 2657);
 /* harmony import */ var _components_pages_airtime_topup_airtime_topup_component__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./components/pages/airtime-topup/airtime-topup.component */ 516);
 /* harmony import */ var _components_pages_buy_data_buy_data_component__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./components/pages/buy-data/buy-data.component */ 2133);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! @angular/core */ 4001);
 
 
 
@@ -355,8 +355,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
-(0,_angular_core__WEBPACK_IMPORTED_MODULE_31__.enableProdMode)();
+// enableProdMode();
 class AppModule {
 }
 AppModule.ɵfac = function AppModule_Factory(t) { return new (t || AppModule)(); };
@@ -1199,6 +1198,7 @@ class AirtimeTopupComponent {
         this.payService = payService;
         this.router = router;
         this.formBuilder = formBuilder;
+        this.transType = "Airtime Topup";
         this.retailer = '233241603241';
         this.recipientNumber = 0;
         this.amount = '';
@@ -1208,19 +1208,19 @@ class AirtimeTopupComponent {
         this.isLoading = true;
         this.payParams = {
             merchantId: "TTM-00006115",
-            transId: "000000654325",
-            description: "Payment Using Checkout Page ",
-            amount: "000000000100",
-            redirectURL: "https://lidapp-ten.vercel.app/receipt",
+            transId: "",
+            description: "",
+            amount: "",
+            redirectURL: "https://webhook.site/d9743f46-8404-40a9-91b2-2adc4f62f7bf",
             customerEmail: "hanson.pepra@gmail.com"
         };
         this.topupParams = {
-            transId: "000000654356",
-            recipientNumber: "",
-            description: "",
-            amount: "",
-            redirectURL: "https://lidapp-ten.vercel.app/receipt",
-            customerEmail: "info@accesswealth.net"
+            transId: '',
+            recipientNumber: '',
+            description: '',
+            amount: '',
+            redirectURL: 'https://lidapp-ten.vercel.app/receipt',
+            customerEmail: 'hanson.pepra@gmail.com'
         };
         this.checkoutUrl = '';
     }
@@ -1238,6 +1238,8 @@ class AirtimeTopupComponent {
         console.log('formData:  topup >>>>', form);
         this.topupParams.recipientNumber = form.recipientNumber;
         this.topupParams.description = form.description;
+        console.log('topup params =>>', this.topupParams);
+        localStorage.setItem('topup1', JSON.stringify(this.topupParams));
         if (form.amount < 10) {
             const inputAmount = form.amount * 100;
             this.topupParams.amount = "000000000" + inputAmount;
@@ -1246,9 +1248,7 @@ class AirtimeTopupComponent {
             const inputAmount = form.amount * 100;
             this.topupParams.amount = "00000000" + inputAmount;
         }
-        console.log('topup params =>>', this.topupParams);
-        localStorage.setItem('tparams', JSON.stringify(this.topupParams));
-        console.log('get payment');
+        console.log('call payment app ...');
         this.makePayment(this.topupParams);
     }
     makePayment(mData) {
@@ -1256,20 +1256,16 @@ class AirtimeTopupComponent {
             .subscribe(res => {
             console.log(`payment response ==> ${JSON.stringify(res)}`);
             this.checkoutUrl = res.checkout_url;
-            // localStorage.setItem('checkout_url', this.checkoutUrl);
             console.log(`checkoutUrl ==> ${JSON.stringify(this.checkoutUrl)}`);
             if (res.status == 'success' || res.code == 200) {
                 window.location.href = `${this.checkoutUrl}`;
             }
             this.isLoading = false;
-            // alert('Topup successfully processed.');
-            // this.creditCustomerAirtime(res);
             this.router.navigate(['/']);
         }, (err) => {
             console.log(err);
             this.isLoading = false;
             alert('No topup: ' + err.error);
-            // alert(err.error);
             this.router.navigate(['/']);
         });
     }
@@ -2402,7 +2398,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 class BuyDataComponent {
-    constructor() { }
+    constructor() {
+        this.transType = "Data Topup";
+    }
     ngOnInit() {
     }
 }
@@ -3539,7 +3537,7 @@ class MachineLearningTwoComponent {
         console.log('formData:  topup >>>>', form);
         this.topupParams.recipientNumber = form.recipientNumber;
         this.topupParams.description = form.description;
-        if (form.amount < 9) {
+        if (form.amount <= 10) {
             const inputAmount = form.amount * 100;
             this.topupParams.amount = "000000000" + inputAmount;
         }
@@ -3548,7 +3546,7 @@ class MachineLearningTwoComponent {
             this.topupParams.amount = "00000000" + inputAmount;
         }
         console.log('topup params =>>', this.topupParams);
-        localStorage.setItem('tparams', this.topupParams);
+        localStorage.setItem('tparams', JSON.stringify(this.topupParams));
         console.log('get payment');
         this.makePayment(this.topupParams);
     }
@@ -3574,25 +3572,9 @@ class MachineLearningTwoComponent {
             this.router.navigate(['/']);
         });
     }
-    creditCustomerAirtime(formData) {
-        console.log('AirtimeTopupComponent:  topup >>>>', formData);
-        this.airtimeService.buyAirtimeTopup(formData)
-            .subscribe(res => {
-            console.log(`airtime credit response ==> ${JSON.stringify(res)}`);
-            this.isLoading = false;
-            // localStorage.setItem('token', form.amount);
-            // alert('Topup successfully processed.');
-            this.router.navigate(['pages']);
-        }, (err) => {
-            console.log(err);
-            this.isLoading = false;
-            alert('No topup: ' + err.error);
-            // alert(err.error);
-        });
-    }
 }
 MachineLearningTwoComponent.ɵfac = function MachineLearningTwoComponent_Factory(t) { return new (t || MachineLearningTwoComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵdirectiveInject"](src_app_Repository_airtime_service__WEBPACK_IMPORTED_MODULE_0__.AirtimeTopupService), _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵdirectiveInject"](src_app_Repository_payment_service__WEBPACK_IMPORTED_MODULE_1__.PaymentService), _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_5__.Router), _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵdirectiveInject"](_angular_forms__WEBPACK_IMPORTED_MODULE_3__.FormBuilder)); };
-MachineLearningTwoComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵdefineComponent"]({ type: MachineLearningTwoComponent, selectors: [["app-machine-learning-two"]], decls: 234, vars: 1, consts: [[1, "hero-banner"], [1, "container-fluid"], [1, "row", "align-items-center"], [1, "col-lg-6"], [1, "hero-banner-content"], [1, "btn-box"], ["routerLink", "/services", 1, "btn", "btn-primary"], ["routerLink", "/service-details", 1, "optional-btn"], [1, "card"], [1, "card-header"], [1, "card-body"], [3, "formGroup", "ngSubmit"], [1, "form-row"], [1, "col"], ["type", "text", "formControlName", "recipientNumber", "placeholder", "Enter the 10 digit recipient number", 1, "form-control"], ["type", "text", "formControlName", "description", "placeholder", "Enter account description (eg Gift)", 1, "form-control"], ["type", "number", "formControlName", "amount", "placeholder", "Minimum (1.0) & Maximum (50) Amount", 1, "form-control"], ["type", "submit", 1, "btn", "btn-primary", "btn-sm", "mt-2"], [1, "shape-img2"], ["src", "assets/img/shape/shape2.svg", "alt", "image"], [1, "shape-img3"], ["src", "assets/img/shape/shape3.png", "alt", "image"], [1, "shape-img5"], ["src", "assets/img/shape/shape5.svg", "alt", "image"], [1, "dot-shape1"], ["src", "assets/img/shape/dot1.png", "alt", "image"], [1, "dot-shape2"], ["src", "assets/img/shape/dot3.png", "alt", "image"], [1, "featured-solutions-area", "ptb-110"], [1, "container"], [1, "section-title"], [1, "row"], [1, "col-lg-4", "col-md-6", "col-sm-6"], [1, "single-featured-solutions-box"], [1, "icon"], ["src", "assets/img/icon1.png", "alt", "image"], ["routerLink", "/airtime-topup"], ["routerLink", "/airtime-topup", 1, "learn-more-btn"], ["src", "assets/img/icon2.png", "alt", "image"], ["routerLink", "/services"], ["routerLink", "/services", 1, "learn-more-btn"], [1, "col-lg-4", "col-md-6", "col-sm-6", "offset-lg-0", "offset-md-3", "offset-sm-3"], ["src", "assets/img/icon3.png", "alt", "image"], [1, "about-area", "pt-0", "ptb-110"], [1, "col-lg-6", "col-md-12"], [1, "about-img"], ["src", "assets/img/about/about3.png", "alt", "image"], [1, "about-content"], [1, "features-list"], [1, "flaticon-tick"], ["routerLink", "/", 1, "btn", "btn-primary"], [1, "shape-img1"], ["src", "assets/img/shape/shape1.png", "alt", "image"], [1, "shape-img4"], ["src", "assets/img/shape/shape4.svg", "alt", "image"], [1, "partner-section", "ptb-110"], [1, "partner-slides", "owl-carousel", "owl-theme"], [1, "single-partner-item"], ["href", "#"], ["src", "assets/img/partner/partner1.png", "alt", "image"], ["src", "assets/img/partner/partner2.png", "alt", "image"], ["src", "assets/img/partner/partner3.png", "alt", "image"], [1, "testimonials-area", "ptb-110"], [1, "testimonials-slides", "owl-carousel", "owl-theme"], [1, "single-testimonials-item"], [1, "client-info"], ["src", "assets/img/author3.jpg", "alt", "image"], [1, "rating"], [1, "fas", "fa-star"], ["src", "assets/img/author1.jpg", "alt", "image"], ["src", "assets/img/author2.jpg", "alt", "image"]], template: function MachineLearningTwoComponent_Template(rf, ctx) { if (rf & 1) {
+MachineLearningTwoComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵdefineComponent"]({ type: MachineLearningTwoComponent, selectors: [["app-machine-learning-two"]], decls: 234, vars: 1, consts: [[1, "hero-banner"], [1, "container-fluid"], [1, "row", "align-items-center"], [1, "col-lg-6"], [1, "hero-banner-content"], [1, "btn-box"], ["routerLink", "/services", 1, "btn", "btn-primary"], ["routerLink", "/airtime-topup", 1, "optional-btn"], [1, "card"], [1, "card-header"], [1, "card-body"], [3, "formGroup", "ngSubmit"], [1, "form-row"], [1, "col"], ["type", "text", "formControlName", "recipientNumber", "placeholder", "Enter the 10 digit recipient number", 1, "form-control"], ["type", "text", "formControlName", "description", "placeholder", "Enter account description (eg Gift)", 1, "form-control"], ["type", "number", "formControlName", "amount", "placeholder", "Minimum (1.0) & Maximum (50) Amount", 1, "form-control"], ["type", "submit", 1, "btn", "btn-primary", "btn-sm", "mt-2"], [1, "shape-img2"], ["src", "assets/img/shape/shape2.svg", "alt", "image"], [1, "shape-img3"], ["src", "assets/img/shape/shape3.png", "alt", "image"], [1, "shape-img5"], ["src", "assets/img/shape/shape5.svg", "alt", "image"], [1, "dot-shape1"], ["src", "assets/img/shape/dot1.png", "alt", "image"], [1, "dot-shape2"], ["src", "assets/img/shape/dot3.png", "alt", "image"], [1, "featured-solutions-area", "ptb-110"], [1, "container"], [1, "section-title"], [1, "row"], [1, "col-lg-4", "col-md-6", "col-sm-6"], [1, "single-featured-solutions-box"], [1, "icon"], ["src", "assets/img/icon1.png", "alt", "image"], ["routerLink", "/airtime-topup"], ["routerLink", "/airtime-topup", 1, "learn-more-btn"], ["src", "assets/img/icon2.png", "alt", "image"], ["routerLink", "/services"], ["routerLink", "/services", 1, "learn-more-btn"], [1, "col-lg-4", "col-md-6", "col-sm-6", "offset-lg-0", "offset-md-3", "offset-sm-3"], ["src", "assets/img/icon3.png", "alt", "image"], [1, "about-area", "pt-0", "ptb-110"], [1, "col-lg-6", "col-md-12"], [1, "about-img"], ["src", "assets/img/about/about3.png", "alt", "image"], [1, "about-content"], [1, "features-list"], [1, "flaticon-tick"], ["routerLink", "/", 1, "btn", "btn-primary"], [1, "shape-img1"], ["src", "assets/img/shape/shape1.png", "alt", "image"], [1, "shape-img4"], ["src", "assets/img/shape/shape4.svg", "alt", "image"], [1, "partner-section", "ptb-110"], [1, "partner-slides", "owl-carousel", "owl-theme"], [1, "single-partner-item"], ["href", "#"], ["src", "assets/img/partner/partner1.png", "alt", "image"], ["src", "assets/img/partner/partner2.png", "alt", "image"], ["src", "assets/img/partner/partner3.png", "alt", "image"], [1, "testimonials-area", "ptb-110"], [1, "testimonials-slides", "owl-carousel", "owl-theme"], [1, "single-testimonials-item"], [1, "client-info"], ["src", "assets/img/author3.jpg", "alt", "image"], [1, "rating"], [1, "fas", "fa-star"], ["src", "assets/img/author1.jpg", "alt", "image"], ["src", "assets/img/author2.jpg", "alt", "image"]], template: function MachineLearningTwoComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](0, "div", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](1, "div", 1);
         _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](2, "div", 2);
@@ -5718,16 +5700,24 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "ReceiptComponent": () => (/* binding */ ReceiptComponent)
 /* harmony export */ });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ 4001);
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ 3252);
-/* harmony import */ var _pricing_plan_pricing_plan_component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../pricing-plan/pricing-plan.component */ 9639);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ 4001);
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ 3252);
+/* harmony import */ var src_app_Repository_airtime_service__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! src/app/Repository/airtime.service */ 8863);
+/* harmony import */ var _pricing_plan_pricing_plan_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../pricing-plan/pricing-plan.component */ 9639);
+
 
 
 
 class ReceiptComponent {
-    constructor(route) {
+    constructor(route, router, airtimeService) {
         this.route = route;
+        this.router = router;
+        this.airtimeService = airtimeService;
         this.paramsObject = {};
+        this.topupValues = {};
+        this.isLoading = true;
+        const tval = JSON.parse(localStorage.getItem('topup1'));
+        console.log("topup val from localstorage >>> ", tval);
     }
     ngOnInit() {
         this.route.queryParamMap
@@ -5736,73 +5726,98 @@ class ReceiptComponent {
             console.log('paramsObject ==>', this.paramsObject);
             localStorage.setItem('payRes', JSON.stringify(this.paramsObject.params));
         });
+        let payValues = JSON.parse(localStorage.getItem('payRes'));
+        const tval = JSON.parse(localStorage.getItem('tparams'));
+        const tval2 = JSON.parse(localStorage.getItem('topup1'));
+        console.log("tval from localstorage >>> ", tval);
+        console.log("tval2 val from localstorage >>> ", tval2);
+        if (payValues.status == 'Approved' || payValues.code === '000') {
+            this.creditCustomerAirtime(tval2);
+        }
+        else {
+            this.router.navigate(['pages/receipt']);
+        }
+    }
+    creditCustomerAirtime(formData) {
+        console.log('AirtimeTopupComponent:  topup >>>>', formData);
+        this.airtimeService.buyAirtimeTopup(formData)
+            .subscribe(res => {
+            console.log(`airtime credit response ==> ${JSON.stringify(res)}`);
+            this.isLoading = false;
+            this.router.navigate(['pages/receipt']);
+        }, (err) => {
+            console.log(err);
+            this.isLoading = false;
+            alert('No topup: ' + err.error);
+            // alert(err.error);
+        });
     }
     OnPrint() {
         window.print();
     }
 }
-ReceiptComponent.ɵfac = function ReceiptComponent_Factory(t) { return new (t || ReceiptComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_2__.ActivatedRoute)); };
-ReceiptComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineComponent"]({ type: ReceiptComponent, selectors: [["app-receipt"]], decls: 38, vars: 0, consts: [[1, "page-title-area", "item-bg3"], [1, "container"], [1, "page-title-content"], ["routerLink", "/"], [1, "lines"], [1, "line"], [1, "pricing-area", "ptb-110", "bg-fafafa"], [1, "shape-img2"], ["src", "assets/img/shape/shape2.svg", "alt", "image"], [1, "shape-img3"], ["src", "assets/img/shape/shape3.png", "alt", "image"], [1, "shape-img4"], ["src", "assets/img/shape/shape4.svg", "alt", "image"], [1, "shape-img5"], ["src", "assets/img/shape/shape5.svg", "alt", "image"], [1, "shape-img7"], [1, "dot-shape1"], ["src", "assets/img/shape/dot1.png", "alt", "image"], [1, "dot-shape2"], ["src", "assets/img/shape/dot3.png", "alt", "image"], [1, "dot-shape4"], ["src", "assets/img/shape/dot4.png", "alt", "image"], [1, "dot-shape5"], ["src", "assets/img/shape/dot5.png", "alt", "image"], [1, "dot-shape6"], ["src", "assets/img/shape/dot6.png", "alt", "image"]], template: function ReceiptComponent_Template(rf, ctx) { if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "div", 0);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](1, "div", 1);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](2, "div", 2);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](3, "h2");
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](4, "Receipt");
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](5, "ul");
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](6, "li");
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](7, "a", 3);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](8, "Home");
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](9, "li");
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](10, "Receipt");
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](11, "div", 4);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](12, "div", 5);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](13, "div", 5);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](14, "div", 5);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](15, "section", 6);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](16, "div", 1);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](17, "app-pricing-plan");
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](18, "div", 7);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](19, "img", 8);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](20, "div", 9);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](21, "img", 10);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](22, "div", 11);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](23, "img", 12);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](24, "div", 13);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](25, "img", 14);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](26, "div", 15);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](27, "img", 10);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](28, "div", 16);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](29, "img", 17);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](30, "div", 18);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](31, "img", 19);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](32, "div", 20);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](33, "img", 21);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](34, "div", 22);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](35, "img", 23);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](36, "div", 24);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](37, "img", 25);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-    } }, directives: [_angular_router__WEBPACK_IMPORTED_MODULE_2__.RouterLinkWithHref, _pricing_plan_pricing_plan_component__WEBPACK_IMPORTED_MODULE_0__.PricingPlanComponent], styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJyZWNlaXB0LmNvbXBvbmVudC5zY3NzIn0= */"] });
+ReceiptComponent.ɵfac = function ReceiptComponent_Factory(t) { return new (t || ReceiptComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_3__.ActivatedRoute), _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_3__.Router), _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdirectiveInject"](src_app_Repository_airtime_service__WEBPACK_IMPORTED_MODULE_0__.AirtimeTopupService)); };
+ReceiptComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdefineComponent"]({ type: ReceiptComponent, selectors: [["app-receipt"]], decls: 38, vars: 0, consts: [[1, "page-title-area", "item-bg3"], [1, "container"], [1, "page-title-content"], ["routerLink", "/"], [1, "lines"], [1, "line"], [1, "pricing-area", "ptb-110", "bg-fafafa"], [1, "shape-img2"], ["src", "assets/img/shape/shape2.svg", "alt", "image"], [1, "shape-img3"], ["src", "assets/img/shape/shape3.png", "alt", "image"], [1, "shape-img4"], ["src", "assets/img/shape/shape4.svg", "alt", "image"], [1, "shape-img5"], ["src", "assets/img/shape/shape5.svg", "alt", "image"], [1, "shape-img7"], [1, "dot-shape1"], ["src", "assets/img/shape/dot1.png", "alt", "image"], [1, "dot-shape2"], ["src", "assets/img/shape/dot3.png", "alt", "image"], [1, "dot-shape4"], ["src", "assets/img/shape/dot4.png", "alt", "image"], [1, "dot-shape5"], ["src", "assets/img/shape/dot5.png", "alt", "image"], [1, "dot-shape6"], ["src", "assets/img/shape/dot6.png", "alt", "image"]], template: function ReceiptComponent_Template(rf, ctx) { if (rf & 1) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](0, "div", 0);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](1, "div", 1);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](2, "div", 2);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](3, "h2");
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](4, "Receipt");
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](5, "ul");
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](6, "li");
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](7, "a", 3);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](8, "Home");
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](9, "li");
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](10, "Receipt");
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](11, "div", 4);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](12, "div", 5);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](13, "div", 5);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](14, "div", 5);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](15, "section", 6);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](16, "div", 1);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](17, "app-pricing-plan");
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](18, "div", 7);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](19, "img", 8);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](20, "div", 9);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](21, "img", 10);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](22, "div", 11);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](23, "img", 12);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](24, "div", 13);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](25, "img", 14);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](26, "div", 15);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](27, "img", 10);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](28, "div", 16);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](29, "img", 17);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](30, "div", 18);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](31, "img", 19);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](32, "div", 20);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](33, "img", 21);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](34, "div", 22);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](35, "img", 23);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](36, "div", 24);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](37, "img", 25);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+    } }, directives: [_angular_router__WEBPACK_IMPORTED_MODULE_3__.RouterLinkWithHref, _pricing_plan_pricing_plan_component__WEBPACK_IMPORTED_MODULE_1__.PricingPlanComponent], styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJyZWNlaXB0LmNvbXBvbmVudC5zY3NzIn0= */"] });
 
 
 /***/ }),
@@ -6024,7 +6039,7 @@ ServicesComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_0
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](49, "h3");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](50, "a", 12);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](51, "Healthcare & Manufacturing");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](51, "Manufacturing");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](52, "p");
@@ -6487,10 +6502,40 @@ class PricingPlanComponent {
         this.airtimeService = airtimeService;
         this.router = router;
         this.isLoading = true;
+        this.payResData = {
+            "status": "Access Denied",
+            "code": "040",
+            "reason": "You are not allowed to transact with MTN (Mtn)",
+            "r_switch": "MTN",
+            "subscriber_number": "0244588584",
+            "amount": "1",
+            "channel": "mobile",
+            "currency": "GHS",
+            "transaction_id": "861164120621"
+        };
+        this.topupResData = {
+            "status": "OK",
+            "message": "You have successfully recharged 0244588584 with GHS 0.10, you were charged GHS 0.10 and your current balance is GHS 308.05",
+            "trxn": "e6b64280553611ecaf1bcdf53bad9b85",
+            "status-code": "00",
+            "local-trxn-code": "7SRQNN120421",
+            "balance_before": "308.1472",
+            "balance_after": 308.0502,
+            "network": "MTN"
+        };
+        this.errorData = {
+            "status": "FAIL",
+            "message": "invalid login credentials",
+            "trxn": "",
+            "status-code": "01",
+            "local-trxn-code": null
+        };
     }
     ngOnInit() {
         let payValues = JSON.parse(localStorage.getItem('payRes'));
         console.log(`get LocalStorage Items: ${payValues}`);
+        const tval = localStorage.getItem('tparams');
+        console.log("price-plan topval >>> ", tval);
     }
     creditCustomerAirtime(formData) {
         console.log('AirtimeTopupComponent:  topup >>>>', formData);
