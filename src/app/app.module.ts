@@ -35,7 +35,7 @@ import { ReceiptComponent } from './components/pages/receipt/receipt.component';
 import { AirtimeTopupComponent } from './components/pages/airtime-topup/airtime-topup.component';
 import { BuyDataComponent } from './components/pages/buy-data/buy-data.component';
 
-// enableProdMode();
+enableProdMode();
 
 @NgModule({
   declarations: [

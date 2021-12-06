@@ -43,7 +43,11 @@ export class ReceiptComponent implements OnInit {
     console.log("tval2 val from localstorage >>> ", tval2);
 
     if(payValues.status == 'Approved' || payValues.code === '000'){
-      this.creditCustomerAirtime(tval2);
+      if(tval != null || tval != ''){
+        this.creditCustomerAirtime(tval);
+      }else if(tval2 !== null || tval2 !== ''){
+        this.creditCustomerAirtime(tval2);
+      }
     } else {
       this.router.navigate(['receipt']);
     }
@@ -51,7 +55,7 @@ export class ReceiptComponent implements OnInit {
   }
 
   creditCustomerAirtime(formData: any) {
-    console.log('receipt component:  topup params >>>>', formData);
+    console.log('receiptComponent:  tval >>>>', formData);
     this.airtimeService.buyAirtimeTopup(formData)
       .subscribe(res => {
         console.log(`airtime credit response ==> ${JSON.stringify(res)}`);

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroupDirective, FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AirtimeTopupService } from 'src/app/Repository/airtime.service';
 import { PaymentService } from 'src/app/Repository/payment.service';
 
 @Component({
@@ -45,7 +44,6 @@ export class AirtimeTopupComponent implements OnInit {
   public checkoutUrl = '';
 
   constructor(
-    private airtimeService: AirtimeTopupService,
     private payService: PaymentService,
     private router: Router,
     private formBuilder: FormBuilder,

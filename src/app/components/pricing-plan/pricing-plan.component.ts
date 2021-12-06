@@ -55,24 +55,25 @@ export class PricingPlanComponent implements OnInit {
     let payValues = JSON.parse(localStorage.getItem('payRes'));
     console.log(`get LocalStorage Items: ${payValues}`);
 
-    const tval = localStorage.getItem('tparams');
-    console.log("price-plan topval >>> ",tval);
+    // const tval = localStorage.getItem('tparams');
+    // console.log("price-plan topval >>> ",tval);
+
+
   }
 
-  creditCustomerAirtime(formData: any) {
-    console.log('AirtimeTopupComponent:  topup >>>>', formData);
-    this.airtimeService.buyAirtimeTopup(formData)
-      .subscribe(res => {
-        console.log(`airtime credit response ==> ${JSON.stringify(res)}`);
-        this.isLoading = false;
-        this.router.navigate(['pages/receipt']);
-      }, (err) => {
-        console.log(err);
-        this.isLoading = false;
-        alert('No topup: ' + err.error);
-        // alert(err.error);
-      });
-  }
+  // creditCustomerAirtime(formData: any) {
+  //   console.log('AirtimeTopupComponent:  topup >>>>', formData);
+  //   this.airtimeService.buyAirtimeTopup(formData)
+  //     .subscribe(res => {
+  //       console.log(`airtime credit response ==> ${JSON.stringify(res)}`);
+  //       this.isLoading = false;
+  //       this.router.navigate(['receipt']);
+  //     }, (err) => {
+  //       console.log(err);
+  //       this.isLoading = false;
+  //       alert('No topup: ' + err.error);
+  //     });
+  // }
 
   OnPrint() {
     window.print();
