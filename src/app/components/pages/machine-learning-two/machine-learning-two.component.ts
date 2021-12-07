@@ -31,9 +31,9 @@ export class MachineLearningTwoComponent implements OnInit {
   };
   
   topupParams: any = {
-    recipientNumber: "",
-    description: "",
-    amount: "",
+    "recipientNumber": "",
+    "description": "",
+    "amount": "",
   };
 
   public checkoutUrl = '';
@@ -74,8 +74,8 @@ export class MachineLearningTwoComponent implements OnInit {
     localStorage.setItem('tparams', JSON.stringify(this.topupParams));
 
     console.log('get payment')
-    // this.makePayment(this.topupParams);
-    this.creditCustomerAirtime(this.topupParams);
+    this.makePayment(this.topupParams);
+    // this.creditCustomerAirtime(this.topupParams);
   }
 
   makePayment(mData: any) {

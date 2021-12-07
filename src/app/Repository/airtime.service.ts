@@ -29,6 +29,7 @@ export class AirtimeTopupService {
     private handleError<T>(operation = 'operation', result?: T) {
         return (error: any): Observable<T> => {
             console.error(error); // log to console instead
+            alert(error);
             this.log(`${operation} failed: ${error.message}`);
 
             return of(result as T);
