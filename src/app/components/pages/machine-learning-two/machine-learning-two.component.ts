@@ -31,13 +31,9 @@ export class MachineLearningTwoComponent implements OnInit {
   };
   
   topupParams: any = {
-    merchantId: "TTM-00006115",
-    transId: "000000654356",
     recipientNumber: "",
     description: "",
     amount: "",
-    redirectURL: "https://lidapp-ten.vercel.app/receipt",
-    customerEmail: "info@accesswealth.net"
   };
 
   public checkoutUrl = '';
@@ -78,7 +74,8 @@ export class MachineLearningTwoComponent implements OnInit {
     localStorage.setItem('tparams', JSON.stringify(this.topupParams));
 
     console.log('get payment')
-    this.makePayment(this.topupParams);
+    // this.makePayment(this.topupParams);
+    this.creditCustomerAirtime(this.topupParams);
   }
 
   makePayment(mData: any) {
@@ -104,19 +101,19 @@ export class MachineLearningTwoComponent implements OnInit {
       });
   }
 
-  // creditCustomerAirtime(formData: any) {
-  //   console.log('AirtimeTopupComponent:  topup >>>>', formData);
-  //   this.airtimeService.buyAirtimeTopup(formData)
-  //     .subscribe(res => {
-  //       console.log(`airtime credit response ==> ${JSON.stringify(res)}`);
-  //       this.isLoading = false;
+  creditCustomerAirtime(formData: any) {
+    console.log('AirtimeTopupComponent:  topup >>>>', formData);
+    this.airtimeService.buyAirtimeTopup(formData)
+      .subscribe(res => {
+        console.log(`airtime credit response ==> ${JSON.stringify(res)}`);
+        this.isLoading = false;
       
-  //       this.router.navigate(['pages']);
-  //     }, (err) => {
-  //       console.log(err);
-  //       this.isLoading = false;
-  //       alert('No topup: ' + err.error);
-  //     });
-  // }
+        this.router.navigate(['/']);
+      }, (err) => {
+        console.log(err);
+        this.isLoading = false;
+        alert('No topup: ' + err.error);
+      });
+  }
 
 }

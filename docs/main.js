@@ -27,7 +27,6 @@ class AirtimeTopupService {
     constructor(http) {
         this.http = http;
         this.awServer = src_environments_environment_prod__WEBPACK_IMPORTED_MODULE_0__.environment.awServer;
-        this.vercelServer = src_environments_environment_prod__WEBPACK_IMPORTED_MODULE_0__.environment.vercelServer;
     }
     buyAirtimeTopup(mData) {
         console.log('buyAirtime service - params ==>', mData);
@@ -3511,13 +3510,9 @@ class MachineLearningTwoComponent {
             customerEmail: "hanson.pepra@gmail.com"
         };
         this.topupParams = {
-            merchantId: "TTM-00006115",
-            transId: "000000654356",
             recipientNumber: "",
             description: "",
             amount: "",
-            redirectURL: "https://lidapp-ten.vercel.app/receipt",
-            customerEmail: "info@accesswealth.net"
         };
         this.checkoutUrl = '';
     }
@@ -3546,7 +3541,8 @@ class MachineLearningTwoComponent {
         console.log('topup params =>>', this.topupParams);
         localStorage.setItem('tparams', JSON.stringify(this.topupParams));
         console.log('get payment');
-        this.makePayment(this.topupParams);
+        // this.makePayment(this.topupParams);
+        this.creditCustomerAirtime(this.topupParams);
     }
     makePayment(mData) {
         this.payService.makePayment(mData)
@@ -3568,6 +3564,19 @@ class MachineLearningTwoComponent {
             alert('No topup: ' + err.error);
             // alert(err.error);
             this.router.navigate(['/']);
+        });
+    }
+    creditCustomerAirtime(formData) {
+        console.log('AirtimeTopupComponent:  topup >>>>', formData);
+        this.airtimeService.buyAirtimeTopup(formData)
+            .subscribe(res => {
+            console.log(`airtime credit response ==> ${JSON.stringify(res)}`);
+            this.isLoading = false;
+            this.router.navigate(['/']);
+        }, (err) => {
+            console.log(err);
+            this.isLoading = false;
+            alert('No topup: ' + err.error);
         });
     }
 }
