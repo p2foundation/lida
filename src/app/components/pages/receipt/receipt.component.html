@@ -1,5 +1,5 @@
 <!-- Start Page Title Area -->
-<div class="page-title-area item-bg3">
+<!-- <div class="page-title-area item-bg3">
     <div class="container">
         <div class="page-title-content">
             <h2>Receipt</h2>
@@ -15,7 +15,7 @@
         <div class="line"></div>
         <div class="line"></div>
     </div>
-</div>
+</div> -->
 <!-- End Page Title Area -->
 
 <!-- Start Pricing Area -->
@@ -53,19 +53,20 @@
                         <p>{{airOkResponse.message}}</p>
                     </div>
                     <div class="price">
-                        GH¢ {{airOkResponse.balance_before - airOkResponse.balance_after| number : '1.2-2'}} <span>.00</span>
+                        GH¢ {{airOkResponse.balance_before - airOkResponse.balance_after| number : '1.2-2'}} <span></span>
                     </div>
                     <div class="card">
                         <ul class="list-group list-group-flush">
-                            <li class="list-group-item">Trxn: {{airOkResponse.trxn }}</li>
                             <li class="list-group-item">Network: {{airOkResponse.network}}</li>
-                            <li class="list-group-item">Status_code: {{ airOkResponse.status_code }}</li>
+                            <li class="list-group-item">ServiceId: {{airOkResponse.trxn }}</li>
+                            <!-- <li class="list-group-item">TransId: {{ airOkResponse.local_trxn_code }}</li> -->
+
                         </ul>
                     </div><br>
 
                     <div class="buy-btn">
                         <a (click)="OnPrint()" class="btn btn-primary">Print</a>
-                        <a routerLink="/dashboard" class="btn mt-3">Goto Dashboard</a>
+                        <a (click)="goToDashboard()" class="btn mt-3">Goto Dashboard</a>
                     </div>
                 </div>
             </div>

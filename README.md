@@ -32,4 +32,8 @@ git push -u origin main
 
 ng build --output-path docs --base-href /lida/
 
+## AWS S3 Deploy
+aws configure
+ng build && npm run aws-deploy `aws s3 sync dist/lida-app/ s3://lidapp`
+
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).

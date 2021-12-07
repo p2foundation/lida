@@ -34,6 +34,8 @@ export class MachineLearningTwoComponent implements OnInit {
     "recipientNumber": "",
     "description": "",
     "amount": "",
+    redirectURL: "http://lidapp.s3-website.us-east-2.amazonaws.com/receipt",
+    customerEmail: "hanson.pepra@gmail.com"
   };
 
   public checkoutUrl = '';
