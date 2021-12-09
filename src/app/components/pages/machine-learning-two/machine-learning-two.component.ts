@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { Location } from '@angular/common';
 import { FormControl, FormGroupDirective, FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
-import { AirtimeTopupService } from 'src/app/Repository/airtime.service';
-import { PaymentService } from 'src/app/Repository/payment.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { AirtimeTopupService } from 'src/app/repository/airtime.service';
+import { PaymentService } from 'src/app/repository/payment.service';
+import { PreviousRouteService } from 'src/app/repository/previous.route.service';
+declare let $: any;
 
 @Component({
   selector: 'app-machine-learning-two',
@@ -21,33 +24,39 @@ export class MachineLearningTwoComponent implements OnInit {
   email = '';
   isLoading = true;
 
-  payParams: any = {
-    merchantId: "TTM-00006115",
-    transId: "000000654325",
-    description: "Payment Using Checkout Page ",
-    amount: "000000000100",
-    redirectURL: "https://lidapp-ten.vercel.app/receipt",
-    customerEmail: "hanson.pepra@gmail.com"
-  };
+  // payParams: any = {
+  //   merchantId: "TTM-00006115",
+  //   transId: "000000654325",
+  //   description: "Payment Using Checkout Page ",
+  //   amount: "000000000100",
+  //   redirectURL: "http://lidapp.s3-website.us-east-2.amazonaws.com/receipt",
+  //   customerEmail: "info@accesswealth.com"
+  // };
   
   topupParams: any = {
     "recipientNumber": "",
-    "description": "",
+    "description": "LiDa Live airtime pay",
     "amount": "",
     redirectURL: "http://lidapp.s3-website.us-east-2.amazonaws.com/receipt",
-    customerEmail: "hanson.pepra@gmail.com"
+    customerEmail: "support.it@constantcap.com.gh"
   };
 
   public checkoutUrl = '';
+  public pswitchObject: any = {};
 
   constructor(
     private airtimeService: AirtimeTopupService,
     private payService: PaymentService,
     private router: Router,
+    private route: ActivatedRoute,
+    private location: Location,
     private formBuilder: FormBuilder,
+    private previousRouteService: PreviousRouteService
   ) { }
 
   ngOnInit() {
+    $('#loading').hide();
+
     this.airtimeForm = this.formBuilder.group({
       retailer: [null, Validators.required],
       recipientNumber: [null, Validators.required],
@@ -57,27 +66,48 @@ export class MachineLearningTwoComponent implements OnInit {
       email: [null, Validators.required]
     });
 
+    this.route.queryParamMap
+      .subscribe((params) => {
+        this.pswitchObject = { ...params.keys, ...params };
+        console.log('pswitchObject ==>', this.pswitchObject);
+        localStorage.setItem('pswitchResponse', JSON.stringify(this.pswitchObject.params));
+      });
+
+    let psValues = JSON.parse(localStorage.getItem('pswitchResponse'));
+
+    if (psValues.status == 'Error' || psValues.code == '999') {
+      this.location.back();
+    } else {
+      this.previousRouteService.getPreviousUrl();
+    }
+
   }
 
   topupFormSubmit(form: any): any {
     console.log('formData:  topup >>>>', form);
 
     this.topupParams.recipientNumber = form.recipientNumber;
-    this.topupParams.description = form.description;
+    // this.topupParams.description = form.description;
 
-    if (form.amount <= 10) {
+    if (form.amount < 10) {
       const inputAmount: any = form.amount * 100;
       this.topupParams.amount = "000000000" + inputAmount;
+      localStorage.setItem('tparams', JSON.stringify(this.topupParams));
+
     } else if (form.amount >= 10) {
       const inputAmount: any = form.amount * 100;
       this.topupParams.amount = "00000000" + inputAmount;
+      localStorage.setItem('tparams', JSON.stringify(this.topupParams));
+
     }
-    console.log('topup params =>>', this.topupParams);
-    localStorage.setItem('tparams', JSON.stringify(this.topupParams));
+    console.log('topform params =>>', this.topupParams);
 
     console.log('get payment')
+    $('#recharge').hide('fade');
+
     this.makePayment(this.topupParams);
-    // this.creditCustomerAirtime(this.topupParams);
+      // this.creditCustomerAirtime(this.topupParams);
+    $('#loading').show('slow');
   }
 
   makePayment(mData: any) {
@@ -85,9 +115,10 @@ export class MachineLearningTwoComponent implements OnInit {
       .subscribe(res => {
         console.log(`payment response ==> ${JSON.stringify(res)}`);
         this.checkoutUrl = res.checkout_url;
-        // localStorage.setItem('checkout_url', this.checkoutUrl);
         console.log(`checkoutUrl ==> ${JSON.stringify(this.checkoutUrl)}`);
         if (res.status == 'success' || res.code == 200) {
+          window.location.href = `${this.checkoutUrl}`;
+        } else if(res.status == '999'){
           window.location.href = `${this.checkoutUrl}`;
         }
         this.isLoading = false;
@@ -110,11 +141,11 @@ export class MachineLearningTwoComponent implements OnInit {
         console.log(`airtime credit response ==> ${JSON.stringify(res)}`);
         this.isLoading = false;
       
-        this.router.navigate(['/']);
+        this.router.navigate(['/receipt']);
       }, (err) => {
         console.log(err);
         this.isLoading = false;
-        alert('No topup: ' + err.error);
+        alert('top error:' + JSON.stringify(err.error));
       });
   }
 

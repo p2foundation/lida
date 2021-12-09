@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AirtimeTopupService } from 'src/app/Repository/airtime.service';
+import { AirtimeTopupService } from 'src/app/repository/airtime.service';
 
 @Component({
   selector: 'app-pricing-plan',

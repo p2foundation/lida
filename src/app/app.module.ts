@@ -29,11 +29,13 @@ import { ProjectsComponent } from './components/pages/projects/projects.componen
 import { ProjectDetailsComponent } from './components/pages/project-details/project-details.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { AirtimeTopupService } from './Repository/airtime.service';
-import { PaymentService } from './Repository/payment.service';
+import { AirtimeTopupService } from './repository/airtime.service';
+import { PaymentService } from './repository/payment.service';
 import { ReceiptComponent } from './components/pages/receipt/receipt.component';
 import { AirtimeTopupComponent } from './components/pages/airtime-topup/airtime-topup.component';
 import { BuyDataComponent } from './components/pages/buy-data/buy-data.component';
+import { PreviousRouteService } from './repository/previous.route.service';
+import { TruncatePipe } from './components/pipes/truncate.pipe';
 
 enableProdMode();
 
@@ -66,7 +68,8 @@ enableProdMode();
     ProjectDetailsComponent,
     ReceiptComponent,
     AirtimeTopupComponent,
-    BuyDataComponent
+    BuyDataComponent,
+    TruncatePipe
   ],
   imports: [
     BrowserModule,
@@ -75,7 +78,7 @@ enableProdMode();
     FormsModule,
     ReactiveFormsModule,
   ],
-  providers: [AirtimeTopupService, PaymentService],
+  providers: [AirtimeTopupService, PaymentService, PreviousRouteService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -50,7 +50,7 @@
                 <div class="single-pricing-box active">
                     <div class="pricing-header">
                         <h3>{{airOkResponse.status}}</h3>
-                        <p>{{airOkResponse.message}}</p>
+                        <p>{{airOkResponse.message | truncate: ['56']}}</p>
                     </div>
                     <div class="price">
                         GH¢ {{airOkResponse.balance_before - airOkResponse.balance_after| number : '1.2-2'}} <span></span>

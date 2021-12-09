@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { Location } from '@angular/common';
 import { FormControl, FormGroupDirective, FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
-import { PaymentService } from 'src/app/Repository/payment.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { AirtimeTopupService } from 'src/app/repository/airtime.service';
+import { PaymentService } from 'src/app/repository/payment.service';
+import { PreviousRouteService } from 'src/app/repository/previous.route.service';
+declare let $: any;
 
 @Component({
   selector: 'app-airtime-topup',
@@ -9,10 +13,9 @@ import { PaymentService } from 'src/app/Repository/payment.service';
   styleUrls: ['./airtime-topup.component.scss']
 })
 export class AirtimeTopupComponent implements OnInit {
+  public transType = "Airtime Topup";
 
   airtimeForm: FormGroup;
-
-  public transType = "Airtime Topup";
 
   retailer = '233241603241';
   recipientNumber: number = 0;
@@ -20,36 +23,41 @@ export class AirtimeTopupComponent implements OnInit {
   network = 0;
   description = '';
   email = '';
-
   isLoading = true;
 
-  payParams: any = {
-    merchantId: "TTM-00006115",
-    transId: "",
-    description: "",
-    amount: "",
-    redirectURL: "https://webhook.site/d9743f46-8404-40a9-91b2-2adc4f62f7bf",
-    customerEmail: "hanson.pepra@gmail.com"
-  };
-
+  // payParams: any = {
+  //   merchantId: "TTM-00006115",
+  //   transId: "000000654325",
+  //   description: "Payment Using Checkout Page ",
+  //   amount: "000000000100",
+  //   redirectURL: "http://lidapp.s3-website.us-east-2.amazonaws.com/receipt",
+  //   customerEmail: "info@accesswealth.com"
+  // };
+  
   topupParams: any = {
-    transId: '',
-    recipientNumber: '',
-    description: '',
-    amount: '',
-    redirectURL: 'https://lidapp-ten.vercel.app/receipt',
-    customerEmail: 'hanson.pepra@gmail.com'
+    "recipientNumber": "",
+    "description": "LiDa Live airtime pay",
+    "amount": "",
+    redirectURL: "http://lidapp.s3-website.us-east-2.amazonaws.com/receipt",
+    customerEmail: "support.it@constantcap.com.gh"
   };
 
   public checkoutUrl = '';
+  public pswitchObject: any = {};
 
   constructor(
     private payService: PaymentService,
+    private airtimeService: AirtimeTopupService,
+    private previousRouteService: PreviousRouteService,
     private router: Router,
+    private route: ActivatedRoute,
+    private location: Location,
     private formBuilder: FormBuilder,
   ) { }
 
   ngOnInit() {
+    $('#loading').hide();
+
     this.airtimeForm = this.formBuilder.group({
       retailer: [null, Validators.required],
       recipientNumber: [null, Validators.required],
@@ -58,6 +66,7 @@ export class AirtimeTopupComponent implements OnInit {
       description: [null],
       email: [null, Validators.required]
     });
+
   }
 
 
@@ -65,21 +74,27 @@ export class AirtimeTopupComponent implements OnInit {
     console.log('formData:  topup >>>>', form);
 
     this.topupParams.recipientNumber = form.recipientNumber;
-    this.topupParams.description = form.description;
-    console.log('topup params =>>', this.topupParams);
-
-    localStorage.setItem('topup1', JSON.stringify(this.topupParams));
+    // this.topupParams.description = form.description;
 
     if (form.amount < 10) {
       const inputAmount: any = form.amount * 100;
       this.topupParams.amount = "000000000" + inputAmount;
+      localStorage.setItem('tparams', JSON.stringify(this.topupParams));
 
     } else if (form.amount >= 10) {
       const inputAmount: any = form.amount * 100;
       this.topupParams.amount = "00000000" + inputAmount;
+      localStorage.setItem('tparams', JSON.stringify(this.topupParams));
+
     }
-    console.log('call payment app ...')
+    console.log('topform params =>>', this.topupParams);
+
+    console.log('get payment')
+    $('#recharge').hide('fade');
+
     this.makePayment(this.topupParams);
+      // this.creditCustomerAirtime(this.topupParams);
+    $('#loading').show('slow');
   }
 
   makePayment(mData: any) {
@@ -88,18 +103,36 @@ export class AirtimeTopupComponent implements OnInit {
         console.log(`payment response ==> ${JSON.stringify(res)}`);
         this.checkoutUrl = res.checkout_url;
         console.log(`checkoutUrl ==> ${JSON.stringify(this.checkoutUrl)}`);
-
         if (res.status == 'success' || res.code == 200) {
+          window.location.href = `${this.checkoutUrl}`;
+        } else if(res.status == '999'){
           window.location.href = `${this.checkoutUrl}`;
         }
         this.isLoading = false;
-        this.router.navigate(['/']);
+        // alert('Topup successfully processed.');
+        // this.creditCustomerAirtime(res);
+        // this.router.navigate(['/']);
       }, (err) => {
         console.log(err);
         this.isLoading = false;
         alert('No topup: ' + err.error);
+        // alert(err.error);
         this.router.navigate(['/']);
       });
   }
 
+  creditCustomerAirtime(formData: any) {
+    console.log('AirtimeTopupComponent:  topup >>>>', formData);
+    this.airtimeService.buyAirtimeTopup(formData)
+      .subscribe(res => {
+        console.log(`airtime credit response ==> ${JSON.stringify(res)}`);
+        this.isLoading = false;
+
+        this.router.navigate(['/receipt']);
+      }, (err) => {
+        console.log(err);
+        this.isLoading = false;
+        alert('top error:' + JSON.stringify(err.error));
+      });
+  }
 }

@@ -26,9 +26,9 @@ export class HeaderComponent implements OnInit {
     ) {
         this.router.events
             .subscribe((event) => {
-                if ( event instanceof NavigationEnd ) {
+                if (event instanceof NavigationEnd) {
                     this.location = this.router.url;
-                    if (this.location == '/'){
+                    if (this.location == '/') {
                         // this.navClass = 'navbar-area';
                         // this.navContainer = 'container-fluid';
                         // this.logo = 'assets/img/white-logo.png';
@@ -37,7 +37,15 @@ export class HeaderComponent implements OnInit {
                         this.navContainer = 'container-fluid';
                         this.logo = 'assets/img/black-logo.png';
 
-                    } else if (this.location == '/machine-learning'){
+                    } else if (this.location == '/airtime-topup') {
+                        this.navClass = 'navbar-area navbar-style-three';
+                        this.navContainer = 'container';
+                        this.logo = 'assets/img/black-logo.png';
+                    } else if (this.location == '/buy-data') {
+                        this.navClass = 'navbar-area navbar-style-three';
+                        this.navContainer = 'container';
+                        this.logo = 'assets/img/black-logo.png';
+                    } else if (this.location == '/machine-learning') {
                         this.navClass = 'navbar-area navbar-style-three';
                         this.navContainer = 'container';
                         this.logo = 'assets/img/black-logo.png';

@@ -40,22 +40,37 @@
                                         <input type="text" 
                                                class="form-control" 
                                                formControlName="recipientNumber"
-                                               placeholder="Enter the 10 digit recipient number">
+                                               is-valid
+                                               placeholder="Enter the 10 digit recipient number"
+                                               required>
                                     </div>
                                     <div class="col">
                                         <input type="text" 
                                                class="form-control" 
                                                formControlName="description"
-                                               placeholder="Description (eg Gift)">
+                                               placeholder="Optional description (e.g Daughter)">
                                     </div>
                                     <div class="col">
                                         <input type="number" 
                                                class="form-control" 
                                                formControlName="amount"
-                                               placeholder="Minimum (1.0) & Maximum (50) Amount">
+                                               is-valid
+                                               placeholder="Minimum (1.0) & Maximum (50) Amount"
+                                               required>
                                     </div>
                                 </div>
-                                <button type="submit" class="btn btn-primary btn-sm mt-2">Recharge</button>
+                                <button type="submit" 
+                                        class="btn btn-primary btn-sm mt-2"
+                                        id="recharge">
+                                        Recharge
+                                </button>
+                                <button type="button" 
+                                    disabled
+                                    class="btn btn-primary btn-sm mt-2"
+                                    id="loading">
+                                    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                                    Loading...
+                                </button>
                             </form>
                         </div>
                     </div>

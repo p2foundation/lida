@@ -1,5 +1,5 @@
 <!-- Start Page Title Area -->
-<div class="page-title-area item-bg2">
+<!-- <div class="page-title-area item-bg2">
     <div class="container">
         <div class="page-title-content">
             <h2>Airtime Topup</h2>
@@ -15,54 +15,72 @@
         <div class="line"></div>
         <div class="line"></div>
     </div>
-</div>
+</div> -->
 <!-- End Page Title Area -->
 
 <!-- Start Services Details Area -->
+<br>
 <section class="services-details-area ptb-110">
     <div class="container">
         <div class="services-details-overview">
             <div class="services-details-desc">
-                <h3>Complete the Airtime Crediting Form</h3>
+                <h3>Complete the Airtime Topup Form</h3>
                 <form [formGroup]="airtimeForm" (ngSubmit)="topupFormSubmit(airtimeForm.value)">
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
-                            value="postpaid">
-                        <label class="form-check-label" for="inlineRadio1">Postpaid</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
-                            value="prepaid" checked>
-                        <label class="form-check-label" for="inlineRadio2">Prepaid</label>
-                    </div>
+                  
+                    <!-- <div class="form-floating mb-3">
+                        <select class="form-select" id="floatingSelect" aria-label="Floating label select example" formControlName="network">
+                            <option value="0" selected>Auto</option>
+                            <option value="4">MTN Ghana</option>
+                            <option value="6">Vodafone Ghana</option>
+                            <option value="1">Airtel Ghana</option>
+                            <option value="5">Tigo Ghana</option>
+                            <option value="3">Glo Ghana</option>
+                        </select>
+                        <label for="floatingSelect">Select Network Operator</label>
+                    </div> -->
 
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="floatingInput"
-                        formControlName="recipientNumber" 
-                        placeholder="e.g. 01234567890">
-                        <label for="floatingInput">10 Digit Mobile Number</label>
+                        <input type="text" 
+                               class="form-control" 
+                               id="floatingInput"
+                               formControlName="recipientNumber"
+                               placeholder="e.g. 01234567890">
+                        <label for="recipientNumber">Enter 10 digit mobile number</label>
                     </div>
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control" 
-                        id="floatingDescription" 
-                        formControlName="description"
-                        placeholder="A gift for Mum.">
-                        <label for="floatingDescription">Description</label>
+                        <input type="text" 
+                               class="form-control" 
+                               id="floatingInput" 
+                               formControlName="description"
+                               placeholder="{{topupParams.description}} Mum."
+                               value="{{topupParams.description}}">
+                        <label for="description">Optional description (e.g. Mother)</label>
                     </div>
                     <div class="form-floating">
-                        <input type="number" class="form-control" 
-                        id="floatingInput" 
-                        formControlName="amount"
-                        placeholder="Amount">
-                        <label for="floatingInput">ghs 1-50 Amount </label>
+                        <input type="number" 
+                               class="form-control" 
+                               id="floatingInput" 
+                               formControlName="amount"
+                               placeholder="Amount">
+                        <label for="floatingInput">GH¢ 1 - 50 Amount </label>
                     </div>
 
-                    <button type="submit" class="btn btn-primary btn-sm mt-2">Proceed to Recharge</button>
-
+                    <button type="submit" 
+                            class="btn btn-primary btn-sm mt-2"
+                            id="recharge">
+                            Proceed to Recharge
+                        </button>
+                    <button type="button" 
+                            disabled
+                            class="btn btn-primary btn-sm mt-2"
+                            id="loading">
+                            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                            Loading...
+                        </button>
                 </form><br>
-
-                <p>Took a galley of type and scrambled it to make a type specimen book. survived not only five
-                    centuries, but also the leap into electronic remaining.
+                <p>
+                    Topup and be rewarded with royalty points on this app. 
+                    Points can be redeemed in form of Cash, Airtime, Data, Fuel, Bill Payment, Free Travel and many more...
                 </p>
             </div>
 

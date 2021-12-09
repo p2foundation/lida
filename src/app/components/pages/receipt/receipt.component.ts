@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { AirtimeTopupService } from 'src/app/Repository/airtime.service';
+import { AirtimeTopupService } from 'src/app/repository/airtime.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -14,15 +14,15 @@ export class ReceiptComponent implements OnInit {
 
   public paramsObject: any = {};
   public topupValues: any = {};
-  public airOkResponse: any = { 
-    "status": "", 
-    "message": "", 
-    "trxn": "", 
-    "status_code": "", 
-    "local_trxn_code": "", 
-    "balance_before": "", 
-    "balance_after": '', 
-    "network": "" 
+  public airOkResponse: any = {
+    "status": "",
+    "message": "",
+    "trxn": "",
+    "status_code": "",
+    "local_trxn_code": "",
+    "balance_before": "",
+    "balance_after": '',
+    "network": ""
   }
 
   public payResponse: any = {
@@ -70,7 +70,20 @@ export class ReceiptComponent implements OnInit {
       } else if (tval2 != null || tval2 != '') {
         this.creditCustomerAirtime(tval2);
       }
+    } else if (payValues.status == 'cancelled' || payValues.code == '900') {
+      // if (tval != null || tval != '') {
+      //   this.creditCustomerAirtime(tval);
+      // } else if (tval2 != null || tval2 != '') {
+      //   this.creditCustomerAirtime(tval2);
+      // }
+      this.airOkResponse.status = payValues.code;
+      this.airOkResponse.message = payValues.status;
+      this.airOkResponse.trxn = payValues.transaction_id;
+      this.router.navigate(['receipt']);
     } else {
+      this.airOkResponse.status = payValues.code;
+      this.airOkResponse.message = payValues.status;
+      this.airOkResponse.trxn = payValues.transaction_id;
       this.router.navigate(['receipt']);
     }
 
@@ -84,9 +97,14 @@ export class ReceiptComponent implements OnInit {
         this.airOkResponse.status = res.status;
         this.airOkResponse.message = res.message;
         this.airOkResponse.trxn = res.trxn;
+        this.airOkResponse.local_trxn_code = res['local_trxn-code'];
         this.airOkResponse.network = res.network;
-        // this.airOkResponse.local_trxn_code = res['local_trxn-code'];
+        this.airOkResponse.balance_before = res.balance_before;
+        this.airOkResponse.balance_after = res.balance_after;
         this.isLoading = false;
+
+        // window.localStorage.removeItem('tparams');
+        // window.localStorage.removeItem('topup1');
         this.router.navigate(['receipt']);
       }, (err) => {
         console.log(err);
@@ -102,6 +120,7 @@ export class ReceiptComponent implements OnInit {
 
   goToDashboard(): void {
     window.localStorage.removeItem('tparams');
+    window.localStorage.removeItem('topup1');
     this.router.navigate(['dashboard']);
   }
 
