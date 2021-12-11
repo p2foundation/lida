@@ -43,6 +43,7 @@ export class MachineLearningTwoComponent implements OnInit {
 
   public checkoutUrl = '';
   public pswitchObject: any = {};
+  public labelResponse = '';
 
   constructor(
     private airtimeService: AirtimeTopupService,
@@ -98,15 +99,17 @@ export class MachineLearningTwoComponent implements OnInit {
       const inputAmount: any = form.amount * 100;
       this.topupParams.amount = "00000000" + inputAmount;
       localStorage.setItem('tparams', JSON.stringify(this.topupParams));
-
     }
+
     console.log('topform params =>>', this.topupParams);
 
     console.log('get payment')
     $('#recharge').hide('fade');
 
     this.makePayment(this.topupParams);
+
       // this.creditCustomerAirtime(this.topupParams);
+
     $('#loading').show('slow');
   }
 
@@ -116,6 +119,7 @@ export class MachineLearningTwoComponent implements OnInit {
         console.log(`payment response ==> ${JSON.stringify(res)}`);
         this.checkoutUrl = res.checkout_url;
         console.log(`checkoutUrl ==> ${JSON.stringify(this.checkoutUrl)}`);
+        
         if (res.status == 'success' || res.code == 200) {
           window.location.href = `${this.checkoutUrl}`;
         } else if(res.status == '999'){

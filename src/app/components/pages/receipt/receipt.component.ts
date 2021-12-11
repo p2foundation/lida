@@ -14,6 +14,7 @@ export class ReceiptComponent implements OnInit {
 
   public paramsObject: any = {};
   public topupValues: any = {};
+  
   public airOkResponse: any = {
     "status": "",
     "message": "",
