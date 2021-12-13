@@ -7,11 +7,14 @@ Default CSS
 $main-font-family: 'Ubuntu', sans-serif;
 // $optional-font-family: 'Dosis', sans-serif;
 $optional-font-family: 'Comfortaa', sans-serif;
-$main-color: #ff4800;
+// $main-color: #ff4800;
+$main-color:#FD0052;
 $optional-color: #4ac728;
 $white-color: #ffffff;
 $black-color: #333333;
 $paragraph-color: #57647c;
+$color-accent: #FD0052;
+$indigo-color: #37005E;
 $font-size: 14px;
 $transition: .5s;
 
@@ -38,7 +41,7 @@ button {
     outline: 0 !important;
 }
 .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
-    color: $black-color;
+    color: $indigo-color;
     font: {
         family: $optional-font-family;
     }
@@ -644,7 +647,7 @@ Navbar Area CSS
                 .navbar-nav {
                     .nav-item {
                         a {
-                            color: $black-color;
+                            color: $indigo-color;
 
                             &:hover, &:focus, &.active {
                                 color: $main-color;
@@ -658,7 +661,7 @@ Navbar Area CSS
                         .dropdown-menu {
                             li {
                                 a {
-                                    color: $black-color;
+                                    color: $indigo-color;
 
                                     &:hover, &:focus, &.active {
                                         color: $main-color;
@@ -667,7 +670,7 @@ Navbar Area CSS
                                 .dropdown-menu {
                                     li {
                                         a {
-                                            color: $black-color;
+                                            color: $indigo-color;
 
                                             &:hover, &:focus, &.active {
                                                 color: $main-color;
@@ -676,7 +679,7 @@ Navbar Area CSS
                                         .dropdown-menu {
                                             li {
                                                 a {
-                                                    color: $black-color;
+                                                    color: $indigo-color;
 
                                                     &:hover, &:focus, &.active {
                                                         color: $main-color;
@@ -685,7 +688,7 @@ Navbar Area CSS
                                                 .dropdown-menu {
                                                     li {
                                                         a {
-                                                            color: $black-color;
+                                                            color: $indigo-color;
 
                                                             &:hover, &:focus, &.active {
                                                                 color: $main-color;
@@ -694,7 +697,7 @@ Navbar Area CSS
                                                         .dropdown-menu {
                                                             li {
                                                                 a {
-                                                                    color: $black-color;
+                                                                    color: $indigo-color;
 
                                                                     &:hover, &:focus, &.active {
                                                                         color: $main-color;
@@ -703,7 +706,7 @@ Navbar Area CSS
                                                                 .dropdown-menu {
                                                                     li {
                                                                         a {
-                                                                            color: $black-color;
+                                                                            color: $indigo-color;
 
                                                                             &:hover, &:focus, &.active {
                                                                                 color: $main-color;
@@ -712,7 +715,7 @@ Navbar Area CSS
                                                                         .dropdown-menu {
                                                                             li {
                                                                                 a {
-                                                                                    color: $black-color;
+                                                                                    color: $indigo-color;
 
                                                                                     &:hover, &:focus, &.active {
                                                                                         color: $main-color;
@@ -766,7 +769,7 @@ Navbar Area CSS
                 }
                 .others-options {
                     .cart-btn {
-                        color: $black-color;
+                        color: $indigo-color;
 
                         &:hover {
                             color: $main-color;
@@ -782,17 +785,17 @@ Navbar Area CSS
                         }
                     }
                     .option-item {
-                        color: $black-color;
+                        color: $indigo-color;
 
                         .search-btn {
-                            color: $black-color;
+                            color: $indigo-color;
 
                             &:hover {
                                 color: $main-color;
                             }
                         }
                         .close-btn {
-                            color: $black-color;
+                            color: $indigo-color;
 
                             &:hover {
                                 color: $main-color;
@@ -896,7 +899,7 @@ Navbar Area CSS
             .navbar-nav {
                 .nav-item {
                     a {
-                        color: $black-color;
+                        color: $indigo-color;
 
                         &:hover, &:focus, &.active {
                             color: $main-color;
@@ -908,7 +911,7 @@ Navbar Area CSS
                     .dropdown-menu {
                         li {
                             a {
-                                color: $black-color;
+                                color: $indigo-color;
 
                                 &:hover, &:focus, &.active {
                                     color: $main-color;
@@ -917,7 +920,7 @@ Navbar Area CSS
                             .dropdown-menu {
                                 li {
                                     a {
-                                        color: $black-color;
+                                        color: $indigo-color;
 
                                         &:hover, &:focus, &.active {
                                             color: $main-color;
@@ -926,7 +929,7 @@ Navbar Area CSS
                                     .dropdown-menu {
                                         li {
                                             a {
-                                                color: $black-color;
+                                                color: $indigo-color;
                                                 text-transform: capitalize;
 
                                                 &:hover, &:focus, &.active {
@@ -936,7 +939,7 @@ Navbar Area CSS
                                             .dropdown-menu {
                                                 li {
                                                     a {
-                                                        color: $black-color;
+                                                        color: $indigo-color;
 
                                                         &:hover, &:focus, &.active {
                                                             color: $main-color;
@@ -945,7 +948,7 @@ Navbar Area CSS
                                                     .dropdown-menu {
                                                         li {
                                                             a {
-                                                                color: $black-color;
+                                                                color: $indigo-color;
 
                                                                 &:hover, &:focus, &.active {
                                                                     color: $main-color;
@@ -954,7 +957,7 @@ Navbar Area CSS
                                                             .dropdown-menu {
                                                                 li {
                                                                     a {
-                                                                        color: $black-color;
+                                                                        color: $indigo-color;
 
                                                                         &:hover, &:focus, &.active {
                                                                             color: $main-color;
@@ -963,7 +966,7 @@ Navbar Area CSS
                                                                     .dropdown-menu {
                                                                         li {
                                                                             a {
-                                                                                color: $black-color;
+                                                                                color: $indigo-color;
 
                                                                                 &:hover, &:focus, &.active {
                                                                                     color: $main-color;
@@ -1017,24 +1020,24 @@ Navbar Area CSS
             }
             .others-options {
                 .cart-btn {
-                    color: $black-color;
+                    color: $indigo-color;
 
                     &:hover {
                         color: $main-color;
                     }
                 }
                 .option-item {
-                    color: $black-color;
+                    color: $indigo-color;
 
                     .search-btn {
-                        color: $black-color;
+                        color: $indigo-color;
 
                         &:hover {
                             color: $main-color;
                         }
                     }
                     .close-btn {
-                        color: $black-color;
+                        color: $indigo-color;
 
                         &:hover {
                             color: $main-color;
@@ -1060,7 +1063,7 @@ Navbar Area CSS
             .navbar-nav {
                 .nav-item {
                     a {
-                        color: $black-color;
+                        color: $indigo-color;
 
                         &:hover, &:focus, &.active {
                             color: $main-color;
@@ -1072,7 +1075,7 @@ Navbar Area CSS
                     .dropdown-menu {
                         li {
                             a {
-                                color: $black-color;
+                                color: $indigo-color;
 
                                 &:hover, &:focus, &.active {
                                     color: $main-color;
@@ -1081,7 +1084,7 @@ Navbar Area CSS
                             .dropdown-menu {
                                 li {
                                     a {
-                                        color: $black-color;
+                                        color: $indigo-color;
 
                                         &:hover, &:focus, &.active {
                                             color: $main-color;
@@ -1090,7 +1093,7 @@ Navbar Area CSS
                                     .dropdown-menu {
                                         li {
                                             a {
-                                                color: $black-color;
+                                                color: $indigo-color;
                                                 text-transform: capitalize;
 
                                                 &:hover, &:focus, &.active {
@@ -1100,7 +1103,7 @@ Navbar Area CSS
                                             .dropdown-menu {
                                                 li {
                                                     a {
-                                                        color: $black-color;
+                                                        color: $indigo-color;
 
                                                         &:hover, &:focus, &.active {
                                                             color: $main-color;
@@ -1109,7 +1112,7 @@ Navbar Area CSS
                                                     .dropdown-menu {
                                                         li {
                                                             a {
-                                                                color: $black-color;
+                                                                color: $indigo-color;
 
                                                                 &:hover, &:focus, &.active {
                                                                     color: $main-color;
@@ -1118,7 +1121,7 @@ Navbar Area CSS
                                                             .dropdown-menu {
                                                                 li {
                                                                     a {
-                                                                        color: $black-color;
+                                                                        color: $indigo-color;
 
                                                                         &:hover, &:focus, &.active {
                                                                             color: $main-color;
@@ -1127,7 +1130,7 @@ Navbar Area CSS
                                                                     .dropdown-menu {
                                                                         li {
                                                                             a {
-                                                                                color: $black-color;
+                                                                                color: $indigo-color;
 
                                                                                 &:hover, &:focus, &.active {
                                                                                     color: $main-color;
@@ -1181,24 +1184,24 @@ Navbar Area CSS
             }
             .others-options {
                 .cart-btn {
-                    color: $black-color;
+                    color: $indigo-color;
 
                     &:hover {
                         color: $main-color;
                     }
                 }
                 .option-item {
-                    color: $black-color;
+                    color: $indigo-color;
 
                     .search-btn {
-                        color: $black-color;
+                        color: $indigo-color;
 
                         &:hover {
                             color: $main-color;
                         }
                     }
                     .close-btn {
-                        color: $black-color;
+                        color: $indigo-color;
 
                         &:hover {
                             color: $main-color;
@@ -1337,8 +1340,8 @@ Navbar Area CSS
         .kirin-nav {
             .navbar-light {
                 .navbar-toggler {
-                    color: $black-color;
-                    border-color: $black-color;
+                    color: $indigo-color;
+                    border-color: $indigo-color;
 
                     .navbar-toggler-icon {
                         background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0, 0, 0, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
@@ -1365,8 +1368,8 @@ Navbar Area CSS
     .kirin-nav {
         .navbar-light {
             .navbar-toggler {
-                color: $black-color;
-                border-color: $black-color;
+                color: $indigo-color;
+                border-color: $indigo-color;
 
                 .navbar-toggler-icon {
                     background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0, 0, 0, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
@@ -1379,8 +1382,8 @@ Navbar Area CSS
     .kirin-nav {
         .navbar-light {
             .navbar-toggler {
-                color: $black-color;
-                border-color: $black-color;
+                color: $indigo-color;
+                border-color: $indigo-color;
 
                 .navbar-toggler-icon {
                     background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0, 0, 0, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
