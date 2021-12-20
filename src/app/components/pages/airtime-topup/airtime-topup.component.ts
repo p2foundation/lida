@@ -36,7 +36,7 @@ export class AirtimeTopupComponent implements OnInit {
   
   topupParams: any = {
     "recipientNumber": "",
-    "description": "LiDa Live airtime pay",
+    "description": "",
     "amount": "",
     redirectURL: "http://lidapp.s3-website.us-east-2.amazonaws.com/receipt",
     customerEmail: "support.it@constantcap.com.gh"
@@ -56,8 +56,10 @@ export class AirtimeTopupComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    $('#loading').hide();
+    
+    $('#loading').hide(); // hide loading button
 
+    // airtime-topup page formBuild
     this.airtimeForm = this.formBuilder.group({
       retailer: [null, Validators.required],
       recipientNumber: [null, Validators.required],
@@ -69,32 +71,32 @@ export class AirtimeTopupComponent implements OnInit {
 
   }
 
-
+  // form onSubmit
   topupFormSubmit(form: any): any {
-    console.log('formData:  topup >>>>', form);
+    console.log('topup formData:  >>>>', form);
 
     this.topupParams.recipientNumber = form.recipientNumber;
-    // this.topupParams.description = form.description;
+    this.topupParams.description = 'to ' +form.recipientNumber;
 
+    // calculate amountPaid with  12 digits
     if (form.amount < 10) {
       const inputAmount: any = form.amount * 100;
       this.topupParams.amount = "000000000" + inputAmount;
       localStorage.setItem('tparams', JSON.stringify(this.topupParams));
-
     } else if (form.amount >= 10) {
       const inputAmount: any = form.amount * 100;
       this.topupParams.amount = "00000000" + inputAmount;
       localStorage.setItem('tparams', JSON.stringify(this.topupParams));
-
     }
+
     console.log('topform params =>>', this.topupParams);
 
-    console.log('get payment')
-    $('#recharge').hide('fade');
+    $('#recharge').hide('fade'); // hide submit button
 
-    this.makePayment(this.topupParams);
+    console.log('post to payment ...')
+      this.makePayment(this.topupParams); 
       // this.creditCustomerAirtime(this.topupParams);
-    $('#loading').show('slow');
+    $('#loading').show('slow'); // show Loading button
   }
 
   makePayment(mData: any) {
@@ -105,7 +107,7 @@ export class AirtimeTopupComponent implements OnInit {
         console.log(`checkoutUrl ==> ${JSON.stringify(this.checkoutUrl)}`);
         if (res.status == 'success' || res.code == 200) {
           window.location.href = `${this.checkoutUrl}`;
-        } else if(res.status == '999'){
+        } else if(res.code == '999'){
           window.location.href = `${this.checkoutUrl}`;
         }
         this.isLoading = false;

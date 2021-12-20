@@ -16,14 +16,15 @@ export class ReceiptComponent implements OnInit {
   public topupValues: any = {};
   
   public airOkResponse: any = {
-    "status": "",
-    "message": "",
-    "trxn": "",
-    "status_code": "",
-    "local_trxn_code": "",
-    "balance_before": "",
-    "balance_after": '',
-    "network": ""
+    status: '',
+    message: '',
+    trxn: '',
+    status_code: '',
+    local_trxn_code: '',
+    balance_before: '',
+    balance_after: '',
+    network: '',
+    price: ''
   }
 
   public payResponse: any = {
@@ -44,24 +45,21 @@ export class ReceiptComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private airtimeService: AirtimeTopupService
-  ) {
-    const tval = JSON.parse(localStorage.getItem('topup1'));
-    console.log("topup val from localstorage >>> ", tval);
-  }
+  ) { }
 
   ngOnInit() {
+    //query params from Payswitch
     this.route.queryParamMap
       .subscribe((params) => {
         this.paramsObject = { ...params.keys, ...params };
         console.log('paramsObject ==>', this.paramsObject);
         localStorage.setItem('payRes', JSON.stringify(this.paramsObject.params));
       });
-
     let payValues = JSON.parse(localStorage.getItem('payRes'));
 
+    //get saved topup form data
     const tval = JSON.parse(localStorage.getItem('tparams'));
     const tval2 = JSON.parse(localStorage.getItem('topup1'));
-
     console.log("tval from localstorage >>> ", tval);
     console.log("tval2 val from localstorage >>> ", tval2);
 
@@ -72,20 +70,22 @@ export class ReceiptComponent implements OnInit {
         this.creditCustomerAirtime(tval2);
       }
     } else if (payValues.status == 'cancelled' || payValues.code == '900') {
+
       // if (tval != null || tval != '') {
       //   this.creditCustomerAirtime(tval);
       // } else if (tval2 != null || tval2 != '') {
       //   this.creditCustomerAirtime(tval2);
       // }
+
       this.airOkResponse.status = payValues.code;
-      this.airOkResponse.message = payValues.status;
+      this.airOkResponse.message = payValues.message;
       this.airOkResponse.trxn = payValues.transaction_id;
       this.router.navigate(['receipt']);
     } else {
       this.airOkResponse.status = payValues.code;
-      this.airOkResponse.message = payValues.status;
+      this.airOkResponse.message = payValues.message;
       this.airOkResponse.trxn = payValues.transaction_id;
-      this.router.navigate(['receipt']);
+      this.router.navigate(['receipt']) ;
     }
 
   }
@@ -102,6 +102,8 @@ export class ReceiptComponent implements OnInit {
         this.airOkResponse.network = res.network;
         this.airOkResponse.balance_before = res.balance_before;
         this.airOkResponse.balance_after = res.balance_after;
+        
+        this.airOkResponse.price  = '';
         this.isLoading = false;
 
         // window.localStorage.removeItem('tparams');
@@ -117,12 +119,14 @@ export class ReceiptComponent implements OnInit {
 
   OnPrint() {
     window.print();
+    window.localStorage.removeItem('tparams');
+    window.localStorage.removeItem('topup1');
   }
 
   goToDashboard(): void {
     window.localStorage.removeItem('tparams');
     window.localStorage.removeItem('topup1');
-    this.router.navigate(['dashboard']);
+    this.router.navigate(['/']);
   }
 
 }

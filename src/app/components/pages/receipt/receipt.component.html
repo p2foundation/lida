@@ -50,11 +50,11 @@
                 <div class="single-pricing-box active">
                     <div class="pricing-header">
                         <h3>{{airOkResponse.status}}</h3>
-                        <p>{{airOkResponse.message | truncate: ['56']}}</p>
+                        <h4>{{airOkResponse.message | truncate: ['56']}}</h4>
                     </div>
-                    <div class="price">
+                    <!-- <div class="price">
                         GH¢ {{airOkResponse.balance_before - airOkResponse.balance_after| number : '1.2-2'}} <span></span>
-                    </div>
+                    </div> -->
                     <div class="card">
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item">Network: {{airOkResponse.network}}</li>

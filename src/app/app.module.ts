@@ -36,6 +36,7 @@ import { AirtimeTopupComponent } from './components/pages/airtime-topup/airtime-
 import { BuyDataComponent } from './components/pages/buy-data/buy-data.component';
 import { PreviousRouteService } from './repository/previous.route.service';
 import { TruncatePipe } from './components/pipes/truncate.pipe';
+import { DataService } from './repository/data.service';
 
 enableProdMode();
 
@@ -78,7 +79,12 @@ enableProdMode();
     FormsModule,
     ReactiveFormsModule,
   ],
-  providers: [AirtimeTopupService, PaymentService, PreviousRouteService],
+  providers: [
+    AirtimeTopupService, 
+    PaymentService, 
+    PreviousRouteService,
+    DataService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
