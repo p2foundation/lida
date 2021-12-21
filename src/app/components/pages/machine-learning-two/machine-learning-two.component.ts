@@ -36,10 +36,10 @@ export class MachineLearningTwoComponent implements OnInit {
   
   topupParams: any = {
     recipientNumber: '',
-    'description': "airtime credit",
+    'description': 'AIRTIME TOPUP',
     'amount': '',
-    redirectURL: "http://lidapp.s3-website.us-east-2.amazonaws.com/receipt",
-    customerEmail: "info@constantcap.com.gh"
+    redirectURL: 'http://lidapp.s3-website.us-east-2.amazonaws.com/receipt',
+    customerEmail: 'info@constantcap.com.gh'
   };
 
   public checkoutUrl = '';
@@ -74,7 +74,7 @@ export class MachineLearningTwoComponent implements OnInit {
     console.log('formData:  topup >>>>', form);
 
     this.topupParams.recipientNumber = form.recipientNumber;
-    this.topupParams.description = 'to '+form.recipientNumber;
+    this.topupParams.description = ''+form.recipientNumber;
 
     if (form.amount < 10) {
       const inputAmount: any = form.amount * 100;

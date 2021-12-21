@@ -37,6 +37,7 @@ import { BuyDataComponent } from './components/pages/buy-data/buy-data.component
 import { PreviousRouteService } from './repository/previous.route.service';
 import { TruncatePipe } from './components/pipes/truncate.pipe';
 import { DataService } from './repository/data.service';
+import { InternetDataService } from './repository/internet.data.service';
 
 enableProdMode();
 
@@ -83,7 +84,8 @@ enableProdMode();
     AirtimeTopupService, 
     PaymentService, 
     PreviousRouteService,
-    DataService
+    DataService,
+    InternetDataService,
   ],
   bootstrap: [AppComponent]
 })

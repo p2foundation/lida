@@ -20,47 +20,57 @@
 
 <!-- Start Services Details Area -->
 <br>
-<section class="services-details-area ptb-110">
-    <div class="container">
+    <section class="services-details-area ptb-110"> <div class="container">
         <div class="services-details-overview">
-         
+
             <div class="services-details-desc">
                 <h3>Make Internet Data Payment</h3>
-         
-                <form>
+
+                <form  [formGroup]="internetForm" (ngSubmit)="onSubmit(internetForm.value)">
+                    <div class="form-floating mb-3">
+                        <select class="form-select" id="network" aria-label="network" formControlName="network">
+                            <option selected>Select Network</option>
+                            <option value="0">Auto Detect</option>
+                            <option value="4">MTN Ghana</option>
+                            <option value="6">Vodafone Ghana</option>
+                            <option value="3">Glo Ghana</option>
+                        </select>
+                        <label for="network">Network Operators</label>
+                    </div>
 
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="floatingInput" placeholder="e.g. 01234567890">
-                        <label for="floatingInput">Account Number</label>
+                        <input type="text" 
+                               class="form-control" 
+                               id="recipientNumber" 
+                               placeholder="e.g. 0123456789"
+                               formControlName="recipientNumber">
+                        <label for="recipientNumber">Recipient Account Number</label>
                     </div>
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="floatingDescription" placeholder="A gift for Mum.">
-                        <label for="floatingDescription">Description</label>
-                    </div>
-                    <div class="form-floating mb-3">
-                        <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
-                          <option selected>Select amount with packages</option>
-                          <option value="1">GHS 250 - 225 GB for 30days</option>
-                          <option value="2">GHS 125 - 45 GB for 30days</option>
-                          <option value="3">GHS 40 - 10 GB for 30days</option>
+                        <select class="form-select" id="dataCode" aria-label="dataCode" formControlName="dataCode">
+                            <option selected>Select amount with packages</option>
+                            <option value="10">GHS 250 - 225 GB for 30days</option>
+                            <option value="20">GHS 125 - 45 GB for 30days</option>
+                            <option value="30">GHS 40 - 10 GB for 30days</option>
                         </select>
-                        <label for="floatingSelect">Data Package</label>
-                      </div>
-                    <div class="form-floating" hidden>
-                        <input type="number" class="form-control" id="floatingInput" placeholder="Amount">
-                        <label for="floatingInput">ghs 1-50 Amount </label>
+                        <label for="dataCode">Data Bundles</label>
                     </div>
+                    <!-- <div class="form-floating" hidden>
+                        <input type="number" class="form-control" id="floatingInput" placeholder="Amount">
+                        <label for="floatingInput">ghs 1-50 Amount
+                        </label>
+                    </div> -->
 
                     <button type="submit" class="btn btn-primary btn-sm mt-2">Proceed to Pay</button>
 
                 </form><br><br>
 
                 <!-- <p>Took a galley of type and scrambled it to make a type specimen book. survived not only five
-                    centuries, but also the leap into electronic remaining. Lorem Ipsum is simply dummied text of the
-                    printing and typesetting industry.
-                </p> -->
+                                    centuries, but also the leap into electronic remaining. Lorem Ipsum is simply dummied text of the
+                                    printing and typesetting industry.
+                                </p> -->
             </div>
-            
+
             <div class="services-details-image wow fadeInUp">
                 <img src="assets/img/services-details/services-details1.jpg" alt="image">
             </div>

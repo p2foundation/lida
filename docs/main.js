@@ -185,8 +185,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "AppModule": () => (/* binding */ AppModule)
 /* harmony export */ });
-/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! @angular/platform-browser */ 6219);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! @angular/core */ 4001);
+/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! @angular/platform-browser */ 6219);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! @angular/core */ 4001);
 /* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./app-routing.module */ 3696);
 /* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./app.component */ 2050);
 /* harmony import */ var _components_layout_header_header_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/layout/header/header.component */ 3259);
@@ -213,8 +213,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_pages_machine_learning_two_machine_learning_two_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./components/pages/machine-learning-two/machine-learning-two.component */ 2287);
 /* harmony import */ var _components_pages_projects_projects_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./components/pages/projects/projects.component */ 2872);
 /* harmony import */ var _components_pages_project_details_project_details_component__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./components/pages/project-details/project-details.component */ 2896);
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! @angular/common/http */ 3981);
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! @angular/forms */ 8346);
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! @angular/common/http */ 3981);
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__(/*! @angular/forms */ 8346);
 /* harmony import */ var _repository_airtime_service__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./repository/airtime.service */ 8488);
 /* harmony import */ var _repository_payment_service__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./repository/payment.service */ 7582);
 /* harmony import */ var _components_pages_receipt_receipt_component__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./components/pages/receipt/receipt.component */ 2657);
@@ -222,6 +222,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_pages_buy_data_buy_data_component__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./components/pages/buy-data/buy-data.component */ 2133);
 /* harmony import */ var _repository_previous_route_service__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./repository/previous.route.service */ 3497);
 /* harmony import */ var _components_pipes_truncate_pipe__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ./components/pipes/truncate.pipe */ 2719);
+/* harmony import */ var _repository_data_service__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ./repository/data.service */ 7562);
+/* harmony import */ var _repository_internet_data_service__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! ./repository/internet.data.service */ 4689);
 
 
 
@@ -260,19 +262,27 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-(0,_angular_core__WEBPACK_IMPORTED_MODULE_33__.enableProdMode)();
+
+
+(0,_angular_core__WEBPACK_IMPORTED_MODULE_35__.enableProdMode)();
 class AppModule {
 }
 AppModule.ɵfac = function AppModule_Factory(t) { return new (t || AppModule)(); };
-AppModule.ɵmod = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_33__["ɵɵdefineNgModule"]({ type: AppModule, bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_1__.AppComponent] });
-AppModule.ɵinj = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_33__["ɵɵdefineInjector"]({ providers: [_repository_airtime_service__WEBPACK_IMPORTED_MODULE_26__.AirtimeTopupService, _repository_payment_service__WEBPACK_IMPORTED_MODULE_27__.PaymentService, _repository_previous_route_service__WEBPACK_IMPORTED_MODULE_31__.PreviousRouteService], imports: [[
-            _angular_platform_browser__WEBPACK_IMPORTED_MODULE_34__.BrowserModule,
+AppModule.ɵmod = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_35__["ɵɵdefineNgModule"]({ type: AppModule, bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_1__.AppComponent] });
+AppModule.ɵinj = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_35__["ɵɵdefineInjector"]({ providers: [
+        _repository_airtime_service__WEBPACK_IMPORTED_MODULE_26__.AirtimeTopupService,
+        _repository_payment_service__WEBPACK_IMPORTED_MODULE_27__.PaymentService,
+        _repository_previous_route_service__WEBPACK_IMPORTED_MODULE_31__.PreviousRouteService,
+        _repository_data_service__WEBPACK_IMPORTED_MODULE_33__.DataService,
+        _repository_internet_data_service__WEBPACK_IMPORTED_MODULE_34__.InternetDataService,
+    ], imports: [[
+            _angular_platform_browser__WEBPACK_IMPORTED_MODULE_36__.BrowserModule,
             _app_routing_module__WEBPACK_IMPORTED_MODULE_0__.AppRoutingModule,
-            _angular_common_http__WEBPACK_IMPORTED_MODULE_35__.HttpClientModule,
-            _angular_forms__WEBPACK_IMPORTED_MODULE_36__.FormsModule,
-            _angular_forms__WEBPACK_IMPORTED_MODULE_36__.ReactiveFormsModule,
+            _angular_common_http__WEBPACK_IMPORTED_MODULE_37__.HttpClientModule,
+            _angular_forms__WEBPACK_IMPORTED_MODULE_38__.FormsModule,
+            _angular_forms__WEBPACK_IMPORTED_MODULE_38__.ReactiveFormsModule,
         ]] });
-(function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_33__["ɵɵsetNgModuleScope"](AppModule, { declarations: [_app_component__WEBPACK_IMPORTED_MODULE_1__.AppComponent,
+(function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_35__["ɵɵsetNgModuleScope"](AppModule, { declarations: [_app_component__WEBPACK_IMPORTED_MODULE_1__.AppComponent,
         _components_layout_header_header_component__WEBPACK_IMPORTED_MODULE_2__.HeaderComponent,
         _components_layout_footer_footer_component__WEBPACK_IMPORTED_MODULE_3__.FooterComponent,
         _components_pages_home_home_component__WEBPACK_IMPORTED_MODULE_4__.HomeComponent,
@@ -300,11 +310,11 @@ AppModule.ɵinj = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_33__["ɵ�
         _components_pages_receipt_receipt_component__WEBPACK_IMPORTED_MODULE_28__.ReceiptComponent,
         _components_pages_airtime_topup_airtime_topup_component__WEBPACK_IMPORTED_MODULE_29__.AirtimeTopupComponent,
         _components_pages_buy_data_buy_data_component__WEBPACK_IMPORTED_MODULE_30__.BuyDataComponent,
-        _components_pipes_truncate_pipe__WEBPACK_IMPORTED_MODULE_32__.TruncatePipe], imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_34__.BrowserModule,
+        _components_pipes_truncate_pipe__WEBPACK_IMPORTED_MODULE_32__.TruncatePipe], imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_36__.BrowserModule,
         _app_routing_module__WEBPACK_IMPORTED_MODULE_0__.AppRoutingModule,
-        _angular_common_http__WEBPACK_IMPORTED_MODULE_35__.HttpClientModule,
-        _angular_forms__WEBPACK_IMPORTED_MODULE_36__.FormsModule,
-        _angular_forms__WEBPACK_IMPORTED_MODULE_36__.ReactiveFormsModule] }); })();
+        _angular_common_http__WEBPACK_IMPORTED_MODULE_37__.HttpClientModule,
+        _angular_forms__WEBPACK_IMPORTED_MODULE_38__.FormsModule,
+        _angular_forms__WEBPACK_IMPORTED_MODULE_38__.ReactiveFormsModule] }); })();
 
 
 /***/ }),
@@ -1142,9 +1152,9 @@ class AirtimeTopupComponent {
             "description": "",
             "amount": "",
             redirectURL: "http://lidapp.s3-website.us-east-2.amazonaws.com/receipt",
-            customerEmail: "support.it@constantcap.com.gh"
+            customerEmail: "info@constantcap.com.gh"
         };
-        this.checkoutUrl = '';
+        this.checkoutURL = '';
         this.pswitchObject = {};
     }
     ngOnInit() {
@@ -1156,14 +1166,14 @@ class AirtimeTopupComponent {
             amount: [null, _angular_forms__WEBPACK_IMPORTED_MODULE_3__.Validators.required],
             network: [null],
             description: [null],
-            email: [null, _angular_forms__WEBPACK_IMPORTED_MODULE_3__.Validators.required]
+            email: [null]
         });
     }
     // form onSubmit
     topupFormSubmit(form) {
         console.log('topup formData:  >>>>', form);
         this.topupParams.recipientNumber = form.recipientNumber;
-        this.topupParams.description = 'to ' + form.recipientNumber;
+        this.topupParams.description = '' + form.recipientNumber;
         // calculate amountPaid with  12 digits
         if (form.amount < 10) {
             const inputAmount = form.amount * 100;
@@ -1186,13 +1196,13 @@ class AirtimeTopupComponent {
         this.payService.makePayment(mData)
             .subscribe(res => {
             console.log(`payment response ==> ${JSON.stringify(res)}`);
-            this.checkoutUrl = res.checkout_url;
-            console.log(`checkoutUrl ==> ${JSON.stringify(this.checkoutUrl)}`);
+            this.checkoutURL = res.checkout_url;
+            console.log(`checkoutUrl ==> ${JSON.stringify(this.checkoutURL)}`);
             if (res.status == 'success' || res.code == 200) {
-                window.location.href = `${this.checkoutUrl}`;
+                window.location.href = `${this.checkoutURL}`;
             }
             else if (res.code == '999') {
-                window.location.href = `${this.checkoutUrl}`;
+                window.location.href = `${this.checkoutURL}`;
             }
             this.isLoading = false;
             // alert('Topup successfully processed.');
@@ -1221,7 +1231,7 @@ class AirtimeTopupComponent {
     }
 }
 AirtimeTopupComponent.ɵfac = function AirtimeTopupComponent_Factory(t) { return new (t || AirtimeTopupComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵdirectiveInject"](src_app_repository_payment_service__WEBPACK_IMPORTED_MODULE_0__.PaymentService), _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵdirectiveInject"](src_app_repository_airtime_service__WEBPACK_IMPORTED_MODULE_1__.AirtimeTopupService), _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵdirectiveInject"](src_app_repository_previous_route_service__WEBPACK_IMPORTED_MODULE_2__.PreviousRouteService), _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_5__.Router), _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_5__.ActivatedRoute), _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵdirectiveInject"](_angular_common__WEBPACK_IMPORTED_MODULE_6__.Location), _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵdirectiveInject"](_angular_forms__WEBPACK_IMPORTED_MODULE_3__.FormBuilder)); };
-AirtimeTopupComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵdefineComponent"]({ type: AirtimeTopupComponent, selectors: [["app-airtime-topup"]], decls: 43, vars: 1, consts: [[1, "services-details-area", "ptb-110"], [1, "container"], [1, "services-details-overview"], [1, "services-details-image", "wow", "fadeInUp"], ["src", "assets/img/services-details/services-details1.jpg", "alt", "image"], [1, "services-details-desc"], [3, "formGroup", "ngSubmit"], [1, "form-floating", "mb-3"], ["id", "floatingSelect", "aria-label", "Floating label select example", 1, "form-select"], ["selected", ""], ["value", "0"], ["value", "4"], ["value", "6"], ["value", "1"], ["value", "3"], ["for", "floatingSelect"], ["type", "text", "id", "floatingInput", "formControlName", "recipientNumber", "placeholder", "e.g. 01234567890", 1, "form-control"], ["for", "recipientNumber"], [1, "form-floating"], ["type", "number", "id", "floatingInput", "formControlName", "amount", "placeholder", "Amount", 1, "form-control"], ["for", "floatingInput"], ["type", "submit", "id", "recharge", 1, "btn", "btn-primary", "btn-sm", "mt-2"], ["type", "button", "disabled", "", "id", "loading", 1, "btn", "btn-primary", "btn-sm", "mt-2"], ["role", "status", "aria-hidden", "true", 1, "spinner-border", "spinner-border-sm"]], template: function AirtimeTopupComponent_Template(rf, ctx) { if (rf & 1) {
+AirtimeTopupComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵdefineComponent"]({ type: AirtimeTopupComponent, selectors: [["app-airtime-topup"]], decls: 43, vars: 1, consts: [[1, "services-details-area", "ptb-110"], [1, "container"], [1, "services-details-overview"], [1, "services-details-image", "wow", "fadeInUp"], ["src", "assets/img/services-details/services-details1.jpg", "alt", "image"], [1, "services-details-desc"], [3, "formGroup", "ngSubmit"], [1, "form-floating", "mb-3"], ["id", "floatingSelect", "aria-label", "Floating label select example", 1, "form-select"], ["selected", ""], ["value", "0"], ["value", "4"], ["value", "6"], ["value", "1"], ["value", "3"], ["for", "floatingSelect"], ["type", "text", "id", "recipientNumber", "formControlName", "recipientNumber", "placeholder", "e.g. 01234567890", "required", "", 1, "form-control"], ["for", "recipientNumber"], [1, "form-floating"], ["type", "number", "id", "amount", "formControlName", "amount", "placeholder", "Amount", "required", "", 1, "form-control"], ["for", "amount"], ["type", "submit", "id", "recharge", 1, "btn", "btn-primary", "btn-sm", "mt-2"], ["type", "button", "disabled", "", "id", "loading", 1, "btn", "btn-primary", "btn-sm", "mt-2"], ["role", "status", "aria-hidden", "true", 1, "spinner-border", "spinner-border-sm"]], template: function AirtimeTopupComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelement"](0, "br");
         _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](1, "section", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](2, "div", 1);
@@ -1241,22 +1251,22 @@ AirtimeTopupComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODU
         _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtext"](13, "Select Network");
         _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](14, "option", 10);
-        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtext"](15, "Auto");
+        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtext"](15, "Auto Detect");
         _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](16, "option", 11);
-        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtext"](17, "MTN");
+        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtext"](17, "MTN Ghana");
         _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](18, "option", 12);
-        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtext"](19, "Vodafone");
+        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtext"](19, "Vodafone Ghana");
         _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](20, "option", 13);
-        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtext"](21, "Airtel");
+        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtext"](21, "Airtel Ghana");
         _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](22, "option", 14);
-        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtext"](23, "Tigo");
+        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtext"](23, "Tigo Ghana");
         _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](24, "option", 11);
-        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtext"](25, "Glo");
+        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtext"](25, "Glo Ghana");
         _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](26, "label", 15);
@@ -1292,7 +1302,7 @@ AirtimeTopupComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODU
     } if (rf & 2) {
         _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵadvance"](9);
         _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵproperty"]("formGroup", ctx.airtimeForm);
-    } }, directives: [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["ɵNgNoValidate"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__.NgControlStatusGroup, _angular_forms__WEBPACK_IMPORTED_MODULE_3__.FormGroupDirective, _angular_forms__WEBPACK_IMPORTED_MODULE_3__.NgSelectOption, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["ɵNgSelectMultipleOption"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__.DefaultValueAccessor, _angular_forms__WEBPACK_IMPORTED_MODULE_3__.NgControlStatus, _angular_forms__WEBPACK_IMPORTED_MODULE_3__.FormControlName, _angular_forms__WEBPACK_IMPORTED_MODULE_3__.NumberValueAccessor], styles: ["@-webkit-keyframes spinner-border {\n  to {\n    transform: rotate(360deg) ;\n  }\n}\n@keyframes spinner-border {\n  to {\n    transform: rotate(360deg) ;\n  }\n}\n@-webkit-keyframes spinner-grow {\n  0% {\n    transform: scale(0);\n  }\n  50% {\n    opacity: 1;\n    transform: none;\n  }\n}\n@keyframes spinner-grow {\n  0% {\n    transform: scale(0);\n  }\n  50% {\n    opacity: 1;\n    transform: none;\n  }\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImFpcnRpbWUtdG9wdXAuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDSTtJQUFLLDBDQUFBO0VBRVA7QUFDRjtBQUpBO0VBQ0k7SUFBSywwQ0FBQTtFQUVQO0FBQ0Y7QUFBRTtFQUNFO0lBQ0UsbUJBQUE7RUFFSjtFQUFFO0lBQ0UsVUFBQTtJQUNBLGVBQUE7RUFFSjtBQUNGO0FBVEU7RUFDRTtJQUNFLG1CQUFBO0VBRUo7RUFBRTtJQUNFLFVBQUE7SUFDQSxlQUFBO0VBRUo7QUFDRiIsImZpbGUiOiJhaXJ0aW1lLXRvcHVwLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiQGtleWZyYW1lcyBzcGlubmVyLWJvcmRlciB7XHJcbiAgICB0byB7IHRyYW5zZm9ybTogcm90YXRlKDM2MGRlZykgI3tcIi8qIHJ0bDppZ25vcmUgKi9cIn07IH1cclxuICB9XHJcblxyXG4gIEBrZXlmcmFtZXMgc3Bpbm5lci1ncm93IHtcclxuICAgIDAlIHtcclxuICAgICAgdHJhbnNmb3JtOiBzY2FsZSgwKTtcclxuICAgIH1cclxuICAgIDUwJSB7XHJcbiAgICAgIG9wYWNpdHk6IDE7XHJcbiAgICAgIHRyYW5zZm9ybTogbm9uZTtcclxuICAgIH1cclxuICB9XHJcbiAgIl19 */"] });
+    } }, directives: [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["ɵNgNoValidate"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__.NgControlStatusGroup, _angular_forms__WEBPACK_IMPORTED_MODULE_3__.FormGroupDirective, _angular_forms__WEBPACK_IMPORTED_MODULE_3__.NgSelectOption, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["ɵNgSelectMultipleOption"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__.DefaultValueAccessor, _angular_forms__WEBPACK_IMPORTED_MODULE_3__.NgControlStatus, _angular_forms__WEBPACK_IMPORTED_MODULE_3__.FormControlName, _angular_forms__WEBPACK_IMPORTED_MODULE_3__.RequiredValidator, _angular_forms__WEBPACK_IMPORTED_MODULE_3__.NumberValueAccessor], styles: ["@-webkit-keyframes spinner-border {\n  to {\n    transform: rotate(360deg) ;\n  }\n}\n@keyframes spinner-border {\n  to {\n    transform: rotate(360deg) ;\n  }\n}\n@-webkit-keyframes spinner-grow {\n  0% {\n    transform: scale(0);\n  }\n  50% {\n    opacity: 1;\n    transform: none;\n  }\n}\n@keyframes spinner-grow {\n  0% {\n    transform: scale(0);\n  }\n  50% {\n    opacity: 1;\n    transform: none;\n  }\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImFpcnRpbWUtdG9wdXAuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDSTtJQUFLLDBDQUFBO0VBRVA7QUFDRjtBQUpBO0VBQ0k7SUFBSywwQ0FBQTtFQUVQO0FBQ0Y7QUFBRTtFQUNFO0lBQ0UsbUJBQUE7RUFFSjtFQUFFO0lBQ0UsVUFBQTtJQUNBLGVBQUE7RUFFSjtBQUNGO0FBVEU7RUFDRTtJQUNFLG1CQUFBO0VBRUo7RUFBRTtJQUNFLFVBQUE7SUFDQSxlQUFBO0VBRUo7QUFDRiIsImZpbGUiOiJhaXJ0aW1lLXRvcHVwLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiQGtleWZyYW1lcyBzcGlubmVyLWJvcmRlciB7XHJcbiAgICB0byB7IHRyYW5zZm9ybTogcm90YXRlKDM2MGRlZykgI3tcIi8qIHJ0bDppZ25vcmUgKi9cIn07IH1cclxuICB9XHJcblxyXG4gIEBrZXlmcmFtZXMgc3Bpbm5lci1ncm93IHtcclxuICAgIDAlIHtcclxuICAgICAgdHJhbnNmb3JtOiBzY2FsZSgwKTtcclxuICAgIH1cclxuICAgIDUwJSB7XHJcbiAgICAgIG9wYWNpdHk6IDE7XHJcbiAgICAgIHRyYW5zZm9ybTogbm9uZTtcclxuICAgIH1cclxuICB9XHJcbiAgIl19 */"] });
 
 
 /***/ }),
@@ -2330,79 +2340,161 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "BuyDataComponent": () => (/* binding */ BuyDataComponent)
 /* harmony export */ });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ 4001);
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/forms */ 8346);
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ 8346);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ 4001);
+/* harmony import */ var src_app_repository_internet_data_service__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! src/app/repository/internet.data.service */ 4689);
+/* harmony import */ var src_app_repository_payment_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! src/app/repository/payment.service */ 7582);
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ 3252);
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/common */ 8267);
+
+
+
+
+
 
 
 class BuyDataComponent {
-    constructor() {
-        this.transType = "Data Topup";
+    constructor(internetService, paymentService, router, route, location, formBuilder) {
+        this.internetService = internetService;
+        this.paymentService = paymentService;
+        this.router = router;
+        this.route = route;
+        this.location = location;
+        this.formBuilder = formBuilder;
+        this.transType = "Internet Data Topup";
+        this.data = [];
+        this.buyDataParams = {
+            recipientNumber: '',
+            dataCode: '',
+            network: ''
+        };
+        this.checkoutURL = '';
+        this.paySwitchParams = {};
+        this.isLoading = false;
+        this.submitted = false;
     }
     ngOnInit() {
+        this.internetForm = this.formBuilder.group({
+            recipientNumber: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_2__.Validators.required],
+            dataCode: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_2__.Validators.required],
+            network: [null]
+        });
+    }
+    onSubmit(formData) {
+        console.log(`buy data form ==> ${JSON.stringify(formData)}`);
+        this.internetService.buyInternetData(formData)
+            .subscribe(res => {
+            console.log(`BUY INTERNET DATA ==> ${JSON.stringify(res)}`);
+            alert(` ${JSON.stringify(res)}`);
+            this.isLoading = false;
+            this.router.navigate(['/receipt']);
+        }, (err) => {
+            console.log(err);
+            this.isLoading = false;
+            alert('DATA ERROR =>>' + JSON.stringify(err.error));
+        });
+    }
+    makePayment(mData) {
+        this.paymentService.makePayment(mData)
+            .subscribe(res => {
+            console.log(`payment response ==> ${JSON.stringify(res)}`);
+            this.checkoutURL = res.checkout_url;
+            console.log(`checkoutUrl ==> ${JSON.stringify(this.checkoutURL)}`);
+            if (res.status == 'success' || res.code == 200) {
+                window.location.href = `${this.checkoutURL}`;
+            }
+            else if (res.code == '999') {
+                window.location.href = `${this.checkoutURL}`;
+            }
+            this.isLoading = false;
+            // alert('Topup successfully processed.');
+            // this.creditCustomerAirtime(res);
+            // this.router.navigate(['/']);
+        }, (err) => {
+            console.log(err);
+            this.isLoading = false;
+            alert('No topup: ' + err.error);
+            // alert(err.error);
+            this.router.navigate(['/']);
+        });
     }
 }
-BuyDataComponent.ɵfac = function BuyDataComponent_Factory(t) { return new (t || BuyDataComponent)(); };
-BuyDataComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: BuyDataComponent, selectors: [["app-buy-data"]], decls: 38, vars: 0, consts: [[1, "services-details-area", "ptb-110"], [1, "container"], [1, "services-details-overview"], [1, "services-details-desc"], [1, "form-floating", "mb-3"], ["type", "text", "id", "floatingInput", "placeholder", "e.g. 01234567890", 1, "form-control"], ["for", "floatingInput"], ["type", "text", "id", "floatingDescription", "placeholder", "A gift for Mum.", 1, "form-control"], ["for", "floatingDescription"], ["id", "floatingSelect", "aria-label", "Floating label select example", 1, "form-select"], ["selected", ""], ["value", "1"], ["value", "2"], ["value", "3"], ["for", "floatingSelect"], ["hidden", "", 1, "form-floating"], ["type", "number", "id", "floatingInput", "placeholder", "Amount", 1, "form-control"], ["type", "submit", 1, "btn", "btn-primary", "btn-sm", "mt-2"], [1, "services-details-image", "wow", "fadeInUp"], ["src", "assets/img/services-details/services-details1.jpg", "alt", "image"]], template: function BuyDataComponent_Template(rf, ctx) { if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](0, "br");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "section", 0);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "div", 1);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](3, "div", 2);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](4, "div", 3);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](5, "h3");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](6, "Make Internet Data Payment");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](7, "form");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](8, "div", 4);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](9, "input", 5);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](10, "label", 6);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](11, "Account Number");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](12, "div", 4);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](13, "input", 7);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](14, "label", 8);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](15, "Description");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](16, "div", 4);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](17, "select", 9);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](18, "option", 10);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](19, "Select amount with packages");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](20, "option", 11);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](21, "GHS 250 - 225 GB for 30days");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](22, "option", 12);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](23, "GHS 125 - 45 GB for 30days");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](24, "option", 13);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](25, "GHS 40 - 10 GB for 30days");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](26, "label", 14);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](27, "Data Package");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](28, "div", 15);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](29, "input", 16);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](30, "label", 6);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](31, "ghs 1-50 Amount ");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](32, "button", 17);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](33, "Proceed to Pay");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](34, "br");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](35, "br");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](36, "div", 18);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](37, "img", 19);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-    } }, directives: [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["ɵNgNoValidate"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__.NgControlStatusGroup, _angular_forms__WEBPACK_IMPORTED_MODULE_1__.NgForm, _angular_forms__WEBPACK_IMPORTED_MODULE_1__.NgSelectOption, _angular_forms__WEBPACK_IMPORTED_MODULE_1__["ɵNgSelectMultipleOption"]], styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJidXktZGF0YS5jb21wb25lbnQuc2NzcyJ9 */"] });
+BuyDataComponent.ɵfac = function BuyDataComponent_Factory(t) { return new (t || BuyDataComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdirectiveInject"](src_app_repository_internet_data_service__WEBPACK_IMPORTED_MODULE_0__.InternetDataService), _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdirectiveInject"](src_app_repository_payment_service__WEBPACK_IMPORTED_MODULE_1__.PaymentService), _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_4__.Router), _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_4__.ActivatedRoute), _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdirectiveInject"](_angular_common__WEBPACK_IMPORTED_MODULE_5__.Location), _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdirectiveInject"](_angular_forms__WEBPACK_IMPORTED_MODULE_2__.FormBuilder)); };
+BuyDataComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdefineComponent"]({ type: BuyDataComponent, selectors: [["app-buy-data"]], decls: 44, vars: 1, consts: [[1, "services-details-area", "ptb-110"], [1, "container"], [1, "services-details-overview"], [1, "services-details-desc"], [3, "formGroup", "ngSubmit"], [1, "form-floating", "mb-3"], ["id", "network", "aria-label", "network", "formControlName", "network", 1, "form-select"], ["selected", ""], ["value", "0"], ["value", "4"], ["value", "6"], ["value", "3"], ["for", "network"], ["type", "text", "id", "recipientNumber", "placeholder", "e.g. 0123456789", "formControlName", "recipientNumber", 1, "form-control"], ["for", "recipientNumber"], ["id", "dataCode", "aria-label", "dataCode", "formControlName", "dataCode", 1, "form-select"], ["value", "10"], ["value", "20"], ["value", "30"], ["for", "dataCode"], ["type", "submit", 1, "btn", "btn-primary", "btn-sm", "mt-2"], [1, "services-details-image", "wow", "fadeInUp"], ["src", "assets/img/services-details/services-details1.jpg", "alt", "image"]], template: function BuyDataComponent_Template(rf, ctx) { if (rf & 1) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelement"](0, "br");
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](1, "section", 0);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](2, "div", 1);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](3, "div", 2);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](4, "div", 3);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](5, "h3");
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](6, "Make Internet Data Payment");
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](7, "form", 4);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵlistener"]("ngSubmit", function BuyDataComponent_Template_form_ngSubmit_7_listener() { return ctx.onSubmit(ctx.internetForm.value); });
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](8, "div", 5);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](9, "select", 6);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](10, "option", 7);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](11, "Select Network");
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](12, "option", 8);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](13, "Auto Detect");
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](14, "option", 9);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](15, "MTN Ghana");
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](16, "option", 10);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](17, "Vodafone Ghana");
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](18, "option", 11);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](19, "Glo Ghana");
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](20, "label", 12);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](21, "Network Operators");
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](22, "div", 5);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelement"](23, "input", 13);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](24, "label", 14);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](25, "Recipient Account Number");
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](26, "div", 5);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](27, "select", 15);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](28, "option", 7);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](29, "Select amount with packages");
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](30, "option", 16);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](31, "GHS 250 - 225 GB for 30days");
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](32, "option", 17);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](33, "GHS 125 - 45 GB for 30days");
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](34, "option", 18);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](35, "GHS 40 - 10 GB for 30days");
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](36, "label", 19);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](37, "Data Bundles");
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](38, "button", 20);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](39, "Proceed to Pay");
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelement"](40, "br");
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelement"](41, "br");
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](42, "div", 21);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelement"](43, "img", 22);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
+    } if (rf & 2) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵadvance"](7);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵproperty"]("formGroup", ctx.internetForm);
+    } }, directives: [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["ɵNgNoValidate"], _angular_forms__WEBPACK_IMPORTED_MODULE_2__.NgControlStatusGroup, _angular_forms__WEBPACK_IMPORTED_MODULE_2__.FormGroupDirective, _angular_forms__WEBPACK_IMPORTED_MODULE_2__.SelectControlValueAccessor, _angular_forms__WEBPACK_IMPORTED_MODULE_2__.NgControlStatus, _angular_forms__WEBPACK_IMPORTED_MODULE_2__.FormControlName, _angular_forms__WEBPACK_IMPORTED_MODULE_2__.NgSelectOption, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["ɵNgSelectMultipleOption"], _angular_forms__WEBPACK_IMPORTED_MODULE_2__.DefaultValueAccessor], styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJidXktZGF0YS5jb21wb25lbnQuc2NzcyJ9 */"] });
 
 
 /***/ }),
@@ -3433,10 +3525,10 @@ class MachineLearningTwoComponent {
         // };
         this.topupParams = {
             recipientNumber: '',
-            'description': "airtime credit",
+            'description': 'AIRTIME TOPUP',
             'amount': '',
-            redirectURL: "http://lidapp.s3-website.us-east-2.amazonaws.com/receipt",
-            customerEmail: "info@constantcap.com.gh"
+            redirectURL: 'http://lidapp.s3-website.us-east-2.amazonaws.com/receipt',
+            customerEmail: 'info@constantcap.com.gh'
         };
         this.checkoutUrl = '';
         this.pswitchObject = {};
@@ -3456,7 +3548,7 @@ class MachineLearningTwoComponent {
     topupFormSubmit(form) {
         console.log('formData:  topup >>>>', form);
         this.topupParams.recipientNumber = form.recipientNumber;
-        this.topupParams.description = 'to ' + form.recipientNumber;
+        this.topupParams.description = '' + form.recipientNumber;
         if (form.amount < 10) {
             const inputAmount = form.amount * 100;
             this.topupParams.amount = "000000000" + inputAmount;
@@ -3556,13 +3648,13 @@ MachineLearningTwoComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTE
         _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](25, "Select Network");
         _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](26, "option", 15);
-        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](27, "Auto");
+        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](27, "Auto Detect");
         _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](28, "option", 16);
-        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](29, "MTN");
+        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](29, "MTN Ghana");
         _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](30, "option", 17);
-        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](31, "Vodafone");
+        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](31, "Vodafone Ghana");
         _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](32, "option", 18);
         _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](33, "Airtel");
@@ -3571,7 +3663,7 @@ MachineLearningTwoComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTE
         _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](35, "Tigo");
         _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](36, "option", 16);
-        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](37, "Glo");
+        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](37, "Glo Ghana");
         _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](38, "label", 20);
@@ -5800,7 +5892,7 @@ ReceiptComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_2_
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](7, "h3");
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](8);
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](9, "h4");
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](9, "h3");
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](10);
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵpipe"](11, "truncate");
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
@@ -6013,147 +6105,106 @@ class ServicesComponent {
     }
 }
 ServicesComponent.ɵfac = function ServicesComponent_Factory(t) { return new (t || ServicesComponent)(); };
-ServicesComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: ServicesComponent, selectors: [["app-services"]], decls: 88, vars: 0, consts: [[1, "page-title-area", "item-bg1"], [1, "container"], [1, "page-title-content"], ["routerLink", "/"], [1, "lines"], [1, "line"], [1, "services-area", "bg-f2f6f9", "ptb-110"], [1, "row"], [1, "col-lg-4", "col-md-6", "col-sm-6"], [1, "single-services-box"], [1, "icon"], [1, "flaticon-income"], ["routerLink", "/service-details"], [1, "flaticon-automatic"], [1, "flaticon-locked"], [1, "flaticon-molecular"], [1, "col-lg-12", "col-md-12"], [1, "pagination-area"], ["routerLink", "/services", 1, "prev", "page-numbers"], [1, "fas", "fa-angle-double-left"], ["routerLink", "/services", 1, "page-numbers"], ["aria-current", "page", 1, "page-numbers", "current"], ["routerLink", "/services", 1, "next", "page-numbers"], [1, "fas", "fa-angle-double-right"], [1, "shape-img2"], ["src", "assets/img/shape/shape2.svg", "alt", "image"], [1, "shape-img3"], ["src", "assets/img/shape/shape3.png", "alt", "image"], [1, "shape-img4"], ["src", "assets/img/shape/shape4.svg", "alt", "image"], [1, "shape-img5"], ["src", "assets/img/shape/shape5.svg", "alt", "image"], [1, "shape-img7"], [1, "dot-shape1"], ["src", "assets/img/shape/dot1.png", "alt", "image"], [1, "dot-shape2"], ["src", "assets/img/shape/dot3.png", "alt", "image"], [1, "dot-shape4"], ["src", "assets/img/shape/dot4.png", "alt", "image"], [1, "dot-shape5"], ["src", "assets/img/shape/dot5.png", "alt", "image"], [1, "dot-shape6"], ["src", "assets/img/shape/dot6.png", "alt", "image"]], template: function ServicesComponent_Template(rf, ctx) { if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "div", 1);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "div", 2);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](3, "h2");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](4, "Services");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](5, "ul");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](6, "li");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](7, "a", 3);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](8, "Home");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](9, "li");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](10, "Services");
+ServicesComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: ServicesComponent, selectors: [["app-services"]], decls: 62, vars: 0, consts: [[1, "services-area", "bg-f2f6f9", "ptb-110"], [1, "container"], [1, "row"], [1, "col-lg-4", "col-md-6", "col-sm-6"], [1, "single-services-box"], [1, "icon"], ["routerLink", "/airtime-topup"], [1, "flaticon-income"], ["routerLink", "/buy-data"], [1, "flaticon-automatic"], [1, "flaticon-locked"], ["routerLink", "/remittance"], [1, "flaticon-molecular"], ["routerLink", "/ml"], [1, "shape-img2"], ["src", "assets/img/shape/shape2.svg", "alt", "image"], [1, "shape-img3"], ["src", "assets/img/shape/shape3.png", "alt", "image"], [1, "shape-img4"], ["src", "assets/img/shape/shape4.svg", "alt", "image"], [1, "shape-img5"], ["src", "assets/img/shape/shape5.svg", "alt", "image"], [1, "shape-img7"], [1, "dot-shape1"], ["src", "assets/img/shape/dot1.png", "alt", "image"], [1, "dot-shape2"], ["src", "assets/img/shape/dot3.png", "alt", "image"], [1, "dot-shape4"], ["src", "assets/img/shape/dot4.png", "alt", "image"], [1, "dot-shape5"], ["src", "assets/img/shape/dot5.png", "alt", "image"], [1, "dot-shape6"], ["src", "assets/img/shape/dot6.png", "alt", "image"]], template: function ServicesComponent_Template(rf, ctx) { if (rf & 1) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](0, "br");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "section", 0);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "div", 1);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](3, "div", 2);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](4, "div", 3);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](5, "div", 4);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](6, "div", 5);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](7, "a", 6);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](8, "i", 7);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](9, "h3");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](10, "a", 6);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](11, "Airtime Topup");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](11, "div", 4);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](12, "div", 5);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](13, "div", 5);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](14, "div", 5);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](15, "section", 6);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](16, "div", 1);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](17, "div", 7);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](18, "div", 8);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](19, "div", 9);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](20, "div", 10);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](21, "i", 11);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](22, "h3");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](23, "a", 12);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](24, "Airtime Topup");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](25, "p");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](26, "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](12, "p");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](13, "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](27, "div", 8);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](28, "div", 9);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](29, "div", 10);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](30, "i", 13);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](31, "h3");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](32, "a", 12);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](33, "Internet Data");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](14, "div", 3);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](15, "div", 4);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](16, "div", 5);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](17, "a", 8);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](18, "i", 9);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](34, "p");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](35, "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](19, "h3");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](20, "a", 8);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](21, "Internet Data");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](36, "div", 8);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](37, "div", 9);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](38, "div", 10);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](39, "i", 14);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](40, "h3");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](41, "a", 12);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](42, "Remittance");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](43, "p");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](44, "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](22, "p");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](23, "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](45, "div", 8);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](46, "div", 9);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](47, "div", 10);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](48, "i", 15);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](24, "div", 3);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](25, "div", 4);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](26, "div", 5);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](27, "i", 10);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](49, "h3");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](50, "a", 12);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](51, "Machine Learning");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](52, "p");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](53, "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](28, "h3");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](29, "a", 11);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](30, "Remittance");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](31, "p");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](32, "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](54, "div", 16);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](55, "div", 17);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](56, "a", 18);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](57, "i", 19);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](58, "a", 20);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](59, "1");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](60, "span", 21);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](61, "2");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](33, "div", 3);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](34, "div", 4);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](35, "div", 5);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](36, "i", 12);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](62, "a", 20);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](63, "3");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](37, "h3");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](38, "a", 13);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](39, "Machine Learning");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](64, "a", 20);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](65, "4");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](66, "a", 22);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](67, "i", 23);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](40, "p");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](41, "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](68, "div", 24);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](69, "img", 25);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](42, "div", 14);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](43, "img", 15);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](70, "div", 26);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](71, "img", 27);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](44, "div", 16);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](45, "img", 17);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](72, "div", 28);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](73, "img", 29);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](46, "div", 18);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](47, "img", 19);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](74, "div", 30);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](75, "img", 31);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](48, "div", 20);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](49, "img", 21);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](76, "div", 32);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](77, "img", 27);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](50, "div", 22);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](51, "img", 17);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](78, "div", 33);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](79, "img", 34);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](52, "div", 23);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](53, "img", 24);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](80, "div", 35);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](81, "img", 36);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](54, "div", 25);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](55, "img", 26);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](82, "div", 37);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](83, "img", 38);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](56, "div", 27);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](57, "img", 28);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](84, "div", 39);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](85, "img", 40);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](58, "div", 29);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](59, "img", 30);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](86, "div", 41);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](87, "img", 42);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](60, "div", 31);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](61, "img", 32);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     } }, directives: [_angular_router__WEBPACK_IMPORTED_MODULE_1__.RouterLinkWithHref], styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzZXJ2aWNlcy5jb21wb25lbnQuc2NzcyJ9 */"] });
@@ -6770,6 +6821,656 @@ class AirtimeTopupService {
 }
 AirtimeTopupService.ɵfac = function AirtimeTopupService_Factory(t) { return new (t || AirtimeTopupService)(_angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵinject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_5__.HttpClient)); };
 AirtimeTopupService.ɵprov = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵdefineInjectable"]({ token: AirtimeTopupService, factory: AirtimeTopupService.ɵfac, providedIn: 'root' });
+
+
+/***/ }),
+
+/***/ 7562:
+/*!********************************************!*\
+  !*** ./src/app/repository/data.service.ts ***!
+  \********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "DataService": () => (/* binding */ DataService)
+/* harmony export */ });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ 4001);
+
+class DataService {
+    constructor() {
+        this.mtnBundles = [
+            {
+                "network_id": 4,
+                "plan_id": "flexi_data_bundle",
+                "validity": "N/A",
+                "plan_name": "Data Bundle",
+                "type": "DATA_BUNDLE",
+                "volume": "Flexi",
+                "category": "Flexi",
+                "price": "0.0000",
+                "flexible_amount": true
+            },
+            {
+                "network_id": 4,
+                "plan_id": "data_bundle_1",
+                "validity": "NO EXPIRY",
+                "plan_name": "data_bundle_1",
+                "type": "DATA_BUNDLE",
+                "volume": "24.27 MB",
+                "category": "DATA_BUNDLE",
+                "price": "0.5000",
+                "flexible_amount": false
+            },
+            {
+                "network_id": 4,
+                "plan_id": "data_bundle_2",
+                "validity": "NO EXPIRY",
+                "plan_name": "data_bundle_2",
+                "type": "DATA_BUNDLE",
+                "volume": "48.54 MB",
+                "category": "DATA_BUNDLE",
+                "price": "1.0000",
+                "flexible_amount": false
+            },
+            {
+                "network_id": 4,
+                "plan_id": "data_bundle_3",
+                "validity": "NO EXPIRY",
+                "plan_name": "data_bundle_3",
+                "type": "DATA_BUNDLE",
+                "volume": "476.19 MB",
+                "category": "DATA_BUNDLE",
+                "price": "3.0000",
+                "flexible_amount": false
+            },
+            {
+                "network_id": 4,
+                "plan_id": "data_bundle_4",
+                "validity": "NO EXPIRY",
+                "plan_name": "data_bundle_4",
+                "type": "DATA_BUNDLE",
+                "volume": "980.39 MB",
+                "category": "DATA_BUNDLE",
+                "price": "10.0000",
+                "flexible_amount": false
+            },
+            {
+                "network_id": 4,
+                "plan_id": "data_bundle_5",
+                "validity": "NO EXPIRY",
+                "plan_name": "data_bundle_5",
+                "type": "DATA_BUNDLE",
+                "volume": "216.47 GB",
+                "category": "DATA_BUNDLE",
+                "price": "399.0000",
+                "flexible_amount": false
+            },
+            {
+                "network_id": 4,
+                "plan_id": "kokrokoo_bundle_1",
+                "validity": "NO EXPIRY",
+                "plan_name": "kokrokoo_bundle_1",
+                "type": "DATA_BUNDLE",
+                "volume": "400MB and 20 Mins kokrokoo bundle",
+                "category": "KOKROKOO_BUNDLE",
+                "price": "1.0900",
+                "flexible_amount": false
+            },
+            {
+                "network_id": 4,
+                "plan_id": "flexi_midnight_bundle",
+                "validity": "N/A",
+                "plan_name": "Mid Night",
+                "type": "DATA_BUNDLE",
+                "volume": "Flexi",
+                "category": "Flexi",
+                "price": "0.0000",
+                "flexible_amount": true
+            },
+            {
+                "network_id": 4,
+                "plan_id": "flexi_social_media_bundle",
+                "validity": "N/A",
+                "plan_name": "Social Media",
+                "type": "DATA_BUNDLE",
+                "volume": "Flexi",
+                "category": "Flexi",
+                "price": "0.0000",
+                "flexible_amount": true
+            },
+            {
+                "network_id": 4,
+                "plan_id": "social_media_bundle_1",
+                "validity": "NO EXPIRY",
+                "plan_name": "social_media_bundle_1",
+                "type": "DATA_BUNDLE",
+                "volume": "97.09 MB",
+                "category": "SOCIAL_MEDIA",
+                "price": "1.0000",
+                "flexible_amount": false
+            },
+            {
+                "network_id": 4,
+                "plan_id": "social_media_bundle_2",
+                "validity": "NO EXPIRY",
+                "plan_name": "social_media_bundle_2",
+                "type": "DATA_BUNDLE",
+                "volume": "485.44 MB",
+                "category": "SOCIAL_MEDIA",
+                "price": "5.0000",
+                "flexible_amount": false
+            },
+            {
+                "network_id": 4,
+                "plan_id": "social_media_bundle_3",
+                "validity": "NO EXPIRY",
+                "plan_name": "social_media_bundle_3",
+                "type": "DATA_BUNDLE",
+                "volume": "970.87 MB",
+                "category": "SOCIAL_MEDIA",
+                "price": "10.0000",
+                "flexible_amount": false
+            },
+            {
+                "network_id": 4,
+                "plan_id": "flexi_video_bundle",
+                "validity": "N/A",
+                "plan_name": "Video",
+                "type": "DATA_BUNDLE",
+                "volume": "Flexi",
+                "category": "Flexi",
+                "price": "0.0000",
+                "flexible_amount": true
+            },
+            {
+                "network_id": 4,
+                "plan_id": "video_bundle_1",
+                "validity": "NO EXPIRY",
+                "plan_name": "video_bundle_1",
+                "type": "DATA_BUNDLE",
+                "volume": "185.19 MB",
+                "category": "VIDEO_BUNDLE",
+                "price": "1.0000",
+                "flexible_amount": false
+            },
+            {
+                "network_id": 4,
+                "plan_id": "video_bundle_2",
+                "validity": "NO EXPIRY",
+                "plan_name": "video_bundle_2",
+                "type": "DATA_BUNDLE",
+                "volume": "925.93 MB",
+                "category": "VIDEO_BUNDLE",
+                "price": "5.0000",
+                "flexible_amount": false
+            },
+            {
+                "network_id": 4,
+                "plan_id": "video_bundle_3",
+                "validity": "NO EXPIRY",
+                "plan_name": "video_bundle_3",
+                "type": "DATA_BUNDLE",
+                "volume": "1.81 GB",
+                "category": "VIDEO_BUNDLE",
+                "price": "10.0000",
+                "flexible_amount": false
+            }
+        ];
+        this.vfBundles = [
+            {
+                "network_id": 6,
+                "plan_id": "BDLBTBOSSUD1",
+                "validity": "5",
+                "plan_name": "BDLBTBOSSUD1",
+                "type": "DATA_BUNDLE",
+                "volume": "3.5 GB",
+                "category": "Daily",
+                "price": "10.0000",
+                "flexible_amount": false
+            },
+            {
+                "network_id": 6,
+                "plan_id": "BDLBTBOSSUWE",
+                "validity": "5",
+                "plan_name": "BDLBTBOSSUWE",
+                "type": "DATA_BUNDLE",
+                "volume": "4.5 GB",
+                "category": "Daily",
+                "price": "13.0000",
+                "flexible_amount": false
+            },
+            {
+                "network_id": 6,
+                "plan_id": "BDLDATABNIGHT2",
+                "validity": "12am – 4am",
+                "plan_name": "BDLDATABNIGHT2",
+                "type": "DATA_BUNDLE",
+                "volume": "2 GB",
+                "category": "Daily",
+                "price": "2.0000",
+                "flexible_amount": false
+            },
+            {
+                "network_id": 6,
+                "plan_id": "BDLDATABNIGHT3",
+                "validity": "12am-4am",
+                "plan_name": "BDLDATABNIGHT3",
+                "type": "DATA_BUNDLE",
+                "volume": "7.5 GB",
+                "category": "Monthly",
+                "price": "5.0000",
+                "flexible_amount": false
+            },
+            {
+                "network_id": 6,
+                "plan_id": "BDLHRBOOST2",
+                "validity": "1 Hour",
+                "plan_name": "BDLHRBOOST2",
+                "type": "DATA_BUNDLE",
+                "volume": "500 MB",
+                "category": "Daily",
+                "price": "1.0000",
+                "flexible_amount": false
+            },
+            {
+                "network_id": 6,
+                "plan_id": "BDLHRBOOST3",
+                "validity": "1 Hour",
+                "plan_name": "BDLHRBOOST3",
+                "type": "DATA_BUNDLE",
+                "volume": "2048 MB",
+                "category": "Daily",
+                "price": "2.0000",
+                "flexible_amount": false
+            },
+            {
+                "network_id": 6,
+                "plan_id": "DATABUND100",
+                "validity": "30",
+                "plan_name": "DATABUND100",
+                "type": "DATA_BUNDLE",
+                "volume": "20 GB",
+                "category": "Monthly",
+                "price": "100.0000",
+                "flexible_amount": false
+            },
+            {
+                "network_id": 6,
+                "plan_id": "DATABUND2MORCH1",
+                "validity": "15",
+                "plan_name": "DATABUND2MORCH1",
+                "type": "DATA_BUNDLE",
+                "volume": "1.7 GB",
+                "category": "Weekly",
+                "price": "10.0000",
+                "flexible_amount": false
+            },
+            {
+                "network_id": 6,
+                "plan_id": "DATABUND2MORCH2",
+                "validity": "30",
+                "plan_name": "DATABUND2MORCH2",
+                "type": "DATA_BUNDLE",
+                "volume": "4.5 GB",
+                "category": "Monthly",
+                "price": "20.0000",
+                "flexible_amount": false
+            },
+            {
+                "network_id": 6,
+                "plan_id": "DATABUND2MORCH3",
+                "validity": "30",
+                "plan_name": "DATABUND2MORCH3",
+                "type": "DATA_BUNDLE",
+                "volume": "10.5 GB",
+                "category": "Monthly",
+                "price": "50.0000",
+                "flexible_amount": false
+            },
+            {
+                "network_id": 6,
+                "plan_id": "DATABUNDBMXDLNR",
+                "validity": "1",
+                "plan_name": "DATABUNDBMXDLNR",
+                "type": "DATA_BUNDLE",
+                "volume": "569 MB",
+                "category": "Daily",
+                "price": "3.2500",
+                "flexible_amount": false
+            },
+            {
+                "network_id": 6,
+                "plan_id": "DATABUNDBMXDLY",
+                "validity": "1",
+                "plan_name": "DATABUNDBMXDLY",
+                "type": "DATA_BUNDLE",
+                "volume": "550 MB",
+                "category": "Daily",
+                "price": "3.0000",
+                "flexible_amount": false
+            },
+            {
+                "network_id": 6,
+                "plan_id": "DATABUNDGAP1_NR",
+                "validity": "2",
+                "plan_name": "DATABUNDGAP1_NR",
+                "type": "DATA_BUNDLE",
+                "volume": "1024 MB",
+                "category": "Daily",
+                "price": "5.0000",
+                "flexible_amount": false
+            },
+            {
+                "network_id": 6,
+                "plan_id": "DATABUNDGAP4",
+                "validity": "10",
+                "plan_name": "DATABUNDGAP4",
+                "type": "DATA_BUNDLE",
+                "volume": "4.14 GB",
+                "category": "Weekly",
+                "price": "21.5000",
+                "flexible_amount": false
+            },
+            {
+                "network_id": 6,
+                "plan_id": "DATABUNDJBOPTIM",
+                "validity": "30",
+                "plan_name": "DATABUNDJBOPTIM",
+                "type": "DATA_BUNDLE",
+                "volume": "200 GB",
+                "category": "Monthly",
+                "price": "400.0000",
+                "flexible_amount": false
+            },
+            {
+                "network_id": 6,
+                "plan_id": "DATABUNDJMAX",
+                "validity": "30",
+                "plan_name": "DATABUNDJMAX",
+                "type": "DATA_BUNDLE",
+                "volume": "100 GB",
+                "category": "Monthly",
+                "price": "300.0000",
+                "flexible_amount": false
+            },
+            {
+                "network_id": 6,
+                "plan_id": "DATABUNDJSTREAM",
+                "validity": "30",
+                "plan_name": "DATABUNDJSTREAM",
+                "type": "DATA_BUNDLE",
+                "volume": "40 GB",
+                "category": "Monthly",
+                "price": "200.0000",
+                "flexible_amount": false
+            },
+            {
+                "network_id": 6,
+                "plan_id": "DATANVCHTDLY",
+                "validity": "NO EXPIRY",
+                "plan_name": "DATANVCHTDLY",
+                "type": "DATA_BUNDLE",
+                "volume": "155 MB",
+                "category": "Daily",
+                "price": "2.0000",
+                "flexible_amount": false
+            },
+            {
+                "network_id": 6,
+                "plan_id": "DATANVDR1DLY",
+                "validity": "NO EXPIRY",
+                "plan_name": "DATANVDR1DLY",
+                "type": "DATA_BUNDLE",
+                "volume": "65 MB",
+                "category": "Daily",
+                "price": "1.0000",
+                "flexible_amount": false
+            },
+            {
+                "network_id": 6,
+                "plan_id": "DATANVDR5WLY",
+                "validity": "NO EXPIRY",
+                "plan_name": "DATANVDR5WLY",
+                "type": "DATA_BUNDLE",
+                "volume": "650 MB",
+                "category": "Daily",
+                "price": "5.0000",
+                "flexible_amount": false
+            },
+            {
+                "network_id": 6,
+                "plan_id": "DATANVSTRDLY",
+                "validity": "NO EXPIRY",
+                "plan_name": "DATANVSTRDLY",
+                "type": "DATA_BUNDLE",
+                "volume": "26 MB",
+                "category": "Daily",
+                "price": "0.5000",
+                "flexible_amount": false
+            }
+        ];
+        this.airtelBundles = [];
+        this.tigoBundles = [];
+        this.gloghBundles = [
+            {
+                "network_id": 3,
+                "plan_id": "BUNDLE_1.5GB_Plan",
+                "validity": "10",
+                "plan_name": "BUNDLE_1.5GB_Plan",
+                "type": "DATA_BUNDLE",
+                "volume": "1.5 GB",
+                "category": "DATA_BUNDLE",
+                "price": "5.0000",
+                "flexible_amount": false
+            },
+            {
+                "network_id": 3,
+                "plan_id": "BUNDLE_1.5GB_SatPlan",
+                "validity": "1",
+                "plan_name": "BUNDLE_1.5GB_SatPlan",
+                "type": "DATA_BUNDLE",
+                "volume": "1.5 GB",
+                "category": "DATA_BUNDLE",
+                "price": "2.0000",
+                "flexible_amount": false
+            },
+            {
+                "network_id": 3,
+                "plan_id": "BUNDLE_1.8GB_SunPlan",
+                "validity": "1",
+                "plan_name": "BUNDLE_1.8GB_SunPlan",
+                "type": "DATA_BUNDLE",
+                "volume": "1.8 GB",
+                "category": "DATA_BUNDLE",
+                "price": "2.0000",
+                "flexible_amount": false
+            },
+            {
+                "network_id": 3,
+                "plan_id": "BUNDLE_100GB_Plan",
+                "validity": "90",
+                "plan_name": "BUNDLE_100GB_Plan",
+                "type": "DATA_BUNDLE",
+                "volume": "100 GB",
+                "category": "DATA_BUNDLE",
+                "price": "150.0000",
+                "flexible_amount": false
+            },
+            {
+                "network_id": 3,
+                "plan_id": "BUNDLE_10GB_Plan",
+                "validity": "30",
+                "plan_name": "BUNDLE_10GB_Plan",
+                "type": "DATA_BUNDLE",
+                "volume": "10 GB",
+                "category": "DATA_BUNDLE",
+                "price": "40.0000",
+                "flexible_amount": false
+            },
+            {
+                "network_id": 3,
+                "plan_id": "BUNDLE_15GB_Plan",
+                "validity": "30",
+                "plan_name": "BUNDLE_15GB_Plan",
+                "type": "DATA_BUNDLE",
+                "volume": "15 GB",
+                "category": "DATA_BUNDLE",
+                "price": "50.0000",
+                "flexible_amount": false
+            },
+            {
+                "network_id": 3,
+                "plan_id": "BUNDLE_20GB_Plan",
+                "validity": "30",
+                "plan_name": "BUNDLE_20GB_Plan",
+                "type": "DATA_BUNDLE",
+                "volume": "20 GB",
+                "category": "DATA_BUNDLE",
+                "price": "60.0000",
+                "flexible_amount": false
+            },
+            {
+                "network_id": 3,
+                "plan_id": "BUNDLE_300MB_Plan",
+                "validity": "2",
+                "plan_name": "BUNDLE_300MB_Plan",
+                "type": "DATA_BUNDLE",
+                "volume": "300 MB",
+                "category": "DATA_BUNDLE",
+                "price": "1.0000",
+                "flexible_amount": false
+            },
+            {
+                "network_id": 3,
+                "plan_id": "BUNDLE_30GB_plan",
+                "validity": "60",
+                "plan_name": "BUNDLE_30GB_plan",
+                "type": "DATA_BUNDLE",
+                "volume": "30 GB",
+                "category": "DATA_BUNDLE",
+                "price": "80.0000",
+                "flexible_amount": false
+            },
+            {
+                "network_id": 3,
+                "plan_id": "BUNDLE_4.2GB_Plan",
+                "validity": "30",
+                "plan_name": "BUNDLE_4.2GB_Plan",
+                "type": "DATA_BUNDLE",
+                "volume": "4.2 GB",
+                "category": "DATA_BUNDLE",
+                "price": "20.0000",
+                "flexible_amount": false
+            },
+            {
+                "network_id": 3,
+                "plan_id": "BUNDLE_4GB_Plan",
+                "validity": "10",
+                "plan_name": "BUNDLE_4GB_Plan",
+                "type": "DATA_BUNDLE",
+                "volume": "4 GB",
+                "category": "DATA_BUNDLE",
+                "price": "10.0000",
+                "flexible_amount": false
+            },
+            {
+                "network_id": 3,
+                "plan_id": "BUNDLE_600MB_Plan",
+                "validity": "4",
+                "plan_name": "BUNDLE_600MB_Plan",
+                "type": "DATA_BUNDLE",
+                "volume": "600 MB",
+                "category": "DATA_BUNDLE",
+                "price": "1.0000",
+                "flexible_amount": false
+            },
+            {
+                "network_id": 3,
+                "plan_id": "BUNDLE_60GB_plan",
+                "validity": "90",
+                "plan_name": "BUNDLE_60GB_plan",
+                "type": "DATA_BUNDLE",
+                "volume": "60 GB",
+                "category": "DATA_BUNDLE",
+                "price": "100.0000",
+                "flexible_amount": false
+            },
+            {
+                "network_id": 3,
+                "plan_id": "BUNDLE_UNLIMITED_Plan",
+                "validity": "30",
+                "plan_name": "BUNDLE_UNLIMITED_Plan",
+                "type": "DATA_BUNDLE",
+                "volume": "UNLIMITED Data",
+                "category": "DATA_BUNDLE",
+                "price": "300.0000",
+                "flexible_amount": false
+            }
+        ];
+    }
+}
+DataService.ɵfac = function DataService_Factory(t) { return new (t || DataService)(); };
+DataService.ɵprov = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjectable"]({ token: DataService, factory: DataService.ɵfac, providedIn: 'root' });
+
+
+/***/ }),
+
+/***/ 4689:
+/*!*****************************************************!*\
+  !*** ./src/app/repository/internet.data.service.ts ***!
+  \*****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "InternetDataService": () => (/* binding */ InternetDataService)
+/* harmony export */ });
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ 8252);
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! rxjs/operators */ 5029);
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs/operators */ 592);
+/* harmony import */ var src_environments_environment_prod__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! src/environments/environment.prod */ 875);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/core */ 4001);
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/common/http */ 3981);
+
+
+
+
+
+class InternetDataService {
+    constructor(http) {
+        this.http = http;
+        this.awServer = src_environments_environment_prod__WEBPACK_IMPORTED_MODULE_0__.environment.awServer;
+    }
+    internetBundleList(iData) {
+        console.log('DATA BUNDLELIST service - params ==>', iData);
+        return this.http
+            .post(`${this.awServer}/billpayments/bundlelist`, iData)
+            .pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_1__.tap)(_res => console.log(`DATA BUNDLELIST response: ...`)), (0,rxjs_operators__WEBPACK_IMPORTED_MODULE_2__.catchError)((_err) => {
+            console.error(`DATA BUNDLELIST error: ${_err}`);
+            throw new Error(_err);
+        }));
+    }
+    buyInternetData(iData) {
+        console.log('BUY INTERNET DATA service - params ==>', iData);
+        return this.http
+            .post(`${this.awServer}/billpayments/internetdata`, iData)
+            .pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_1__.tap)(_res => this.log(`InternetDataService: buy data`)), (0,rxjs_operators__WEBPACK_IMPORTED_MODULE_2__.catchError)(this.handleError('InternetDataService', [])));
+    }
+    handleError(operation = 'operation', result) {
+        return (error) => {
+            console.error(error); // log to console instead
+            alert(error);
+            this.log(`${operation} failed: ${error.message}`);
+            return (0,rxjs__WEBPACK_IMPORTED_MODULE_3__.of)(result);
+        };
+    }
+    log(message) {
+        console.log(message);
+    }
+}
+InternetDataService.ɵfac = function InternetDataService_Factory(t) { return new (t || InternetDataService)(_angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵinject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_5__.HttpClient)); };
+InternetDataService.ɵprov = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵdefineInjectable"]({ token: InternetDataService, factory: InternetDataService.ɵfac, providedIn: 'root' });
 
 
 /***/ }),

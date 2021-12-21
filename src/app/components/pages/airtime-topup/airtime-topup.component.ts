@@ -39,10 +39,10 @@ export class AirtimeTopupComponent implements OnInit {
     "description": "",
     "amount": "",
     redirectURL: "http://lidapp.s3-website.us-east-2.amazonaws.com/receipt",
-    customerEmail: "support.it@constantcap.com.gh"
+    customerEmail: "info@constantcap.com.gh"
   };
 
-  public checkoutUrl = '';
+  public checkoutURL = '';
   public pswitchObject: any = {};
 
   constructor(
@@ -66,7 +66,7 @@ export class AirtimeTopupComponent implements OnInit {
       amount: [null, Validators.required],
       network: [null],
       description: [null],
-      email: [null, Validators.required]
+      email: [null]
     });
 
   }
@@ -76,7 +76,7 @@ export class AirtimeTopupComponent implements OnInit {
     console.log('topup formData:  >>>>', form);
 
     this.topupParams.recipientNumber = form.recipientNumber;
-    this.topupParams.description = 'to ' +form.recipientNumber;
+    this.topupParams.description = '' +form.recipientNumber;
 
     // calculate amountPaid with  12 digits
     if (form.amount < 10) {
@@ -103,12 +103,12 @@ export class AirtimeTopupComponent implements OnInit {
     this.payService.makePayment(mData)
       .subscribe(res => {
         console.log(`payment response ==> ${JSON.stringify(res)}`);
-        this.checkoutUrl = res.checkout_url;
-        console.log(`checkoutUrl ==> ${JSON.stringify(this.checkoutUrl)}`);
+        this.checkoutURL = res.checkout_url;
+        console.log(`checkoutUrl ==> ${JSON.stringify(this.checkoutURL)}`);
         if (res.status == 'success' || res.code == 200) {
-          window.location.href = `${this.checkoutUrl}`;
+          window.location.href = `${this.checkoutURL}`;
         } else if(res.code == '999'){
-          window.location.href = `${this.checkoutUrl}`;
+          window.location.href = `${this.checkoutURL}`;
         }
         this.isLoading = false;
         // alert('Topup successfully processed.');
