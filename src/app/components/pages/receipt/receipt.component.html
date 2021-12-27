@@ -50,13 +50,14 @@
                 <div class="single-pricing-box active">
                     <div class="pricing-header">
                         <h3>{{airOkResponse.status}}</h3>
-                        <h3>{{airOkResponse.message | truncate: ['56']}}</h3>
+                        <h4>{{airOkResponse.message | truncate: ['56']}}</h4>
                     </div>
                     <!-- <div class="price">
                         GH¢ {{airOkResponse.balance_before - airOkResponse.balance_after| number : '1.2-2'}} <span></span>
                     </div> -->
                     <div class="card">
                         <ul class="list-group list-group-flush">
+                            <li class="list-group-item">Reason: {{airOkResponse.reason}}</li>
                             <li class="list-group-item">Network: {{airOkResponse.network}}</li>
                             <li class="list-group-item">ServiceId: {{airOkResponse.trxn }}</li>
                             <!-- <li class="list-group-item">TransId: {{ airOkResponse.local_trxn_code }}</li> -->

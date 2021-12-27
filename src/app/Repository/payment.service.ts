@@ -11,13 +11,14 @@ import { environment } from "src/environments/environment.prod";
 export class PaymentService {
     private awServer: string = environment.awServer;
     private vercelServer: string = environment.vercelServer;
+    // private localURL: string = environment.local;
 
     constructor(
         private readonly http: HttpClient
     ) { }
 
     public makePayment(mData: any): Observable<any> {
-        return this.http.post(`${this.awServer}/pscardpayment/inline`, mData)
+        return this.http.post(`${this.vercelServer}/pscardpayment/inline`, mData)
             .pipe(
                 tap((_res) => this.log(`paymentService: airtime credit`)),
                 catchError(this.handleError('AirtimeService', []))

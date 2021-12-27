@@ -13,7 +13,7 @@ declare let $: any;
   styleUrls: ['./airtime-topup.component.scss']
 })
 export class AirtimeTopupComponent implements OnInit {
-  public transType = "Airtime Topup";
+  // public transType = "Airtime Topup";
 
   airtimeForm: FormGroup;
 
@@ -39,7 +39,8 @@ export class AirtimeTopupComponent implements OnInit {
     "description": "",
     "amount": "",
     redirectURL: "http://lidapp.s3-website.us-east-2.amazonaws.com/receipt",
-    customerEmail: "info@constantcap.com.gh"
+    customerEmail: "info@accesswealth.net",
+    transType: 'AIRTIMETOPUP'
   };
 
   public checkoutURL = '';
@@ -76,7 +77,7 @@ export class AirtimeTopupComponent implements OnInit {
     console.log('topup formData:  >>>>', form);
 
     this.topupParams.recipientNumber = form.recipientNumber;
-    this.topupParams.description = '' +form.recipientNumber;
+    this.topupParams.description = ' Airtime Topup to: '+form.recipientNumber;
 
     // calculate amountPaid with  12 digits
     if (form.amount < 10) {
@@ -106,8 +107,10 @@ export class AirtimeTopupComponent implements OnInit {
         this.checkoutURL = res.checkout_url;
         console.log(`checkoutUrl ==> ${JSON.stringify(this.checkoutURL)}`);
         if (res.status == 'success' || res.code == 200) {
+            // this.router.navigate(['/flash']);
           window.location.href = `${this.checkoutURL}`;
         } else if(res.code == '999'){
+            // this.router.navigate(['/flash']);
           window.location.href = `${this.checkoutURL}`;
         }
         this.isLoading = false;
@@ -117,24 +120,24 @@ export class AirtimeTopupComponent implements OnInit {
       }, (err) => {
         console.log(err);
         this.isLoading = false;
-        alert('No topup: ' + err.error);
-        // alert(err.error);
+        alert('Topup error =>> ' + JSON.stringify(err.error));
         this.router.navigate(['/']);
       });
   }
 
-  creditCustomerAirtime(formData: any) {
-    console.log('AirtimeTopupComponent:  topup >>>>', formData);
-    this.airtimeService.buyAirtimeTopup(formData)
-      .subscribe(res => {
-        console.log(`airtime credit response ==> ${JSON.stringify(res)}`);
-        this.isLoading = false;
+  // creditCustomerAirtime(formData: any) {
+  //   console.log('AirtimeTopupComponent:  topup >>>>', formData);
+  //   this.airtimeService.buyAirtimeTopup(formData)
+  //     .subscribe(res => {
+  //       console.log(`airtime credit response ==> ${JSON.stringify(res)}`);
+  //       this.isLoading = false;
 
-        this.router.navigate(['/receipt']);
-      }, (err) => {
-        console.log(err);
-        this.isLoading = false;
-        alert('top error:' + JSON.stringify(err.error));
-      });
-  }
+  //       this.router.navigate(['/receipt']);
+  //     }, (err) => {
+  //       console.log(err);
+  //       this.isLoading = false;
+  //       alert('top error:' + JSON.stringify(err.error));
+  //     });
+  // }
+
 }

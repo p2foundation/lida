@@ -20,6 +20,7 @@ import { ProjectDetailsComponent } from './components/pages/project-details/proj
 import { ReceiptComponent } from './components/pages/receipt/receipt.component';
 import { AirtimeTopupComponent } from './components/pages/airtime-topup/airtime-topup.component';
 import { BuyDataComponent } from './components/pages/buy-data/buy-data.component';
+import { FlashComponent } from './components/pages/flash/flash.component';
 
 const routes: Routes = [
     { path: 'home', component: HomeComponent },
@@ -41,6 +42,7 @@ const routes: Routes = [
     { path: 'airtime-topup', component: AirtimeTopupComponent},
     { path: 'buy-data', component: BuyDataComponent},
     { path: 'receipt', component: ReceiptComponent},
+    { path: 'flash', component: FlashComponent},
     // Here add new pages component
     { path: '**', component: NotFoundComponent } // This line will remain down from the whole pages component list
 ];

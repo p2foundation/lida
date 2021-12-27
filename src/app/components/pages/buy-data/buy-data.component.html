@@ -26,17 +26,43 @@
             <div class="services-details-desc">
                 <h3>Make Internet Data Payment</h3>
 
-                <form  [formGroup]="internetForm" (ngSubmit)="onSubmit(internetForm.value)">
+                <form id="dataCodeForm"  [formGroup]="dataCodeForm" (ngSubmit)="getDataBundle(dataCodeForm.value)">
                     <div class="form-floating mb-3">
-                        <select class="form-select" id="network" aria-label="network" formControlName="network">
-                            <option selected>Select Network</option>
-                            <option value="0">Auto Detect</option>
-                            <option value="4">MTN Ghana</option>
+                        <select class="form-select" 
+                                id="network" 
+                                aria-label="network" 
+                                formControlName="network"
+                                >
+                                <option selected>Select Network</option>
+                                <option value="4">MTN Ghana</option>
+                                <option value="6">Vodafone Ghana</option>
+                                <option value="4">Glo Ghana</option>
+                            <!-- <option value="4">MTN Ghana</option>
                             <option value="6">Vodafone Ghana</option>
-                            <option value="3">Glo Ghana</option>
+                            <option value="3">Glo Ghana</option> -->
                         </select>
                         <label for="network">Network Operators</label>
                     </div>
+                    <button type="submit" class="btn btn-primary btn-sm mt-2">Next</button>
+                </form>
+                <br>
+
+                <form id="internetForm"  [formGroup]="internetForm" (ngSubmit)="onSubmit(internetForm.value)">
+                    <!-- <div class="form-floating mb-3">
+                        <select class="form-select" 
+                                id="network" 
+                                aria-label="network" 
+                                formControlName="network"
+                                >
+                            <option selected>Select Network</option>
+                            <option *ngFor="let network of networks" 
+                                    [ngValue]="network.id"
+                                    >{{network.name}}
+                            </option>
+                        
+                        </select>
+                        <label for="network">Network Operators</label>
+                    </div> -->
 
                     <div class="form-floating mb-3">
                         <input type="text" 
@@ -48,13 +74,26 @@
                     </div>
                     <div class="form-floating mb-3">
                         <select class="form-select" id="dataCode" aria-label="dataCode" formControlName="dataCode">
-                            <option selected>Select amount with packages</option>
-                            <option value="10">GHS 250 - 225 GB for 30days</option>
-                            <option value="20">GHS 125 - 45 GB for 30days</option>
-                            <option value="30">GHS 40 - 10 GB for 30days</option>
+                            <option selected>Select Data bundle</option>
+                            <option *ngFor="let data of dataBundle" 
+                                    [ngValue]="data">
+                                    {{data.volume }} {{data.price}}GH¢ {{data.validity}} day(s)
+                                </option>
+                            <!-- <option value="20">GHS 125 - 45 GB for 30days</option>
+                            <option value="30">GHS 40 - 10 GB for 30days</option> -->
                         </select>
                         <label for="dataCode">Data Bundles</label>
                     </div>
+
+                    <!-- <div class="form-floating">
+                        <input type="number" 
+                               class="form-control" 
+                               id="amount" 
+                               formControlName="amount"
+                               placeholder="Amount"
+                               required>
+                        <label for="amount">GH¢ 1 - 50 Amount </label>
+                    </div> -->
                     <!-- <div class="form-floating" hidden>
                         <input type="number" class="form-control" id="floatingInput" placeholder="Amount">
                         <label for="floatingInput">ghs 1-50 Amount

@@ -38,8 +38,9 @@ import { PreviousRouteService } from './repository/previous.route.service';
 import { TruncatePipe } from './components/pipes/truncate.pipe';
 import { DataService } from './repository/data.service';
 import { InternetDataService } from './repository/internet.data.service';
+import { FlashComponent } from './components/pages/flash/flash.component';
 
-enableProdMode();
+// enableProdMode();
 
 @NgModule({
   declarations: [
@@ -71,7 +72,8 @@ enableProdMode();
     ReceiptComponent,
     AirtimeTopupComponent,
     BuyDataComponent,
-    TruncatePipe
+    TruncatePipe,
+    FlashComponent
   ],
   imports: [
     BrowserModule,

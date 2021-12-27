@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { AirtimeTopupService } from 'src/app/repository/airtime.service';
 import { Router } from '@angular/router';
+import { InternetDataService } from 'src/app/repository/internet.data.service';
 
 @Component({
   selector: 'app-receipt',
@@ -18,6 +19,7 @@ export class ReceiptComponent implements OnInit {
   public airOkResponse: any = {
     status: '',
     message: '',
+    reason: '',
     trxn: '',
     status_code: '',
     local_trxn_code: '',
@@ -44,7 +46,8 @@ export class ReceiptComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private airtimeService: AirtimeTopupService
+    private airtimeService: AirtimeTopupService,
+    private internetService: InternetDataService
   ) { }
 
   ngOnInit() {
@@ -65,25 +68,39 @@ export class ReceiptComponent implements OnInit {
 
     if (payValues.status == 'Approved' || payValues.code === '000') {
       if (tval != null || tval != '') {
-        this.creditCustomerAirtime(tval);
+        if(tval.transType == 'AIRTIMETOPUP'){
+          this.creditCustomerAirtime(tval);
+        }else {
+          this.buyData(tval);
+        }
+        // this.router.navigate(['flash']) ;
+
       } else if (tval2 != null || tval2 != '') {
         this.creditCustomerAirtime(tval2);
+        // this.router.navigate(['flash']) ;
       }
+
     } else if (payValues.status == 'cancelled' || payValues.code == '900') {
 
       // if (tval != null || tval != '') {
-      //   this.creditCustomerAirtime(tval);
+      //   if(tval.transType == 'AIRTIMETOPUP'){
+      //     this.creditCustomerAirtime(tval);
+      //   }else {
+      //     this.buyData(tval);
+      //   }
+      //   // this.router.navigate(['flash']) ;
+
       // } else if (tval2 != null || tval2 != '') {
       //   this.creditCustomerAirtime(tval2);
       // }
 
       this.airOkResponse.status = payValues.code;
-      this.airOkResponse.message = payValues.message;
+      this.airOkResponse.message = payValues.status || payValues.reason ;
       this.airOkResponse.trxn = payValues.transaction_id;
       this.router.navigate(['receipt']);
     } else {
       this.airOkResponse.status = payValues.code;
-      this.airOkResponse.message = payValues.message;
+      this.airOkResponse.reason =  payValues.reason;
       this.airOkResponse.trxn = payValues.transaction_id;
       this.router.navigate(['receipt']) ;
     }
@@ -91,7 +108,7 @@ export class ReceiptComponent implements OnInit {
   }
 
   creditCustomerAirtime(formData: any) {
-    console.log('receiptComponent:  tval >>>>', formData);
+    console.log('receiptComponent:airtime  tval >>>>', formData);
     this.airtimeService.buyAirtimeTopup(formData)
       .subscribe(res => {
         console.log(`airtime credit response ==> ${JSON.stringify(res)}`);
@@ -112,10 +129,34 @@ export class ReceiptComponent implements OnInit {
       }, (err) => {
         console.log(err);
         this.isLoading = false;
-        alert('No topup: ' + err.error);
-        // alert(err.error);
+        alert('Topup error: ' + JSON.stringify(err.error));
       });
   }
+
+  buyData(iData: any) {
+    console.log('receiptComponent:internet  tval >>>>', iData);
+        this.internetService.buyInternetData(iData).subscribe(res => {
+            console.log(`RECEIPT BUY INTERNET DATA ==> ${
+                JSON.stringify(res)
+            }`);
+            this.airOkResponse.status = res.status;
+            this.airOkResponse.message = res.message;
+            this.airOkResponse.trxn = res.trxn;
+            this.airOkResponse.local_trxn_code = res['local_trxn-code'];
+            this.airOkResponse.network = res.network;
+            this.airOkResponse.balance_before = res.balance_before;
+            this.airOkResponse.balance_after = res.balance_after;
+            
+            this.airOkResponse.price  = '';
+            this.isLoading = false;
+    
+            this.router.navigate(['receipt']);
+        }, (err) => {
+            console.log(err);
+            this.isLoading = false;
+            alert('DATA ERROR =>>' + JSON.stringify(err.error));
+        });
+    }
 
   OnPrint() {
     window.print();

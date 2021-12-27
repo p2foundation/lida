@@ -39,7 +39,8 @@ export class MachineLearningTwoComponent implements OnInit {
     'description': 'AIRTIME TOPUP',
     'amount': '',
     redirectURL: 'http://lidapp.s3-website.us-east-2.amazonaws.com/receipt',
-    customerEmail: 'info@constantcap.com.gh'
+    customerEmail: 'info@accesswealth.net',
+    transType: 'AIRTIMETOPUP'
   };
 
   public checkoutUrl = '';
@@ -74,7 +75,8 @@ export class MachineLearningTwoComponent implements OnInit {
     console.log('formData:  topup >>>>', form);
 
     this.topupParams.recipientNumber = form.recipientNumber;
-    this.topupParams.description = ''+form.recipientNumber;
+    this.topupParams.description = ' Airtime Topup to: '+form.recipientNumber;
+
 
     if (form.amount < 10) {
       const inputAmount: any = form.amount * 100;
@@ -101,7 +103,7 @@ export class MachineLearningTwoComponent implements OnInit {
     this.payService.makePayment(mData)
       .subscribe(res => {
         console.log(`payment response ==> ${JSON.stringify(res)}`);
-        console.log(`payment res amount ==> ${JSON.stringify(res.amount)}`);
+        // console.log(`payment res amount ==> ${JSON.stringify(res.amount)}`);
 
         this.checkoutUrl = res.checkout_url;
         console.log(`checkoutUrl ==> ${JSON.stringify(this.checkoutUrl)}`);
@@ -122,8 +124,7 @@ export class MachineLearningTwoComponent implements OnInit {
       }, (err) => {
         console.log(err);
         this.isLoading = false;
-        alert('No topup: ' + err.error);
-        // alert(err.error);
+        alert('Topup error =>> ' + JSON.stringify(err.error));
         this.router.navigate(['/']);
       });
   }
