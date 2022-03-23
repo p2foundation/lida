@@ -24,7 +24,7 @@
     <div class="container">
         <div class="services-details-overview">
             <div class="services-details-image wow fadeInUp">
-                <img src="assets/img/services-details/services-details1.jpg" alt="image">
+                <img src="assets/img/services-details/auto-network.jpg" alt="image">
             </div>
             
             <div class="services-details-desc">
@@ -45,8 +45,10 @@
 
                     <div class="form-floating mb-3">
                         <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
-                            <option selected>Select Network</option>
-                            <option value="0">Auto Detect</option>
+                            <!-- <option selected>Select Network</option>
+                            <option value="0">Auto Detect</option> -->
+                            <option>Select Network</option>
+                            <option value="0" selected>Auto Detect</option>
                             <option value="4">MTN Ghana</option>
                             <option value="6">Vodafone Ghana</option>
                             <option value="1">Airtel Ghana</option>
@@ -64,6 +66,11 @@
                                placeholder="e.g. 01234567890"
                                required>
                         <label for="recipientNumber">10 Digit Recipient Number e.g. 0200000000</label>
+                    </div>
+                    <div *ngIf="airtimeForm.controls['recipientNumber'].invalid && (airtimeForm.controls['recipientNumber'].dirty || airtimeForm.controls['recipientNumber'].touched)" class="alert alert-danger">
+                        <div *ngIf="airtimeForm.controls['recipientNumber'].errors.required">
+                        Recipient Number is required.
+                      </div>
                     </div>
                     <!-- <div class="form-floating mb-3">
                         <input type="text" 
@@ -84,18 +91,25 @@
                         <label for="amount">GH¢ 1 - 50 Amount </label>
                     </div>
 
-                    <button type="submit" 
+                    <div *ngIf="airtimeForm.controls['amount'].invalid && (airtimeForm.controls['amount'].dirty || airtimeForm.controls['amount'].touched)" class="alert alert-danger">
+                        <div *ngIf="airtimeForm.controls['amount'].errors.required">
+                        Amount is required.
+                      </div>
+                    </div>
+
+                    <button type="submit"
+
                             class="btn btn-primary btn-sm mt-2"
                             id="recharge">
                             Proceed to Recharge
-                        </button>
+                    </button>
                     <button type="button" 
                             disabled
                             class="btn btn-primary btn-sm mt-2"
                             id="loading">
                             <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
                             Loading...
-                        </button>
+                    </button>
                 </form><br><br>
                 <!-- <p>
                     Topup and be rewarded with royalty points on this app. 

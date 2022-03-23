@@ -62,7 +62,12 @@
                                                placeholder="10 digit Recipient Number e.g. 0200000000"
                                                required>
                                     </div>
-                                    
+                                    <div *ngIf="airtimeForm.controls['recipientNumber'].invalid && (airtimeForm.controls['recipientNumber'].dirty || airtimeForm.controls['recipientNumber'].touched)" class="alert alert-danger">
+                                        <div *ngIf="airtimeForm.controls['recipientNumber'].errors.required">
+                                        Recipient Number is required.
+                                      </div>
+                                    </div>
+
                                     <!-- <div class="col">
                                         <input type="text" 
                                                class="form-control" 
@@ -78,6 +83,13 @@
                                                placeholder="GH¢ 1 - 50 Amount"
                                                required>
                                     </div>
+
+                                    <div *ngIf="airtimeForm.controls['amount'].invalid && (airtimeForm.controls['amount'].dirty || airtimeForm.controls['amount'].touched)" class="alert alert-danger">
+                                        <div *ngIf="airtimeForm.controls['amount'].errors.required">
+                                        Amount is required.
+                                      </div>
+                                    </div>
+                                    
                                 </div>
 
                                 <button type="submit" 
@@ -171,7 +183,7 @@
 <!-- End Featured Solutions Area -->
 
 <!-- Start About Area -->
-<section class="about-area pt-0 ptb-110">
+<!-- <section class="about-area pt-0 ptb-110">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-6 col-md-12">
@@ -203,7 +215,7 @@
     <div class="shape-img1"><img src="assets/img/shape/shape1.png" alt="image"></div>
     <div class="shape-img3"><img src="assets/img/shape/shape3.png" alt="image"></div>
     <div class="shape-img4"><img src="assets/img/shape/shape4.svg" alt="image"></div>
-</section>
+</section> -->
 <!-- End About Area -->
 
 <!-- Start Services Area -->

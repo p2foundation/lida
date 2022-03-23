@@ -24,15 +24,6 @@ export class MachineLearningTwoComponent implements OnInit {
   description = '';
   email = '';
   isLoading = true;
-
-  // payParams: any = {
-  //   merchantId: "TTM-00006115",
-  //   transId: "000000654325",
-  //   description: "Payment Using Checkout Page ",
-  //   amount: "000000000100",
-  //   redirectURL: "http://lidapp.s3-website.us-east-2.amazonaws.com/receipt",
-  //   customerEmail: "info@accesswealth.com"
-  // };
   
   topupParams: any = {
     recipientNumber: '',
@@ -61,18 +52,25 @@ export class MachineLearningTwoComponent implements OnInit {
     $('#loading').hide();
 
     this.airtimeForm = this.formBuilder.group({
-      retailer: [null, Validators.required],
-      recipientNumber: [null, Validators.required],
-      amount: [null, Validators.required],
+      retailer: ['', Validators.required],
+      recipientNumber: ['', Validators.required],
+      amount: ['', Validators.required],
       network: [null],
       description: [null],
       email: [null, Validators.required]
+      
     });
 
   }
 
+  reloadPage() {
+    setTimeout(() => {
+      window.location.reload();
+    }, 100);
+  }
+
   topupFormSubmit(form: any): any {
-    console.log('formData:  topup >>>>', form);
+    console.log('airtime formData >>>>', form);
 
     this.topupParams.recipientNumber = form.recipientNumber;
     this.topupParams.description = ' Airtime Topup to: '+form.recipientNumber;
@@ -86,17 +84,24 @@ export class MachineLearningTwoComponent implements OnInit {
       const inputAmount: any = form.amount * 100;
       this.topupParams.amount = "00000000" + inputAmount;
       localStorage.setItem('tparams', JSON.stringify(this.topupParams));
+    } else if (form.amount > 100) {
+      const inputAmount: any = form.amount * 100;
+      this.topupParams.amount = "0000000" + inputAmount;
+      localStorage.setItem('tparams', JSON.stringify(this.topupParams));
     }
 
     console.log('topform params =>>', this.topupParams);
 
     $('#recharge').hide('fade');
 
-    console.log('post topup request to Payswitch')
-    this.makePayment(this.topupParams);
       // this.creditCustomerAirtime(this.topupParams);
 
-    $('#loading').show('slow');
+      console.log('call Payswitch service =>')
+
+      this.makePayment(this.topupParams);
+      $('#loading').show('slow'); // show Loading button
+
+    
   }
 
   makePayment(mData: any) {

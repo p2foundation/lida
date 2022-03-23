@@ -18,7 +18,7 @@ export class PaymentService {
     ) { }
 
     public makePayment(mData: any): Observable<any> {
-        return this.http.post(`${this.vercelServer}/pscardpayment/inline`, mData)
+        return this.http.post(`${this.awServer}/pscardpayment/inline`, mData)
             .pipe(
                 tap((_res) => this.log(`paymentService: airtime credit`)),
                 catchError(this.handleError('AirtimeService', []))
